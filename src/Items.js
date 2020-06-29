@@ -2,7 +2,7 @@ import React from 'react'
 import {Devices} from './Devices'
 import {Weapons} from './Weapons'
 import styles from './Items.module.css'
-import {Panel} from './Panel'
+import {Panel} from './ui/Panel'
 
 export const Items = () => (
     <div className={styles.items}>
