@@ -4,4 +4,6 @@
 
 .column {
     flex: 1;
+    margin-left: 2px;
+    margin-right: 2px;
 }
