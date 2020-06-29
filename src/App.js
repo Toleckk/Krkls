@@ -2,10 +2,9 @@ import React from 'react'
 import {Skills} from './Skills'
 import {SkillsContextProvider} from './services/skills'
 import {Lvl} from './Lvl'
-import {Devices} from './Devices'
 import {DevicesContextProvider} from './services/devices'
 import {WeaponsContextProvider} from './services/weapons'
-import {Weapons} from './Weapons'
+import {Items} from './Items'
 
 export default function App() {
     return (
@@ -18,16 +17,7 @@ export default function App() {
                     <span>Умения:</span>
                     <Skills/>
                     <br/>
-                    <div style={{display: 'flex'}}>
-                        <div>
-                            <span>Устройства:</span>
-                            <Devices/>
-                        </div>
-                        <div>
-                            <span>Оружие:</span>
-                            <Weapons/>
-                        </div>
-                    </div>
+                    <Items/>
                 </WeaponsContextProvider>
             </DevicesContextProvider>
         </SkillsContextProvider>
