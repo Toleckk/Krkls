@@ -1,11 +1,12 @@
 import React from 'react'
 import {useSkillsContext} from './services/skills'
+import styles from './Skills.module.css'
 
 export const Skills = () => {
     const {skills, incrementSkill, decrementSkill, reset} = useSkillsContext()
 
     return (
-        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <div className={styles.skills}>
             {skills.map((category, i) => (
                 <table key={i}>
                     <tbody>

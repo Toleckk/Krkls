@@ -12,5 +12,11 @@
 }
 
 .content {
-    margin: 2px;
+    margin: 1px;
+}
+
+@media (min-width: 768px) {
+    .content {
+        margin: 2px;
+    }
 }

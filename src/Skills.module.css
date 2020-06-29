@@ -1,15 +1,10 @@
-.items {
+.skills {
     display: flex;
     flex-direction: column;
 }
 
-.column {
-    flex: 1;
-    margin: 2px;
-}
-
 @media(min-width: 768px) {
-    .items {
+    .skills {
         flex-direction: row;
     }
 }
