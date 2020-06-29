@@ -3,7 +3,7 @@ import {Devices} from './Devices'
 import {Weapons} from './Weapons'
 import {Ships} from './Ships'
 import styles from './Items.module.css'
-import {Panel} from './ui/Panel'
+import {Panel} from '../ui/Panel'
 
 export const Items = () => (
     <>

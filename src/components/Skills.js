@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSkillsContext} from './services/skills'
+import {useSkillsContext} from '../services/skills'
 import styles from './Skills.module.css'
 
 export const Skills = () => {
