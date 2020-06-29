@@ -1,65 +1,76 @@
 import React, {createContext, useCallback, useContext, useMemo, useState} from 'react'
 
+const Skill = (name, group, max = 12) => ({name, group, count: 0, max})
+
 const defaultSkills = [
-    [{name: 'Точность'}, {name: 'Уклонение'}, {name: 'Наведение'}],
-    [
-        {name: 'Механика'},
-        {name: 'Биохимия'},
-        {name: 'Кибернетика'},
-        {name: 'Электроника'},
-    ],
-    [
-        {name: 'Пилотирование'},
-        {name: 'Добыча'},
-        {name: 'Торговля'},
-        {name: 'Ремонт'},
-    ],
-    [{name: 'Кинетическое'}, {name: 'Энергетическое'}, {name: 'Ракетное'}],
-    [{name: 'Тактика'}, {name: 'Контроль'}],
+    Skill('Точность', 0),
+    Skill('Уклонение', 0),
+    Skill('Наведение', 0),
+    Skill('Механика', 1),
+    Skill('Биохимия', 1),
+    Skill('Кибернетика', 1),
+    Skill('Электроника', 1),
+    Skill('Пилотирование', 2),
+    Skill('Добыча', 2),
+    Skill('Торговля', 2),
+    Skill('Ремонт', 2),
+    Skill('Кинетическое', 3),
+    Skill('Энергетическое', 3),
+    Skill('Ракетное', 3),
+    Skill('Тактика', 4),
+    Skill('Контроль', 4),
 ]
+
+// const defaultSkills = [
+//     [{name: 'Точность'}, {name: 'Уклонение'}, {name: 'Наведение'}],
+//     [
+//         {name: 'Механика'},
+//         {name: 'Биохимия'},
+//         {name: 'Кибернетика'},
+//         {name: 'Электроника'},
+//     ],
+//     [
+//         {name: 'Пилотирование'},
+//         {name: 'Добыча'},
+//         {name: 'Торговля'},
+//         {name: 'Ремонт'},
+//     ],
+//     [{name: 'Кинетическое'}, {name: 'Энергетическое'}, {name: 'Ракетное'}],
+//     [{name: 'Тактика'}, {name: 'Контроль'}],
+// ]
 
 export const SkillsContext = createContext(null)
 
 export const SkillsContextProvider = ({children}) => {
     const [skills, setSkills] = useState(defaultSkills)
-    const setSkill = useCallback(
-        (i, j, count) =>
-            setSkills([
-                ...skills.slice(0, i),
-                [
-                    ...skills[i].slice(0, j),
-                    {...skills[i][j], count: count > 12 ? 12 : count < 0 ? 0 : count},
-                    ...skills[i].slice(j + 1),
-                ],
-                ...skills.slice(i + 1),
-            ]),
-        [skills, setSkills],
-    )
+    const setSkill = useCallback((name, count) => {
+        const i = skills.findIndex(skill => skill.name === name)
+        setSkills([
+            ...skills.slice(0, i),
+            {...skills[i], count: count <= 0 ? 0 : count >= skills[i].max ? skills[i].max : count},
+            ...skills.slice(i + 1),
+        ])
+    }, [skills, setSkills])
+
+    const findSkill = useCallback(name => skills.find(skill => skill.name === name), [skills])
 
     const incrementSkill = useCallback(
-        (i, j) => setSkill(i, j, (skills[i][j].count || 0) + 1),
-        [setSkill, skills],
+        name => setSkill(name, findSkill(name).count + 1),
+        [setSkill, findSkill],
     )
 
     const decrementSkill = useCallback(
-        (i, j) => setSkill(i, j, (skills[i][j].count || 0) - 1),
-        [setSkill, skills],
+        name => setSkill(name, findSkill(name).count - 1),
+        [setSkill, findSkill],
     )
 
-    const sum = useMemo(
-        () =>
-            skills.reduce(
-                (acc, c) => acc + c.reduce((acc, s) => acc + (s.count || 0), 0),
-                0,
-            ),
-        [skills],
-    )
+    const sum = useMemo(() => skills.reduce((acc, skill) => acc + skill.count, 0), [skills])
 
     const reset = useCallback(() => setSkills(defaultSkills), [setSkills])
 
     const isItemAvailable = useCallback(item => {
         const names = Object.keys(item.skills)
-        const requiredSkills = skills.flat().filter(s => names.indexOf(s.name) !== -1)
+        const requiredSkills = skills.filter(s => names.indexOf(s.name) !== -1)
         return requiredSkills.every(s => s.count >= item.skills[s.name])
     }, [skills])
 
