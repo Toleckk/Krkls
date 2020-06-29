@@ -74,9 +74,7 @@ export const SkillsContextProvider = ({children}) => {
         isItemAvailable,
     }
 
-    return (
-        <SkillsContext.Provider value={value}>{children}</SkillsContext.Provider>
-    )
+    return <SkillsContext.Provider value={value}>{children}</SkillsContext.Provider>
 }
 
 export const useSkillsContext = () => useContext(SkillsContext)

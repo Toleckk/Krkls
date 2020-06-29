@@ -13,13 +13,13 @@ export const Item = ({item}) => {
         img.onload = () => setLoaded(true)
         img.src = src
         setImage(img)
-    }, [item.image])
+    }, [item.image, src])
 
-    useEffect(() => setFit(loaded && (image.height < 41 && image.width < 41)), [loaded])
+    useEffect(() => setFit(loaded && (image.height < 41 && image.width < 41)), [loaded, image.width, image.height])
 
     const style = useMemo(
         () => ({backgroundImage: `url(${src})`, backgroundSize: fit ? 'auto' : 'contain'}),
-        [item.image, fit],
+        [fit, src],
     )
 
     return (
