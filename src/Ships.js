@@ -1,6 +1,6 @@
-import React, {useMemo, memo} from 'react'
+import React, {memo, useMemo} from 'react'
 import {List} from './ui/List'
-import {useShipsContext, sortShips} from './services/ships'
+import {sortShips, useShipsContext} from './services/ships'
 import styles from './Ships.module.css'
 
 const key = ship => ship.race + ' ' + ship.name

@@ -57,6 +57,12 @@ export const SkillsContextProvider = ({children}) => {
 
     const reset = useCallback(() => setSkills(defaultSkills), [setSkills])
 
+    const isItemAvailable = useCallback(item => {
+        const names = Object.keys(item.skills)
+        const requiredSkills = skills.flat().filter(s => names.indexOf(s.name) !== -1)
+        return requiredSkills.every(s => s.count >= item.skills[s.name])
+    }, [skills])
+
     const value = {
         skills,
         setSkills,
@@ -65,6 +71,7 @@ export const SkillsContextProvider = ({children}) => {
         decrementSkill,
         sum,
         reset,
+        isItemAvailable,
     }
 
     return (

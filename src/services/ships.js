@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useMemo} from 'react'
-import {useSkillsContext} from './skills'
 import defaultShips from '../data/ships.json'
+import {useAvailable} from './items'
 
 
 export const ShipsContext = createContext(null)
@@ -10,37 +10,11 @@ export const useShipsContext = () => useContext(ShipsContext)
 
 
 export const ShipsContextProvider = ({children}) => {
-    const {skills} = useSkillsContext()
-
-    const ships = useMemo(
-        () =>
-            defaultShips
-                .map(w => {
-                    const names = Object.keys(w.skills)
-                    const requiredSkills = skills
-                        .flat()
-                        .filter(s => names.indexOf(s.name) !== -1)
-
-                    return {
-                        ...w,
-                        available: requiredSkills.every(s => s.count >= w.skills[s.name]),
-                    }
-                })
-                .sort((a, b) => {
-                    if (a.available === b.available)
-                        return 0
-                    if (a.available)
-                        return -1
-                    return 1
-                }),
-        [skills],
-    )
+    const ships = useAvailable(defaultShips)
 
     const value = useMemo(() => ({ships}), [ships])
 
-    return (
-        <ShipsContext.Provider value={value}>{children}</ShipsContext.Provider>
-    )
+    return <ShipsContext.Provider value={value}>{children}</ShipsContext.Provider>
 }
 
 
@@ -55,10 +29,10 @@ export const sortShips = ships => {
         const countOfA = countAvailable(a)
         const countOfB = countAvailable(b)
 
-        if(countOfA === countOfB)
+        if (countOfA === countOfB)
             return a[0].name < b[0].name ? -1 : 1
 
-        if(countOfA < countOfB)
+        if (countOfA < countOfB)
             return 1
 
         return -1

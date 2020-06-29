@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useEffect} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import styles from './Item.module.css'
 
 export const Item = ({item}) => {
@@ -19,7 +19,7 @@ export const Item = ({item}) => {
 
     const style = useMemo(
         () => ({backgroundImage: `url(${src})`, backgroundSize: fit ? 'auto' : 'contain'}),
-        [item.image, fit]
+        [item.image, fit],
     )
 
     return (
