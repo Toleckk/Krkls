@@ -1,6 +1,6 @@
 import React from 'react'
-import {useSkillsContext} from './services/skills'
-import {getExperience} from './services/lvl'
+import {useSkillsContext} from '../services/skills'
+import {getExperience} from '../services/lvl'
 
 
 export const Lvl = () => {
