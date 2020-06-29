@@ -1,222 +1,259 @@
 [
   {
     "name": "Пулемет",
+    "image": "/images/weapons/15_Main_OMachineGun.png",
     "skills": {
       "Кинетическое": 1
     }
   },
   {
     "name": "Пушка",
+    "image": "/images/weapons/17_Main_OAutoGun.png",
     "skills": {
       "Кинетическое": 2
     }
   },
   {
     "name": "Гаубица",
+    "image": "/images/weapons/23_Main_OGun.png",
     "skills": {
       "Кинетическое": 2
     }
   },
   {
     "name": "Пушка Гаусса",
+    "image": "/images/weapons/35_Main_OGaussGun.png",
     "skills": {
       "Энергетическое": 3
     }
   },
   {
     "name": "Кассетная установка",
+    "image": "/images/weapons/7_Main_OAutoRocketLauncher.png",
     "skills": {
       "Ракетное": 4
     }
   },
   {
     "name": "Пусковая установка",
+    "image": "/images/weapons/3_Main_ORocketLauncher.png",
     "skills": {
       "Ракетное": 5
     }
   },
   {
     "name": "Осколочная установка",
+    "image": "/images/weapons/8_Main_OSplashRocketLauncher.png",
     "skills": {
       "Ракетное": 6
     }
   },
   {
     "name": "Шиповое орудие",
+    "image": "/images/weapons/4_Main_ICanieGun.png",
     "skills": {
       "Кинетическое": 1
     }
   },
   {
     "name": "Смоляное орудие",
+    "image": "/images/weapons/12_Main_IAlcalisGun.png",
     "skills": {
       "Кинетическое": 2
     }
   },
   {
     "name": "Кислотное орудие",
+    "image": "/images/weapons/13_Main_IAcidGun.png",
     "skills": {
       "Кинетическое": 3
     }
   },
   {
     "name": "Смоляная пусковая установка",
+    "image": "/images/weapons/18_Main_IAlcalisLauncher.png",
     "skills": {
       "Ракетное": 4
     }
   },
   {
     "name": "Кислотная пусковая установка",
+    "image": "/images/weapons/25_Main_IAcidLauncher.png",
     "skills": {
       "Ракетное": 5
     }
   },
   {
     "name": "Бластерная пушка",
+    "image": "/images/weapons/33_Main_ABlasterGun.png",
     "skills": {
       "Кинетическое": 1
     }
   },
   {
     "name": "Плазменная пушка",
+    "image": "/images/weapons/2_Main_APlasmaGun.png",
     "skills": {
       "Энергетическое": 2
     }
   },
   {
     "name": "Плазменная гаубица",
+    "image": "/images/weapons/27_Main_APlasmaCannon.png",
     "skills": {
       "Энергетическое": 3
     }
   },
   {
     "name": "Бластерная пусковая установка",
+    "image": "/images/weapons/19_Main_ABlasterRocketLauncher.png",
     "skills": {
       "Ракетное": 3
     }
   },
   {
     "name": "Нейтронная пусковая установка",
+    "image": "/images/weapons/28_Main_ANeutronRocketLauncher.png",
     "skills": {
       "Ракетное": 4
     }
   },
   {
     "name": "Молния",
+    "image": "/images/weapons/29_Main_MLightningCannon.png",
     "skills": {
       "Энергетическое": 1
     }
   },
   {
     "name": "Азоидная пушка",
+    "image": "/images/weapons/16_Main_MRailGun.png",
     "skills": {
       "Энергетическое": 2
     }
   },
   {
     "name": "Азоидная гаубица",
+    "image": "/images/weapons/9_Main_MRailCannon.png",
     "skills": {
       "Энергетическое": 3
     }
   },
   {
     "name": "Энерго пусковая установка",
+    "image": "/images/weapons/26_Main_MSphereLightningGun.png",
     "skills": {
       "Ракетное": 5
     }
   },
   {
     "name": "Ксенопульсар",
+    "image": "/images/weapons/11_Main_XPulsar.png",
     "skills": {
       "Энергетическое": 2
     }
   },
   {
     "name": "Расщепитель",
+    "image": "/images/weapons/24_Main_XSplitter.png",
     "skills": {
       "Энергетическое": 4
     }
   },
   {
     "name": "Расщепитель Evo",
+    "image": "/images/weapons/.png",
     "skills": {
       "Энергетическое": 4
     }
   },
   {
     "name": "Расщепитель Boost",
+    "image": "/images/weapons/.png",
     "skills": {
       "Энергетическое": 4
     }
   },
   {
     "name": "Уничтожитель дроидов",
+    "image": "/images/weapons/20_Main_XDroidDestroyer.png",
     "skills": {
       "Энергетическое": 6
     }
   },
   {
     "name": "Дезинтегратор",
+    "image": "/images/weapons/34_Main_XDesintegrator.png",
     "skills": {
       "Энергетическое": 6
     }
   },
   {
     "name": "Дезинтегратор Evo",
+    "image": "/images/weapons/.png",
     "skills": {
       "Энергетическое": 6
     }
   },
   {
     "name": "Дезинтегратор Boost",
+    "image": "/images/weapons/.png",
     "skills": {
       "Энергетическое": 6
     }
   },
   {
     "name": "Квантовый излучатель",
+    "image": "/images/weapons/30_Main_XQuantumEmitter.png",
     "skills": {
       "Энергетическое": 7
     }
   },
   {
     "name": "Фотонная пушка",
+    "image": "/images/weapons/22_Main_KPhotongun.png",
     "skills": {
       "Энергетическое": 3
     }
   },
   {
     "name": "Мультибластер",
+    "image": "/images/weapons/14_Main_KMultiblaster.png",
     "skills": {
       "Кинетическое": 5
     }
   },
   {
     "name": "Мультибластер Evo",
+    "image": "/images/weapons/.png",
     "skills": {
       "Кинетическое": 5
     }
   },
   {
     "name": "Мультибластер Boost",
+    "image": "/images/weapons/.png",
     "skills": {
       "Кинетическое": 5
     }
   },
   {
     "name": "Вампир",
+    "image": "/images/weapons/10_Main_KVampire.png",
     "skills": {
       "Энергетическое": 7
     }
   },
   {
     "name": "Вампир Evo",
+    "image": "/images/weapons/.png",
     "skills": {
       "Энергетическое": 7
     }
   },
   {
     "name": "Вампир Boost",
+    "image": "/images/weapons/.png",
     "skills": {
       "Энергетическое": 7
     }
