@@ -1,42 +1,49 @@
 [
   {
     "name": "Катализатор урона",
+    "image": "/images/devices/20_Main_Damage.png",
     "skills": {
       "Механика": 2
     }
   },
   {
     "name": "Бронепластины",
+    "image": "/images/devices/5_Main_armor.png",
     "skills": {
       "Механика": 4
     }
   },
   {
     "name": "Фазер",
+    "image": "/images/devices/28_Main_phaser.png",
     "skills": {
       "Механика": 8
     }
   },
   {
     "name": "Биомасса",
+    "image": "/images/devices/26_Main_Repair.png",
     "skills": {
       "Биохимия": 2
     }
   },
   {
     "name": "Аглу",
+    "image": "/images/devices/13_Main_aglu.png",
     "skills": {
       "Биохимия": 4
     }
   },
   {
     "name": "Метаконтроллер",
+    "image": "/images/devices/4_Main_metacontroller.png",
     "skills": {
       "Биохимия": 8
     }
   },
   {
     "name": "Живая броня",
+    "image": "/images/devices/30_Main_livearmor.png",
     "skills": {
       "Механика": 5,
       "Биохимия": 5
@@ -44,18 +51,21 @@
   },
   {
     "name": "Турбина",
+    "image": "/images/devices/25_Main_Turbo.png",
     "skills": {
       "Кибернетика": 2
     }
   },
   {
     "name": "Вспомогательный процессор",
+    "image": "/images/devices/3_Main_processor.png",
     "skills": {
       "Кибернетика": 4
     }
   },
   {
     "name": "Контроллер радара",
+    "image": "/images/devices/6_Main_radarcontrol.png",
     "skills": {
       "Пилотирование": 5,
       "Кибернетика": 3
@@ -63,30 +73,35 @@
   },
   {
     "name": "Нитриниум",
+    "image": "/images/devices/10_Main_nitrinium.png",
     "skills": {
       "Кибернетика": 8
     }
   },
   {
     "name": "Дополнительный энергощит",
+    "image": "/images/devices/22_Main_Shields.png",
     "skills": {
       "Электроника": 2
     }
   },
   {
     "name": "Ремонтный дроид",
+    "image": "/images/devices/23_Main_repairdroid.png",
     "skills": {
       "Электроника": 4
     }
   },
   {
     "name": "Энергон",
+    "image": "/images/devices/2_Main_energon.png",
     "skills": {
       "Электроника": 8
     }
   },
   {
     "name": "Ксеносенсоры",
+    "image": "/images/devices/12_Main_xenosensor.png",
     "skills": {
       "Уклонение": 7,
       "Электроника": 5
@@ -94,6 +109,7 @@
   },
   {
     "name": "Кристалическая броня",
+    "image": "/images/devices/17_Main_xenoarmor.png",
     "skills": {
       "Ремонт": 5,
       "Уклонение": 5
@@ -101,6 +117,7 @@
   },
   {
     "name": "Отражатель",
+    "image": "/images/devices/1_Main_reflector.png",
     "skills": {
       "Уклонение": 5,
       "Энергетическое": 3
@@ -108,6 +125,7 @@
   },
   {
     "name": "Энергомодуль",
+    "image": "/images/devices/11_Main_vacuumCoreBattary.png",
     "skills": {
       "Электроника": 1,
       "Кибернетика": 1,
@@ -117,12 +135,14 @@
   },
   {
     "name": "Поглотитель",
+    "image": "/images/devices/14_Main_absorber.png",
     "skills": {
       "Энергетическое": 4
     }
   },
   {
     "name": "Контроллер двигателя",
+    "image": "/images/devices/27_Main_engincontrol.png",
     "skills": {
       "Электроника": 1,
       "Кибернетика": 1,
@@ -132,6 +152,7 @@
   },
   {
     "name": "Сфера превосходства",
+    "image": "/images/devices/31_Main_SuperioritySphere.png",
     "skills": {
       "Электроника": 2,
       "Кибернетика": 2,
@@ -141,6 +162,7 @@
   },
   {
     "name": "Нанороботы",
+    "image": "/images/devices/19_Main_nanorobots.png",
     "skills": {
       "Электроника": 3,
       "Кибернетика": 3,
