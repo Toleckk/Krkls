@@ -12474,19 +12474,6 @@ resolve@1.15.0:
   languageName: node
   linkType: hard
 
-"skill-calculator@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "skill-calculator@workspace:."
-  dependencies:
-    "@testing-library/jest-dom": ^4.2.4
-    "@testing-library/react": ^9.3.2
-    "@testing-library/user-event": ^7.1.2
-    react: ^16.13.1
-    react-dom: ^16.13.1
-    react-scripts: 3.4.1
-  languageName: unknown
-  linkType: soft
-
 "slash@npm:^1.0.0":
   version: 1.0.0
   resolution: "slash@npm:1.0.0"
@@ -13134,6 +13121,19 @@ resolve@1.15.0:
   checksum: e1659738423f625561fa23769d0a010f5ba08e83926ce697491153fa29a8cb2452fa5abb14c1bb489aa186718856f8768d4da870210a79302d47535c57c30d30
   languageName: node
   linkType: hard
+
+"sw-skill-calculator@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "sw-skill-calculator@workspace:."
+  dependencies:
+    "@testing-library/jest-dom": ^4.2.4
+    "@testing-library/react": ^9.3.2
+    "@testing-library/user-event": ^7.1.2
+    react: ^16.13.1
+    react-dom: ^16.13.1
+    react-scripts: 3.4.1
+  languageName: unknown
+  linkType: soft
 
 "symbol-tree@npm:^3.2.2":
   version: 3.2.4
