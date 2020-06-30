@@ -162,12 +162,14 @@
   },
   {
     "name": "Расщепитель Evo",
+    "image": "/images/weapons/8_Main_OSplitterEvo.png",
     "skills": {
       "Энергетическое": 4
     }
   },
   {
     "name": "Расщепитель Boost",
+    "image": "/images/weapons/16_Main_ASplitterEvo.png",
     "skills": {
       "Энергетическое": 4
     }
@@ -188,12 +190,14 @@
   },
   {
     "name": "Дезинтегратор Evo",
+    "image": "/images/weapons/43_Main_ODesintegratorEvo.png",
     "skills": {
       "Энергетическое": 6
     }
   },
   {
     "name": "Дезинтегратор Boost",
+    "image": "/images/weapons/5_Main_ADesintegratorEvo.png",
     "skills": {
       "Энергетическое": 6
     }
@@ -221,12 +225,14 @@
   },
   {
     "name": "Мультибластер Evo",
+    "image": "/images/weapons/21_Main_OMultiblasterEvo.png",
     "skills": {
       "Кинетическое": 5
     }
   },
   {
     "name": "Мультибластер Boost",
+    "image": "/images/weapons/10_Main_AMultiblasterEvo.png",
     "skills": {
       "Кинетическое": 5
     }
@@ -240,12 +246,14 @@
   },
   {
     "name": "Вампир Evo",
+    "image": "/images/weapons/30_Main_OVampireEvo.png",
     "skills": {
       "Энергетическое": 7
     }
   },
   {
     "name": "Вампир Boost",
+    "image": "/images/weapons/36_Main_AVampireEvo.png",
     "skills": {
       "Энергетическое": 7
     }

@@ -172,6 +172,7 @@
   },
   {
     "name": "Панекен дроида",
+    "image": "/images/devices/2_Main_PhReflectror.png",
     "skills": {
       "Механика": 5
     }
