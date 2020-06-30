@@ -75,6 +75,7 @@ export const SkillsContextProvider = ({children}) => {
         reset,
         isItemAvailable,
         addForItem,
+        findSkill,
     }
 
     return <SkillsContext.Provider value={value}>{children}</SkillsContext.Provider>
