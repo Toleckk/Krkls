@@ -1,26 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import 'focus-visible'
+import 'normalize.css'
+import * as serviceWorker from './serviceWorker'
+import App from './App'
 import './index.css'
 
-
-import App from './App'
-
-import * as serviceWorker from './serviceWorker'
-
-
-
 ReactDOM.render(
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root'),
+)
 
-  <React.StrictMode>
-
-    <App />
-
-  </React.StrictMode>,
-
-  document.getElementById('root')
-
-);
-
-
-serviceWorker.register();
+serviceWorker.register()

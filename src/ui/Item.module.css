@@ -11,9 +11,12 @@
 }
 
 .item:hover,
-.item:focus {
+.item[data-focus-visible-added] {
     filter: drop-shadow(0 0 5px white);
     box-shadow: 0 0 5px white;
+}
+
+.item:focus {
     outline: none;
 }
 

@@ -1,7 +1,10 @@
 import React, {useEffect, useMemo, useState} from 'react'
 import styles from './Item.module.css'
+import {useSkillsContext} from '../services/skills'
 
 export const Item = ({item}) => {
+    const {addForItem} = useSkillsContext()
+
     const [image, setImage] = useState(null)
     const [loaded, setLoaded] = useState(false)
     const [fit, setFit] = useState(false)
@@ -22,8 +25,11 @@ export const Item = ({item}) => {
         [fit, src],
     )
 
+    const className = styles.item + (item.available ? (' ' + styles.available) : '')
+    const onClick = () => addForItem(item)
+
     return (
-        <button className={styles.item + (item.available ? (' ' + styles.available) : '')} title={item.name}>{
+        <button className={className} title={item.name} onClick={onClick}>{
             loaded && <div role="img" style={style} className={styles.image}/>
         }</button>
     )

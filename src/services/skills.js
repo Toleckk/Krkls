@@ -21,24 +21,6 @@ const defaultSkills = [
     Skill('Контроль', 4),
 ]
 
-// const defaultSkills = [
-//     [{name: 'Точность'}, {name: 'Уклонение'}, {name: 'Наведение'}],
-//     [
-//         {name: 'Механика'},
-//         {name: 'Биохимия'},
-//         {name: 'Кибернетика'},
-//         {name: 'Электроника'},
-//     ],
-//     [
-//         {name: 'Пилотирование'},
-//         {name: 'Добыча'},
-//         {name: 'Торговля'},
-//         {name: 'Ремонт'},
-//     ],
-//     [{name: 'Кинетическое'}, {name: 'Энергетическое'}, {name: 'Ракетное'}],
-//     [{name: 'Тактика'}, {name: 'Контроль'}],
-// ]
-
 export const SkillsContext = createContext(null)
 
 export const SkillsContextProvider = ({children}) => {
@@ -74,6 +56,15 @@ export const SkillsContextProvider = ({children}) => {
         return requiredSkills.every(s => s.count >= item.skills[s.name])
     }, [skills])
 
+    const addForItem = useCallback(i => {
+        const required = Object.keys(i.skills)
+        setSkills(skills.map(skill => (
+            required.some(name => skill.name === name)
+                ? ({...skill, count: Math.max(skill.count, i.skills[skill.name])})
+                : skill
+        )))
+    }, [skills])
+
     const value = {
         skills,
         setSkills,
@@ -83,6 +74,7 @@ export const SkillsContextProvider = ({children}) => {
         sum,
         reset,
         isItemAvailable,
+        addForItem,
     }
 
     return <SkillsContext.Provider value={value}>{children}</SkillsContext.Provider>
