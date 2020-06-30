@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useMemo} from 'react'
+import React, {createContext, useContext, useMemo, useState} from 'react'
 import defaultWeapons from '../data/weapons.json'
 import {useAvailable} from './items'
 
@@ -7,9 +7,11 @@ export const WeaponsContext = createContext(null)
 export const useWeaponsContext = () => useContext(WeaponsContext)
 
 export const WeaponsContextProvider = ({children}) => {
-    const weapons = useAvailable(defaultWeapons)
+    const [weapons, setWeapons] = useState(defaultWeapons)
 
-    const value = useMemo(() => ({weapons}), [weapons])
+    const availableWeapons = useAvailable(weapons)
+
+    const value = useMemo(() => ({weapons: availableWeapons, setWeapons}), [availableWeapons, setWeapons])
 
     return <WeaponsContext.Provider value={value}>{children}</WeaponsContext.Provider>
 }

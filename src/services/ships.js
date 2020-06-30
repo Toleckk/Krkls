@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useMemo} from 'react'
+import React, {createContext, useContext, useMemo, useState} from 'react'
 import defaultShips from '../data/ships.json'
 import {useAvailable} from './items'
 
@@ -10,9 +10,11 @@ export const useShipsContext = () => useContext(ShipsContext)
 
 
 export const ShipsContextProvider = ({children}) => {
-    const ships = useAvailable(defaultShips)
+    const [ships, setShips] = useState(defaultShips)
 
-    const value = useMemo(() => ({ships}), [ships])
+    const availableShips = useAvailable(ships)
+
+    const value = useMemo(() => ({ships: availableShips, setShips}), [setShips, availableShips])
 
     return <ShipsContext.Provider value={value}>{children}</ShipsContext.Provider>
 }
