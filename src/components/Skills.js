@@ -1,9 +1,10 @@
 import React from 'react'
 import {useSkillsContext} from '../services/skills'
 import styles from './Skills.module.css'
+import {Skill} from '../ui/Skill'
 
 export const Skills = () => {
-    const {skills, incrementSkill, decrementSkill, reset} = useSkillsContext()
+    const {skills, reset} = useSkillsContext()
     const sortedSkill = Object.values(skills.reduce((acc, s) => ({
         ...acc,
         [s.group]: acc[s.group] ? acc[s.group].concat(s) : [s]
@@ -14,28 +15,7 @@ export const Skills = () => {
             {sortedSkill.map((group, i) => (
                 <table key={i}>
                     <tbody>{
-                        group.map(({name, count, max}, j) => (
-                            <tr key={'' + i + j}>
-                                <td>{name}</td>
-                                <td>{count}</td>
-                                <td>
-                                    <button
-                                        disabled={count >= max}
-                                        onClick={() => incrementSkill(name)}
-                                    >
-                                        +
-                                    </button>
-                                </td>
-                                <td>
-                                    <button
-                                        disabled={count <= 0}
-                                        onClick={() => decrementSkill(name)}
-                                    >
-                                        -
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
+                        group.map((skill, j) => <Skill skill={skill} key={'' + i + j}/>)
                     }</tbody>
                 </table>
             ))}

@@ -1,9 +1,11 @@
 import React, {useEffect, useMemo, useState} from 'react'
+import classNames from 'classnames'
 import styles from './Item.module.css'
 import {useSkillsContext} from '../services/skills'
+import {useHighlight} from '../services/highlight'
 
 export const Item = ({item}) => {
-    const {addForItem} = useSkillsContext()
+    const {addForItem, findSkill} = useSkillsContext()
 
     const [image, setImage] = useState(null)
     const [loaded, setLoaded] = useState(false)
@@ -25,12 +27,28 @@ export const Item = ({item}) => {
         [fit, src],
     )
 
-    const className = styles.item + (item.available ? (' ' + styles.available) : '')
-    const onClick = () => addForItem(item)
+    const {highlightSkills, resetSkillsHighlight} = useHighlight()
+    const onMouseEnter = () => highlightSkills(item)
 
     return (
-        <button className={className} title={item.name} onClick={onClick}>{
+        <button
+            className={classNames(styles.item, {
+                [styles.available]: item.available,
+                [styles.highlighted]: item.required,
+            })}
+            title={item.name}
+            onClick={() => addForItem(item)}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={resetSkillsHighlight}
+        >{
             loaded && <div role="img" style={style} className={styles.image}/>
-        }</button>
+        }
+            <div className={classNames(styles.highlight, {
+                [styles.visible]: item.required,
+                [styles.available]: item.required && (item.required.count <= findSkill(item.required.name).count),
+            })}>{
+                item.required && item.required.count
+            }</div>
+        </button>
     )
 }
