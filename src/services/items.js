@@ -1,10 +1,10 @@
 import {useMemo} from 'react'
 import {useSkillsContext} from './skills'
 
-export const useAvailable = defaultItems => {
+export const useAvailable = items => {
     const {isItemAvailable} = useSkillsContext()
 
-    return useMemo(() => defaultItems
+    return useMemo(() => items
         .map(item => ({...item, available: isItemAvailable(item)}))
         .sort((a, b) => {
             if (a.available === b.available)
@@ -12,5 +12,5 @@ export const useAvailable = defaultItems => {
             if (a.available)
                 return -1
             return 1
-        }), [defaultItems, isItemAvailable])
+        }), [items, isItemAvailable])
 }
