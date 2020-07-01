@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {useSkillsContext} from '../services/skills'
 import {Skill} from '../ui/Skill'
 import styles from './Skills.module.css'
@@ -13,12 +13,12 @@ export const Skills = () => {
     return (
         <div className={styles.skills}>{
             sortedSkill.map((group, i, {length}) => (
-                <>
-                    <section key={i} className={styles.column}>{
+                <Fragment key={i}>
+                    <section className={styles.column}>{
                         group.map((skill, j) => <Skill skill={skill} key={'' + i + j}/>)
                     }</section>
-                    {(i < length - 1) && <div className={styles.divider} key={'divider' + i}/>}
-                </>
+                    {(i < length - 1) && <div className={styles.divider}/>}
+                </Fragment>
             ))}
         </div>
     )
