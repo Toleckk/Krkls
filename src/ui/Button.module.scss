@@ -1,6 +1,8 @@
+@import "../theme.scss";
+
 .button {
-    border: 1px solid #94bade;
-    background-color: #EE00004D;
+    border: 1px solid $secondary;
+    background-color: $negative;
     transition: all 100ms linear;
 }
 
@@ -10,12 +12,12 @@
 
 .button:hover:not(:disabled),
 .button[data-focus-visible-added]:not(:disabled) {
-    filter: drop-shadow(0 0 5px white);
-    box-shadow: 0 0 5px white;
+    filter: drop-shadow(0 0 5px $secondary);
+    box-shadow: 0 0 5px $secondary;
 }
 
 .button.available {
-    background-color: #0094FF4D;
+    background-color: $neutral;
 }
 
 .button:focus {
@@ -23,5 +25,5 @@
 }
 
 .button:disabled {
-    background: #EE00004D;
+    background: $negative;
 }

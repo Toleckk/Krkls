@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import {useSkillsContext} from '../services/skills'
 import {useHighlight} from '../services/highlight'
 import {Button} from './Button'
-import styles from './Skill.module.css'
+import styles from './Skill.module.scss'
 
 export const Skill = ({skill}) => {
     const [hovered, setHovered] = useState(false)

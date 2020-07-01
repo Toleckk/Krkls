@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import {useSkillsContext} from '../services/skills'
 import {Skill} from '../ui/Skill'
-import styles from './Skills.module.css'
+import styles from './Skills.module.scss'
 
 export const Skills = () => {
     const {skills} = useSkillsContext()

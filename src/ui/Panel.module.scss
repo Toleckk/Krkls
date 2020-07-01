@@ -1,10 +1,12 @@
+@import "../theme";
+
 .panel {
-    border: 1px solid #94badeb3;
-    box-shadow: 0 0 2px #94bade inset;
+    border: 1px solid $secondary;
+    box-shadow: 0 0 2px $secondary inset;
 }
 
 .title {
-    border-bottom: 2px solid #94badeb3;
+    border-bottom: 2px solid $secondary;
     margin: 0;
     font-size: medium;
     font-weight: 400;

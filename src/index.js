@@ -4,7 +4,7 @@ import 'focus-visible'
 import 'normalize.css'
 import * as serviceWorker from './serviceWorker'
 import App from './App'
-import './index.css'
+import './index.scss'
 
 ReactDOM.render(
     <React.StrictMode>

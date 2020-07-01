@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Panel.module.css'
+import styles from './Panel.module.scss'
 
 export const Panel = ({title, content}) => (
     <section className={styles.panel}>

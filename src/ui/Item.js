@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from 'react'
 import classNames from 'classnames'
-import styles from './Item.module.css'
+import styles from './Item.module.scss'
 import {useSkillsContext} from '../services/skills'
 import {useHighlight} from '../services/highlight'
 import {Button} from './Button'
