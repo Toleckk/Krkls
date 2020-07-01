@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useContext, useMemo} from 'react'
+import React, {createContext, useCallback, useContext, useMemo, useState} from 'react'
 import {useLocation, useHistory} from 'react-router'
 
 const Skill = (name, group, max, limit = 12) => ({name, group, count: 0, limit, max})
@@ -34,9 +34,23 @@ export const SkillsContextProvider = ({children}) => {
     const history = useHistory()
     const {pathname} = useLocation()
 
-    const setSkills = useCallback(skills => history.push(skillsToPath(skills)), [history])
+    const [lastSkills, setLastSkills] = useState(undefined)
 
-    const skills = useMemo(() => pathToSkills(pathname), [pathname])
+    const setSkills = useCallback(skills => {
+        setLastSkills(skills)
+        const path = skillsToPath(skills)
+        if(path !== pathname.substr(1))
+            history.push(path)
+    }, [history, pathname, setLastSkills])
+
+    const skills = useMemo(() => {
+        if(lastSkills) {
+            const skills = lastSkills
+            setLastSkills(undefined)
+            return skills
+        }
+        return pathToSkills(pathname)
+    }, [pathname])
 
 
     const setSkill = useCallback((name, count) => {
