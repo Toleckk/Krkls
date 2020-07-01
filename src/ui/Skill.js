@@ -23,8 +23,14 @@ export const Skill = ({skill}) => {
     }
 
     return (
-        <div className={styles.skill} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            <span className={classNames(styles.name, {[styles.required]: required})}>{name}</span>
+        <div tabIndex="0"
+             className={styles.skill}
+             onMouseEnter={onMouseEnter}
+             onMouseLeave={onMouseLeave}
+             onFocus={onMouseEnter}
+             onBlur={onMouseLeave}
+        >
+            <span className={classNames(styles.name, {[styles.required]: required || hovered})}>{name}</span>
             <span className={styles.count}>{count}</span>
             <span className={styles.required_count}>
                 {hovered && max && ('↑' + max)}

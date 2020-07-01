@@ -6,6 +6,10 @@
     margin-top: 3px;
 }
 
+.skill:focus {
+    outline: none;
+}
+
 
 .name {
     flex: 1;
