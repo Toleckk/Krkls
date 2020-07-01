@@ -1,8 +1,10 @@
-import React, {createContext, useCallback, useContext, useMemo, useState} from 'react'
+import React, {createContext, useCallback, useContext, useMemo} from 'react'
+import {useLocation, useHistory} from 'react-router'
 
 const Skill = (name, group, max, limit = 12) => ({name, group, count: 0, limit, max})
 
-const defaultSkills = [
+
+export const defaultSkills = [
     Skill('Точность', 0),
     Skill('Уклонение', 0, 7),
     Skill('Наведение', 0, 6),
@@ -21,10 +23,22 @@ const defaultSkills = [
     Skill('Контроль', 4),
 ]
 
+
 export const SkillsContext = createContext(null)
 
+
+export const useSkillsContext = () => useContext(SkillsContext)
+
+
 export const SkillsContextProvider = ({children}) => {
-    const [skills, setSkills] = useState(defaultSkills)
+    const history = useHistory()
+    const {pathname} = useLocation()
+
+    const setSkills = useCallback(skills => history.push(skillsToPath(skills)), [history])
+
+    const skills = useMemo(() => pathToSkills(pathname), [pathname])
+
+
     const setSkill = useCallback((name, count) => {
         const i = skills.findIndex(skill => skill.name === name)
         setSkills([
@@ -34,27 +48,34 @@ export const SkillsContextProvider = ({children}) => {
         ])
     }, [skills, setSkills])
 
+
     const findSkill = useCallback(name => skills.find(skill => skill.name === name), [skills])
+
 
     const incrementSkill = useCallback(
         name => setSkill(name, findSkill(name).count + 1),
         [setSkill, findSkill],
     )
 
+
     const decrementSkill = useCallback(
         name => setSkill(name, findSkill(name).count - 1),
         [setSkill, findSkill],
     )
 
+
     const sum = useMemo(() => skills.reduce((acc, skill) => acc + skill.count, 0), [skills])
 
+
     const reset = useCallback(() => setSkills(defaultSkills), [setSkills])
+
 
     const isItemAvailable = useCallback(item => {
         const names = Object.keys(item.skills)
         const requiredSkills = skills.filter(s => names.indexOf(s.name) !== -1)
         return requiredSkills.every(s => s.count >= item.skills[s.name])
     }, [skills])
+
 
     const addForItem = useCallback(i => {
         const required = Object.keys(i.skills)
@@ -64,6 +85,7 @@ export const SkillsContextProvider = ({children}) => {
                 : skill
         )))
     }, [skills])
+
 
     const value = {
         skills,
@@ -81,4 +103,12 @@ export const SkillsContextProvider = ({children}) => {
     return <SkillsContext.Provider value={value}>{children}</SkillsContext.Provider>
 }
 
-export const useSkillsContext = () => useContext(SkillsContext)
+
+const skillsToPath = skills => skills.map(skill => skill.count.toString(13)).join('')
+
+
+const pathToSkills = path => path
+    .substr(1)
+    .split('')
+    .map((e, i) => ({...defaultSkills[i], count: parseInt(e, 13)}))
+    .concat(defaultSkills.slice(path.length - 1))

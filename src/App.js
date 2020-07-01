@@ -1,4 +1,5 @@
 import React from 'react'
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
 import {Skills} from './components/Skills'
 import {SkillsContextProvider} from './services/skills'
 import {DevicesContextProvider} from './services/devices'
@@ -9,18 +10,27 @@ import {Header} from './components/Header'
 
 export default function App() {
     return (
-        <SkillsContextProvider>
-            <DevicesContextProvider>
-                <WeaponsContextProvider>
-                    <ShipsContextProvider>
-                        <Header/>
-                        <br/>
-                        <Skills/>
-                        <br/>
-                        <Items/>
-                    </ShipsContextProvider>
-                </WeaponsContextProvider>
-            </DevicesContextProvider>
-        </SkillsContextProvider>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/:build([0-9A-F]{0,16})">
+                    <SkillsContextProvider>
+                        <DevicesContextProvider>
+                            <WeaponsContextProvider>
+                                <ShipsContextProvider>
+                                    <Header/>
+                                    <br/>
+                                    <Skills/>
+                                    <br/>
+                                    <Items/>
+                                </ShipsContextProvider>
+                            </WeaponsContextProvider>
+                        </DevicesContextProvider>
+                    </SkillsContextProvider>
+                </Route>
+                <Route>
+                    <Redirect to="/"/>
+                </Route>
+            </Switch>
+        </BrowserRouter>
     )
 }
