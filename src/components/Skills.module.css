@@ -15,11 +15,19 @@
     position: relative;
     margin-right: 3px;
     margin-left: 3px;
-    margin-bottom: 3px;
 }
 
 .divider {
-    width: 1px;
+    min-width: 1px;
+    min-height: 1px;
     background: #17d2ff;
     box-shadow: 0 0 5px #17d2ff;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .divider {
+        margin: 0;
+    }
 }
