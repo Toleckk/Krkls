@@ -42,10 +42,6 @@
     margin-left: 0.5rem;
 }
 
-.button:disabled {
-    background: #EE00004D !important;
-}
-
 
 .sign {
     line-height: 1.3em;

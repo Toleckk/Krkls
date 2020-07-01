@@ -18,3 +18,7 @@
 .button:focus {
     outline: none;
 }
+
+.button:disabled {
+    background: #EE00004D;
+}
