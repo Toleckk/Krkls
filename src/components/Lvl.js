@@ -21,7 +21,7 @@ export const Lvl = () => {
         <div>
             <span>Уровень: {sum}</span>
             <span style={{color: 'green'}}>{requiredLvl && (' +' + requiredLvl)}</span>
-            <br/>
+            &nbsp;
             <span>Опыт: {exp}</span>
             <span style={{color: 'green'}}>{requiredLvl && (' +' + (requiredExp - exp))}</span>
         </div>
