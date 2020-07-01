@@ -4,6 +4,10 @@
     transition: all 100ms linear;
 }
 
+.button:disabled {
+    pointer-events: none;
+}
+
 .button:hover:not(:disabled),
 .button[data-focus-visible-added]:not(:disabled) {
     filter: drop-shadow(0 0 5px white);
