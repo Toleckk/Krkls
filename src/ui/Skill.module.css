@@ -1,0 +1,53 @@
+.skill {
+    display: flex;
+}
+
+.skill + .skill {
+    margin-top: 3px;
+}
+
+
+.name {
+    flex: 1;
+    padding-right: 0.8rem;
+    color: white;
+}
+
+.name.required {
+    color: green;
+}
+
+
+.count {
+    min-width: 1.2rem;
+}
+
+
+.required_count {
+    min-width: 2rem;
+}
+
+
+.button {
+    background: #0094ff1a !important;
+    width: 1.3em;
+    height: 1.3em;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button + .button {
+    margin-left: 0.5rem;
+}
+
+.button:disabled {
+    background: #EE00004D !important;
+}
+
+
+.sign {
+    line-height: 1.3em;
+    margin-top: -2px;
+}

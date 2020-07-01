@@ -6,6 +6,7 @@ import {DevicesContextProvider} from './services/devices'
 import {WeaponsContextProvider} from './services/weapons'
 import {Items} from './components/Items'
 import {ShipsContextProvider} from './services/ships'
+import {Control} from './components/Control'
 
 export default function App() {
     return (
@@ -13,10 +14,11 @@ export default function App() {
             <DevicesContextProvider>
                 <WeaponsContextProvider>
                     <ShipsContextProvider>
-                        <Lvl/>
+                        <header style={{display: 'flex', justifyContent: 'space-between'}}>
+                            <Lvl/>
+                            <Control/>
+                        </header>
                         <br/>
-                        <br/>
-                        <span>Умения:</span>
                         <Skills/>
                         <br/>
                         <Items/>

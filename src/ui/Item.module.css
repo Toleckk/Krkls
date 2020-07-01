@@ -1,28 +1,11 @@
 .item {
     width: 55px;
     height: 55px;
-    border: 1px solid #94bade;
-    background-color: #EE00004D;
-    transition: all 100ms linear;
     position: relative;
-}
-
-.item.available {
-    background-color: #0094FF4D;
-}
-
-.item:hover,
-.item[data-focus-visible-added] {
-    filter: drop-shadow(0 0 5px white);
-    box-shadow: 0 0 5px white;
 }
 
 .item.highlighted {
     box-shadow: inset 0 0 10px white;
-}
-
-.item:focus {
-    outline: none;
 }
 
 

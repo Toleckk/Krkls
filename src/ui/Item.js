@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import styles from './Item.module.css'
 import {useSkillsContext} from '../services/skills'
 import {useHighlight} from '../services/highlight'
+import {Button} from './Button'
 
 export const Item = ({item}) => {
     const {addForItem, findSkill} = useSkillsContext()
@@ -31,24 +32,20 @@ export const Item = ({item}) => {
     const onMouseEnter = () => highlightSkills(item)
 
     return (
-        <button
-            className={classNames(styles.item, {
-                [styles.available]: item.available,
-                [styles.highlighted]: item.required,
-            })}
+        <Button available={item.available}
+            className={classNames(styles.item, {[styles.highlighted]: item.required})}
             title={item.name}
             onClick={() => addForItem(item)}
             onMouseEnter={onMouseEnter}
             onMouseLeave={resetSkillsHighlight}
-        >{
-            loaded && <div role="img" style={style} className={styles.image}/>
-        }
+        >
+            {loaded && <div role="img" style={style} className={styles.image}/>}
             <div className={classNames(styles.highlight, {
                 [styles.visible]: item.required,
                 [styles.available]: item.required && (item.required.count <= findSkill(item.required.name).count),
             })}>{
                 item.required && item.required.count
             }</div>
-        </button>
+        </Button>
     )
 }

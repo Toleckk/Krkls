@@ -18,12 +18,12 @@ export const Lvl = () => {
     const requiredExp = getExperience(requiredLvl + sum)
 
     return (
-        <>
+        <div>
             <span>Уровень: {sum}</span>
             <span style={{color: 'green'}}>{requiredLvl && (' +' + requiredLvl)}</span>
             <br/>
             <span>Опыт: {exp}</span>
             <span style={{color: 'green'}}>{requiredLvl && (' +' + (requiredExp - exp))}</span>
-        </>
+        </div>
     )
 }
