@@ -2,7 +2,6 @@
     border: 1px solid #94bade;
     background-color: #EE00004D;
     transition: all 100ms linear;
-    color: white;
 }
 
 .button:hover:not(:disabled),
