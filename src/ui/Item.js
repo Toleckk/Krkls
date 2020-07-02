@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import styles from './Item.module.scss'
 import {useSkillsContext} from '../services/skills'
@@ -9,7 +9,7 @@ import {useItemImage} from '../services/image'
 export const Item = ({item}) => {
     const {addForItem, findSkill} = useSkillsContext()
 
-    const {style, loaded} = useItemImage(item)
+    const {sizes, loaded} = useItemImage(item)
 
     const {highlightSkills, resetSkillsHighlight, highlightedItems} = useHighlightContext()
     const onMouseEnter = () => highlightSkills(item)
@@ -25,7 +25,7 @@ export const Item = ({item}) => {
             onMouseEnter={onMouseEnter}
             onMouseLeave={resetSkillsHighlight}
         >
-            {loaded && <div role="img" style={style} className={styles.image}/>}
+            {loaded && <img style={sizes} src={item.image} alt={item.name}/>}
             <div className={classNames(styles.highlight, {
                 [styles.visible]: required,
                 [styles.available]: required && (required.count <= findSkill(required.name).count),

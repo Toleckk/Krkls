@@ -2,22 +2,30 @@ import {useEffect, useMemo, useState} from 'react'
 
 export const useItemImage = (item, max = 41) => {
     const [image, setImage] = useState(null)
-    const [fit, setFit] = useState(false)
 
     const src = item.image || '/images/unknown.png'
 
     useEffect(() => {
-        const img = new Image()
-        img.onload = () => setImage(image)
-        img.src = src
+        const image = new Image()
+        image.onload = () => setImage(image)
+        image.src = src
     }, [item.image, src])
 
-    useEffect(() => setFit(image && (image.height < max && image.width < max)), [image])
+    const sizes = useMemo(
+        () => {
+            if(!image)
+                return {}
 
-    const style = useMemo(
-        () => ({backgroundImage: `url(${src})`, backgroundSize: fit ? 'auto' : 'contain'}),
-        [fit, src],
+            if(image.height > max && image.height > image.width)
+                return {height: '41px', width: 'auto'}
+
+            if(image.width > max || image.height > max)
+                return {height: 'auto', width: '41px'}
+
+            return {height: image.height, width: image.width}
+        },
+        [image, max],
     )
 
-    return {style, loaded: !!image}
+    return {sizes, loaded: !!image}
 }
