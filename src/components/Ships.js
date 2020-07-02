@@ -1,12 +1,12 @@
 import React, {memo, useMemo} from 'react'
 import {List} from '../ui/List'
-import {sortShips, useShipsContext} from '../services/ships'
 import styles from './Ships.module.css'
+import {useItems, sortShips} from '../services/items'
 
 const key = ship => ship.race + ' ' + ship.name
 
 export const Ships = memo(() => {
-    const {ships} = useShipsContext()
+    const {ships} = useItems()
 
     const sortedShips = useMemo(() => sortShips(ships), [ships])
 

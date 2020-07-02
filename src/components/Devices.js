@@ -1,8 +1,8 @@
 import React from 'react'
-import {useDevicesContext} from '../services/devices'
 import {List} from '../ui/List'
+import {useItems} from '../services/items'
 
 export const Devices = () => {
-    const {devices} = useDevicesContext()
+    const {devices} = useItems()
     return <List items={devices}/>
 }

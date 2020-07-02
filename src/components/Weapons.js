@@ -1,9 +1,9 @@
 import React from 'react'
-import {useWeaponsContext} from '../services/weapons'
 import {List} from '../ui/List'
+import {useItems} from '../services/items'
 
 export const Weapons = () => {
-    const {weapons} = useWeaponsContext()
+    const {weapons} = useItems()
 
     return <List items={weapons}/>
 }

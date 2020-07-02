@@ -28,23 +28,26 @@ export const Item = ({item}) => {
         [fit, src],
     )
 
-    const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
+    const {highlightSkills, resetSkillsHighlight, highlightedItems} = useHighlightContext()
     const onMouseEnter = () => highlightSkills(item)
 
+    const {available, name} = item
+    const required = highlightedItems[name]
+
     return (
-        <Button available={item.available}
-            className={classNames(styles.item, {[styles.highlighted]: item.required})}
-            title={item.name}
+        <Button available={available}
+            className={classNames(styles.item, {[styles.highlighted]: required})}
+            title={name}
             onClick={() => addForItem(item)}
             onMouseEnter={onMouseEnter}
             onMouseLeave={resetSkillsHighlight}
         >
             {loaded && <div role="img" style={style} className={styles.image}/>}
             <div className={classNames(styles.highlight, {
-                [styles.visible]: item.required,
-                [styles.available]: item.required && (item.required.count <= findSkill(item.required.name).count),
+                [styles.visible]: required,
+                [styles.available]: required && (required.count <= findSkill(required.name).count),
             })}>{
-                item.required && item.required.count
+                required && required.count
             }</div>
         </Button>
     )

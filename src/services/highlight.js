@@ -1,46 +1,35 @@
-import React, {useContext, createContext, useState} from 'react'
-import {useShipsContext} from './ships'
-import {useDevicesContext} from './devices'
-import {useWeaponsContext} from './weapons'
+import React, {createContext, useContext, useState} from 'react'
+import {useItems} from './items'
 
 export const HighlightContext = createContext(null)
 
 export const useHighlightContext = () => useContext(HighlightContext)
 
 
-const addRequiredToItem = skill => item => ({
-    ...item,
-    required: item.skills[skill.name] ? {name: skill.name, count: item.skills[skill.name]} : undefined,
-})
-
-
-const removeRequiredFromItem = item => item.required ? ({...item, required: undefined}) : item
-
-
 export const HighlightContextProvider = ({children}) => {
     const [highlightedSkills, setHighlightedSkills] = useState({})
-    const {ships, setShips} = useShipsContext()
-    const {devices, setDevices} = useDevicesContext()
-    const {weapons, setWeapons} = useWeaponsContext()
+    const [highlightedItems, setHighlightedItems] = useState({})
+    const {items} = useItems()
 
     const highlightSkills = item => setHighlightedSkills(item.skills)
 
     const resetSkillsHighlight = () => setHighlightedSkills({})
 
-    const highlightItems = skill => {
-        const add = addRequiredToItem(skill)
-        setShips(ships.map(add))
-        setDevices(devices.map(add))
-        setWeapons(weapons.map(add))
-    }
+    const highlightItems = skill => setHighlightedItems(items.reduce((acc, item) => {
+        const count = item.skills[skill.name]
+        return count ? {...acc, [item.name]: {name: skill.name, count}} : acc
+    }, {}))
 
-    const resetItemsHighlight = () => {
-        setShips(ships.map(removeRequiredFromItem))
-        setWeapons(weapons.map(removeRequiredFromItem))
-        setDevices(devices.map(removeRequiredFromItem))
-    }
+    const resetItemsHighlight = () => setHighlightedItems({})
 
-    const value = {highlightItems, highlightSkills, resetSkillsHighlight, resetItemsHighlight, highlightedSkills}
+    const value = {
+        highlightItems,
+        highlightSkills,
+        resetSkillsHighlight,
+        resetItemsHighlight,
+        highlightedSkills,
+        highlightedItems,
+    }
 
     return <HighlightContext.Provider value={value}>{children}</HighlightContext.Provider>
 }
