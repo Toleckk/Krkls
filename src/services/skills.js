@@ -77,7 +77,7 @@ export const SkillsContextProvider = ({children}) => {
                 ? ({...skill, count: Math.max(skill.count, i.skills[skill.name])})
                 : skill
         )))
-    }, [skills])
+    }, [skills, setSkills])
 
 
     const value = {
