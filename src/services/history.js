@@ -33,7 +33,7 @@ const Tracker = ({children}) => {
             setKeys([...keys.slice(0, index), key])
 
         setPrev(key)
-    }, [history, setKeys, keys, setPrev])
+    }, [setKeys, keys, setPrev, prev])
 
     useEffect(() => history.listen(onChange), [history, onChange])
 
