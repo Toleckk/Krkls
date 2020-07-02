@@ -1,5 +1,6 @@
 import React from 'react'
-import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
+import {Redirect, Route, Switch} from 'react-router'
+import {BrowserRouter} from 'react-router-dom'
 import {Skills} from './components/Skills'
 import {SkillsContextProvider} from './services/skills'
 import {DevicesContextProvider} from './services/devices'
