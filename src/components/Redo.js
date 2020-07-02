@@ -8,5 +8,5 @@ export const Redo = () => {
     const history = useHistory()
     const onClick = useCallback(() => history.goForward(), [history])
 
-    return <ControlButton icon="redo" disabled={!canGoForward} onClick={onClick}/>
+    return <ControlButton icon="redo" disabled={!canGoForward} onClick={onClick} title="Вперёд"/>
 }

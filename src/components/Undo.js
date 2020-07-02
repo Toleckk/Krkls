@@ -8,5 +8,5 @@ export const Undo = () => {
     const history = useHistory()
     const onClick = useCallback(() => history.goBack(), [history])
 
-    return <ControlButton icon="undo" disabled={!canGoBack} onClick={onClick}/>
+    return <ControlButton icon="undo" disabled={!canGoBack} onClick={onClick} title="Назад"/>
 }

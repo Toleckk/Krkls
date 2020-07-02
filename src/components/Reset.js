@@ -4,5 +4,5 @@ import {ControlButton} from './ControlButton'
 
 export const Reset = () => {
     const {reset} = useSkillsContext()
-    return <ControlButton onClick={reset} icon="reset"/>
+    return <ControlButton onClick={reset} icon="reset" title="Сбросить"/>
 }
