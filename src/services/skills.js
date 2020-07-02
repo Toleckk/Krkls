@@ -1,34 +1,13 @@
 import React, {createContext, useCallback, useContext, useMemo, useRef} from 'react'
 import {useLocation, useHistory} from 'react-router'
+import jsonSkills from '../data/skills.json'
 
-const Skill = (name, group, max, limit = 12) => ({name, group, count: 0, limit, max})
-
-
-export const defaultSkills = [
-    Skill('Точность', 0),
-    Skill('Уклонение', 0, 7),
-    Skill('Наведение', 0, 6),
-    Skill('Механика', 1, 8),
-    Skill('Биохимия', 1, 8),
-    Skill('Кибернетика', 1, 8),
-    Skill('Электроника', 1, 8),
-    Skill('Пилотирование', 2, 10),
-    Skill('Добыча', 2, 5),
-    Skill('Торговля', 2, 7),
-    Skill('Ремонт', 2, 6),
-    Skill('Кинетическое', 3, 5),
-    Skill('Энергетическое', 3, 7),
-    Skill('Ракетное', 3, 6),
-    Skill('Тактика', 4),
-    Skill('Контроль', 4),
-]
+export const defaultSkills = jsonSkills.map(skill => ({...skill, count: 0}))
 
 
 export const SkillsContext = createContext(null)
 
-
 export const useSkillsContext = () => useContext(SkillsContext)
-
 
 export const SkillsContextProvider = ({children}) => {
     const history = useHistory()
