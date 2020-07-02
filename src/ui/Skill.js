@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import {useSkillsContext} from '../services/skills'
-import {useHighlight} from '../services/highlight'
+import {useHighlightContext} from '../services/highlight'
 import {Button} from './Button'
 import styles from './Skill.module.scss'
 
 export const Skill = ({skill}) => {
     const [hovered, setHovered] = useState(false)
     const {incrementSkill, decrementSkill} = useSkillsContext()
-    const {highlightItems, resetItemsHighlight} = useHighlight()
+    const {highlightItems, resetItemsHighlight, highlightedSkills} = useHighlightContext()
 
-    const {required, count, max, limit, name} = skill
+    const {count, max, limit, name} = skill
+    const required = highlightedSkills[name]
 
     const onMouseEnter = () => {
         highlightItems(skill)
@@ -34,7 +35,7 @@ export const Skill = ({skill}) => {
             <span className={styles.count}>{count}</span>
             <span className={styles.required_count}>
                 {hovered && max && ('↑' + max)}
-                {required && (required.count > skill.count) && ('+' + (required.count - skill.count))}
+                {required && (required > skill.count) && ('+' + (required - skill.count))}
             </span>
             <Button className={styles.button} disabled={count >= limit} onClick={() => incrementSkill(name)}>
                 <span className={styles.sign}>+</span>

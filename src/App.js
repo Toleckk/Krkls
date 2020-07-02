@@ -7,6 +7,7 @@ import {WeaponsContextProvider} from './services/weapons'
 import {Items} from './components/Items'
 import {ShipsContextProvider} from './services/ships'
 import {Header} from './components/Header'
+import {HighlightContextProvider} from './services/highlight'
 
 export default function App() {
     return (
@@ -17,11 +18,13 @@ export default function App() {
                         <DevicesContextProvider>
                             <WeaponsContextProvider>
                                 <ShipsContextProvider>
-                                    <Header/>
-                                    <br/>
-                                    <Skills/>
-                                    <br/>
-                                    <Items/>
+                                    <HighlightContextProvider>
+                                        <Header/>
+                                        <br/>
+                                        <Skills/>
+                                        <br/>
+                                        <Items/>
+                                    </HighlightContextProvider>
                                 </ShipsContextProvider>
                             </WeaponsContextProvider>
                         </DevicesContextProvider>

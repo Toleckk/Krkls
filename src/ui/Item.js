@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react'
 import classNames from 'classnames'
 import styles from './Item.module.scss'
 import {useSkillsContext} from '../services/skills'
-import {useHighlight} from '../services/highlight'
+import {useHighlightContext} from '../services/highlight'
 import {Button} from './Button'
 
 export const Item = ({item}) => {
@@ -28,7 +28,7 @@ export const Item = ({item}) => {
         [fit, src],
     )
 
-    const {highlightSkills, resetSkillsHighlight} = useHighlight()
+    const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
     const onMouseEnter = () => highlightSkills(item)
 
     return (
