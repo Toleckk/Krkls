@@ -3904,6 +3904,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clipboard-copy@npm:^3.0.0":
+  version: 3.1.0
+  resolution: "clipboard-copy@npm:3.1.0"
+  checksum: b8c7faf5a8bde197353f2ef7b711a451e04829a9a37e1ad69ac5d22864e1f08c70ad7673c47cee18d9e27993a4653db068d853dfe845dd6c0f704427bcb5afd8
+  languageName: node
+  linkType: hard
+
 "cliui@npm:^4.0.0":
   version: 4.1.0
   resolution: "cliui@npm:4.1.0"
@@ -13687,6 +13694,7 @@ resolve@1.15.0:
     react-router: ^5.2.0
     react-router-dom: ^5.2.0
     react-scripts: 3.4.1
+    use-clipboard-copy: ^0.1.2
   languageName: unknown
   linkType: soft
 
@@ -14269,6 +14277,17 @@ resolve@1.15.0:
     punycode: 1.3.2
     querystring: 0.2.0
   checksum: 537f785b16f873fdd2b63ccb7a61463b8e41370fdba95385b0102f3ed7b953c300d95b8755ec3b65f3e406372d47d16c3c989e196b25b70f42190da1fc36c56f
+  languageName: node
+  linkType: hard
+
+"use-clipboard-copy@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "use-clipboard-copy@npm:0.1.2"
+  dependencies:
+    clipboard-copy: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0
+  checksum: f5e4e4653df08821d9aef4098c46fd0ad8fcd884d16189747f764a35db81eab1cb3e7d3aea0b862cd83f097b898c7a2582c28e43fd164283a3fb55a59df6f422
   languageName: node
   linkType: hard
 
