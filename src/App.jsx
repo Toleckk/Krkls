@@ -7,6 +7,7 @@ import {Header} from './components/Header'
 import {HighlightContextProvider} from './services/highlight'
 import {ItemsProvider} from './services/items'
 import {TrackableRouter} from './services/history'
+import {Navigation} from './components/Navigation'
 
 export default function App() {
     return (
@@ -21,6 +22,7 @@ export default function App() {
                                 <Skills/>
                                 <br/>
                                 <Items/>
+                                <Navigation/>
                             </HighlightContextProvider>
                         </ItemsProvider>
                     </SkillsContextProvider>

@@ -2,3 +2,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+.control {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .control {
+        display: block;
+    }
+}
