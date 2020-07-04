@@ -9,7 +9,9 @@
 @media(min-width: 768px) {
   .column {
     width: 60vw;
-    flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
   }
 }
 
