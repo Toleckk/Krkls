@@ -7,7 +7,7 @@ import weapons from '../data/weapons.json'
 const defaultItems = [
     ...devices.map(device => ({...device, count: 0, type: 'Устройства'})),
     ...weapons.map(weapon => ({...weapon, count: 0, type: 'Оружие'})),
-    ...ships.map(ship => ({...ship, count: 0, type: 'Корабли'}))
+    ...ships.map(ship => ({...ship, count: 0, type: 'Корабли', class: ship.name, name: `${ship.race} ${ship.name}`}))
 ]
 
 export const ItemsContext = createContext(null)
@@ -55,7 +55,7 @@ export const useAvailable = items => {
 
 export const sortShips = ships => {
     const obj = ships.reduce(
-        (acc, s) => ({...acc, [s.name]: acc[s.name] ? acc[s.name].concat(s) : [s]}), {},
+        (acc, s) => ({...acc, [s.class]: acc[s.class] ? acc[s.class].concat(s) : [s]}), {},
     )
 
     obj['Корсар'].push(obj['Корсар МК1'][0])
