@@ -3,7 +3,13 @@
 .column {
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  flex: 1;
+}
+
+@media(min-width: 768px) {
+  .column {
+    width: 60vw;
+  }
 }
 
 
