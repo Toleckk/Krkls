@@ -1,7 +1,7 @@
 {
-  "name": "sw-skill-calculator",
+  "name": "krkls",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "Skills calculator for VK SW online game",
   "main": "src/index.js",
   "dependencies": {
     "@testing-library/dom": "^7.19.0",
