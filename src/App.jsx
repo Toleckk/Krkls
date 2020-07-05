@@ -13,7 +13,7 @@ export default function App() {
     return (
         <TrackableRouter>
             <Switch>
-                <Route path="/:build([0-9A-Fa-f]{0,16})">
+                <Route path="/:build([0-9A-Fa-f]{16})">
                     <SkillsContextProvider>
                         <ItemsProvider>
                             <HighlightContextProvider>
@@ -28,7 +28,7 @@ export default function App() {
                     </SkillsContextProvider>
                 </Route>
                 <Route>
-                    <Redirect to="/"/>
+                    <Redirect to="/0000000000000000"/>
                 </Route>
             </Switch>
         </TrackableRouter>
