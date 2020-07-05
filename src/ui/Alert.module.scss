@@ -7,6 +7,15 @@
   width: calc(100% - 1rem);
 }
 
+@media (min-width: 768px) {
+  .alert {
+    top: unset;
+    bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
 
 .text {
   width: 100%;
@@ -17,4 +26,10 @@
   border-radius: 10px;
   text-align: center;
   transition: linear all;
+}
+
+@media (min-width: 768px) {
+  .text {
+    width: initial;
+  }
 }
