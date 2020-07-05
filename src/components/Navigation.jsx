@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import React, {useCallback, useMemo, useState} from 'react'
 import classNames from 'classnames'
 import styles from './Navigation.module.scss'
 import {Icon} from '../ui/Icon'
@@ -6,11 +6,7 @@ import {useHistory, useLocation} from 'react-router'
 import {useCanGo} from '../services/history'
 import {useSkillsContext} from '../services/skills'
 import {useClipboard} from 'use-clipboard-copy'
-
-
-const copyParams = {
-    onSuccess: () => alert('Ссылка скопирована в буфер обмена!')
-}
+import {useAlert} from '../services/alert'
 
 
 export const Navigation = () => {
@@ -23,6 +19,9 @@ export const Navigation = () => {
     const history = useHistory()
     const goBack = () => history.goBack()
     const goForward = () => history.goForward()
+
+    const {open} = useAlert()
+    const copyParams = useMemo(() => ({onSuccess: () => open('Ссылка скопирована в буфер обмена!')}), [open])
 
     const {copy} = useClipboard(copyParams)
     const location = useLocation()

@@ -8,6 +8,8 @@ import {HighlightContextProvider} from './services/highlight'
 import {ItemsProvider} from './services/items'
 import {TrackableRouter} from './services/history'
 import {Navigation} from './components/Navigation'
+import {AlertProvider} from './services/alert'
+import {Alert} from './ui/Alert'
 
 export default function App() {
     return (
@@ -17,12 +19,15 @@ export default function App() {
                     <SkillsContextProvider>
                         <ItemsProvider>
                             <HighlightContextProvider>
-                                <Header/>
-                                <br/>
-                                <Skills/>
-                                <br/>
-                                <Items/>
-                                <Navigation/>
+                                <AlertProvider>
+                                    <Header/>
+                                    <br/>
+                                    <Skills/>
+                                    <br/>
+                                    <Items/>
+                                    <Navigation/>
+                                    <Alert/>
+                                </AlertProvider>
                             </HighlightContextProvider>
                         </ItemsProvider>
                     </SkillsContextProvider>
