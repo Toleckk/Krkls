@@ -1,12 +1,11 @@
-import React, {useCallback, useMemo, useState} from 'react'
+import React, {useState} from 'react'
 import classNames from 'classnames'
 import styles from './Navigation.module.scss'
 import {Icon} from '../ui/Icon'
-import {useHistory, useLocation} from 'react-router'
+import {useHistory} from 'react-router'
 import {useCanGo} from '../services/history'
 import {useSkillsContext} from '../services/skills'
-import {useClipboard} from 'use-clipboard-copy'
-import {useAlert} from '../services/alert'
+import {useCopyLink} from '../services/copy'
 
 
 export const Navigation = () => {
@@ -20,15 +19,9 @@ export const Navigation = () => {
     const goBack = () => history.goBack()
     const goForward = () => history.goForward()
 
-    const {open} = useAlert()
-    const copyParams = useMemo(() => ({onSuccess: () => open('Ссылка скопирована в буфер обмена!')}), [open])
-
-    const {copy} = useClipboard(copyParams)
-    const location = useLocation()
-
-    const onCopyClick = useCallback(() => copy(window.location.origin + location.pathname), [copy, location.pathname])
-
     const {reset} = useSkillsContext()
+
+    const {copy} = useCopyLink()
 
     return (
         <div className={classNames(styles.fixed, hidden && styles.hidden)}>
@@ -41,7 +34,7 @@ export const Navigation = () => {
 
             <div className={styles.main}>
                 <div className={styles.container}>
-                    <button onClick={hidden ? show : onCopyClick}
+                    <button onClick={hidden ? show : copy}
                             className={classNames(styles.round, hidden && styles.hidden)}>
                         <Icon icon="show" className={classNames(styles.show, !hidden && styles.hidden)}/>
                         <Icon icon="copy" className={styles.copy}/>
