@@ -16,19 +16,15 @@ export const Navigation = () => {
     const {canGoForward, canGoBack} = useCanGo()
 
     const history = useHistory()
-    const goBack = () => history.goBack()
-    const goForward = () => history.goForward()
-
     const {reset} = useSkillsContext()
-
     const {copy} = useCopyLink()
 
     return (
         <div className={classNames(styles.fixed, hidden && styles.hidden)}>
-            <button className={styles.button} onClick={goBack} disabled={!canGoBack}>
+            <button className={styles.button} onClick={() => history.goBack()} disabled={!canGoBack}>
                 <Icon icon="undo" className={classNames(styles.icon, !canGoBack && styles.disabled)}/>
             </button>
-            <button className={styles.button} onClick={goForward} disabled={!canGoForward}>
+            <button className={styles.button} onClick={() => history.goForward()} disabled={!canGoForward}>
                 <Icon icon="redo" className={classNames(styles.icon, !canGoForward && styles.disabled)}/>
             </button>
 
