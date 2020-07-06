@@ -3,14 +3,15 @@
     flex-direction: column;
 }
 
-.column {
-    flex: 1;
-    margin: 2px;
-    display: flex;
-}
-
 @media (min-width: 768px) {
     .items {
         flex-direction: row;
     }
+}
+
+
+.column {
+    flex: 1;
+    margin: 2px;
+    display: flex;
 }
