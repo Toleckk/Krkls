@@ -17,10 +17,10 @@ export const useItemImage = (item, max = 41) => {
                 return {}
 
             if(image.height > max && image.height > image.width)
-                return {height: '41px', width: 'auto'}
+                return {height: max + 'px', width: 'auto'}
 
             if(image.width > max || image.height > max)
-                return {height: 'auto', width: '41px'}
+                return {height: 'auto', width: max + 'px'}
 
             return {height: image.height, width: image.width}
         },
