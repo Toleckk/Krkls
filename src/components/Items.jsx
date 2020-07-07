@@ -4,6 +4,7 @@ import {Devices} from './Devices'
 import {Weapons} from './Weapons'
 import {Ships} from './Ships'
 import {Panel} from '../ui/Panel'
+import {ItemDrawer} from '../ui/ItemDrawer'
 import styles from './Items.module.css'
 
 export const Items = () => (
@@ -19,5 +20,6 @@ export const Items = () => (
         <div className={styles.column}>
             <Panel title="Корабли" content={<Ships/>}/>
         </div>
+        <ItemDrawer/>
     </DrawerProvider>
 )
