@@ -1,0 +1,57 @@
+@import "../theme";
+
+.image {
+  min-width: 75px;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+
+.table {
+  margin-top: 1rem;
+}
+
+
+.title {
+  font-size: large;
+  color: $select;
+  filter: drop-shadow(0 2px 5px $select);
+  text-align: center;
+}
+
+
+.scrollable {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.modal {
+  background: $background;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: 0 -1px 5px $primary;
+  max-height: 90vh;
+  height: auto;
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    height: 100%;
+    max-height: unset;
+    border-radius: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 1rem;
+    margin-top: unset;
+  }
+}
