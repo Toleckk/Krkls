@@ -3,8 +3,8 @@ import {DrawerProvider} from '../services/drawer'
 import {Devices} from './Devices'
 import {Weapons} from './Weapons'
 import {Ships} from './Ships'
-import styles from './Items.module.css'
 import {Panel} from '../ui/Panel'
+import styles from './Items.module.css'
 
 export const Items = () => (
     <DrawerProvider>
