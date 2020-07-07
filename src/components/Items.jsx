@@ -1,4 +1,5 @@
 import React from 'react'
+import {DrawerProvider} from '../services/drawer'
 import {Devices} from './Devices'
 import {Weapons} from './Weapons'
 import {Ships} from './Ships'
@@ -6,7 +7,7 @@ import styles from './Items.module.css'
 import {Panel} from '../ui/Panel'
 
 export const Items = () => (
-    <>
+    <DrawerProvider>
         <div className={styles.items}>
             <div className={styles.column}>
                 <Panel title="Устройства" content={<Devices/>}/>
@@ -18,5 +19,5 @@ export const Items = () => (
         <div className={styles.column}>
             <Panel title="Корабли" content={<Ships/>}/>
         </div>
-    </>
+    </DrawerProvider>
 )
