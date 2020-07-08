@@ -7,7 +7,14 @@ import weapons from '../data/weapons.json'
 const defaultItems = [
     ...devices.map(device => ({...device, count: 0, type: 'Устройства'})),
     ...weapons.map(weapon => ({...weapon, count: 0, type: 'Оружие'})),
-    ...ships.map(ship => ({...ship, count: 0, type: 'Корабли', class: ship.name, name: `${ship.race} ${ship.name}`}))
+    ...ships.map(ship => ({
+        ...ship,
+        count: 0,
+        type: 'Корабли',
+        class: ship.name,
+        name: `${ship.race} ${ship.name}`,
+        info: {...ship.info, 'Эффективное ХП': ship.info['Структура'] * +('1.' + parseInt(ship.info['Щиты']))},
+    }))
 ]
 
 export const ItemsContext = createContext(null)
