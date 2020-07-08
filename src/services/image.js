@@ -3,13 +3,15 @@ import {useEffect, useMemo, useState} from 'react'
 export const useItemImage = (item, max = 41) => {
     const [image, setImage] = useState(null)
 
-    const src = item.image || '/images/unknown.png'
+    const src = item ? (item.image || '/images/unknown.png') : ''
 
     useEffect(() => {
-        const image = new Image()
-        image.onload = () => setImage(image)
-        image.src = src
-    }, [item.image, src])
+        if(src) {
+            const image = new Image()
+            image.onload = () => setImage(image)
+            image.src = src
+        }
+    }, [item, src])
 
     const sizes = useMemo(
         () => {
