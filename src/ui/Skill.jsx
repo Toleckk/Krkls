@@ -24,8 +24,7 @@ export const Skill = ({skill}) => {
     }
 
     return (
-        <div tabIndex="0"
-             className={styles.skill}
+        <div className={styles.skill}
              onMouseEnter={onMouseEnter}
              onMouseLeave={onMouseLeave}
              onFocus={onMouseEnter}
