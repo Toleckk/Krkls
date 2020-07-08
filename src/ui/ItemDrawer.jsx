@@ -12,7 +12,7 @@ export const ItemDrawer = () => (
             placement="css"
             visible={opened}
             onClose={close}
-            delay={300}
+            delay={150}
             className={styles.drawer}
         >
             <ItemCard item={item}/>
