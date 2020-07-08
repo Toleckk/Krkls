@@ -1,28 +1,35 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import classNames from 'classnames'
 import styles from './Item.module.scss'
 import {useSkillsContext} from '../services/skills'
 import {useHighlightContext} from '../services/highlight'
 import {Button} from './Button'
 import {useItemImage} from '../services/image'
+import {useDrawer} from '../services/drawer'
 
 export const Item = ({item}) => {
-    const {addForItem, findSkill} = useSkillsContext()
+    const {setItem, open} = useDrawer()
+
+    const {findSkill} = useSkillsContext()
 
     const {sizes, loaded} = useItemImage(item)
 
     const {highlightSkills, resetSkillsHighlight, highlightedItems} = useHighlightContext()
-    const onMouseEnter = () => highlightSkills(item)
 
     const {available, name} = item
     const required = highlightedItems[name]
+
+    const openDrawer = useCallback(() => {
+        setItem(item)
+        open()
+    }, [setItem, item, open])
 
     return (
         <Button available={available}
             className={classNames(styles.item, {[styles.highlighted]: required})}
             title={name}
-            onClick={() => addForItem(item)}
-            onMouseEnter={onMouseEnter}
+            onClick={openDrawer}
+            onMouseEnter={() => highlightSkills(item)}
             onMouseLeave={resetSkillsHighlight}
         >
             {loaded && <img style={sizes} src={item.image} alt={item.name}/>}
