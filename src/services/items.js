@@ -13,7 +13,7 @@ const defaultItems = [
         type: 'Корабли',
         class: ship.name,
         name: `${ship.race} ${ship.name}`,
-        info: {...ship.info, 'Эффективное ХП': ship.info['Структура'] * +('1.' + parseInt(ship.info['Щиты']))},
+        info: {...ship.info, 'Эффективное ХП': ~~(ship.info['Структура'] * +('1.' + parseInt(ship.info['Щиты'])))},
     }))
 ]
 
