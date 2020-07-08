@@ -1,0 +1,26 @@
+@import "../theme";
+
+.cell {
+  min-width: 1.2rem;
+  text-align: end;
+}
+
+
+.count {
+  color: $positive;
+}
+
+
+.count.error {
+  color: $error;
+}
+
+
+.button {
+  //border-bottom: 1px solid $secondary;
+  //padding: 0 3px 0 1px;
+}
+
+.button:hover {
+  filter: drop-shadow(0 0 2px $secondary);
+}
