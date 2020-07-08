@@ -15,13 +15,12 @@ export default function App() {
     return (
         <TrackableRouter>
             <Switch>
-                <Route path="/:build([0-9A-Fa-f]{16})">
+                <Route path="/:build([0-9A-Ca-c]{16})">
                     <SkillsContextProvider>
                         <ItemsProvider>
                             <HighlightContextProvider>
                                 <AlertProvider>
                                     <Header/>
-                                    <br/>
                                     <Skills/>
                                     <br/>
                                     <Items/>
