@@ -1,3 +1,5 @@
+@import "../theme";
+
 .drawer {
     position: fixed;
     bottom: 0;
@@ -15,4 +17,20 @@
         height: 100%;
         transform: translate3d(100%, 0, 0);
     }
+}
+
+
+.close {
+    height: 2rem;
+    background: #0d152d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.icon {
+    height: 1.5rem;
+    fill: $text;
 }

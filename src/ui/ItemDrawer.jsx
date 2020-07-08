@@ -16,6 +16,9 @@ export const ItemDrawer = () => (
             className={styles.drawer}
         >
             <ItemCard item={item}/>
+            <button className={styles.close} onClick={close}>
+                <Icon icon="hide" className={styles.icon}/>
+            </button>
         </Drawer>
     )}</DrawerContext.Consumer>
 )
