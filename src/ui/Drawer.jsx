@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import React, {useEffect, useLayoutEffect, useMemo, useRef, useState} from 'react'
 import c from 'classnames'
 import styles from './Drawer.module.scss'
 import {createPortal} from 'react-dom'
@@ -8,38 +8,35 @@ export const Drawer = ({placement, className, visible, onClose, children, delay 
     const [opened, setOpened] = useState(0)
     const bodyOverflow = useRef('')
 
-    const close = useCallback(() => {
-        if(opened) {
-            setOpened(0)
-            setTimeout(onClose, Math.min(Date.now() - opened, delay))
-        }
-    }, [setOpened, onClose, delay, opened])
-
     useEffect(() => {
-        if(visible) {
+        if (!visible && opened) {
+            const timeout = setTimeout(() => setOpened(0), Math.min(Date.now() - opened, delay))
+            document.body.style.overflow = bodyOverflow.current
+            return () => clearTimeout(timeout)
+        }
+    })
+
+    useLayoutEffect(() => {
+        if(visible && !opened) {
+            setOpened(Date.now())
             bodyOverflow.current = document.body.style.overflow
             document.body.style.overflow = 'hidden'
-            setOpened(Date.now())
-        } else
-            document.body.style.overflow = bodyOverflow.current
-    }, [visible, setOpened])
+        }
+    }, [visible, setOpened, opened, delay])
 
     const transition = useMemo(() => ({transitionDuration: delay + 'ms'}), [delay])
 
-    if (!visible && !opened)
-        return <></>
-
     return createPortal(
-        <div className={c(styles.container, styles[placement])} style={{zIndex: z}}>
+        <div className={c(styles.container, styles[placement], (opened || visible) && styles.opened)} style={{zIndex: z}}>
             <div
-                onClick={close}
-                className={c(styles.mask, opened && styles.opened)}
+                onClick={onClose}
+                className={c(styles.mask, visible && styles.opened)}
                 style={transition}
             />
             <div
-                className={c(className, styles.content, styles[placement], opened && styles.opened)}
+                className={c(className, styles.content, styles[placement], visible && styles.opened)}
                 style={{...transition, zIndex: z}}
-            >{children}</div>
+            >{(opened || visible) ? children : null}</div>
         </div>,
         document.body,
     )
