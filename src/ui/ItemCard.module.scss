@@ -79,7 +79,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  height: calc(100vh - 39px - 1rem);
+  height: calc(100% - 3rem);
 }
 
 @media (min-width: 768px) {
