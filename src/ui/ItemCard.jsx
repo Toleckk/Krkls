@@ -5,6 +5,9 @@ import {useItemImage} from '../services/image'
 export const ItemCard = ({item}) => {
     const {loaded, sizes} = useItemImage(item, 55)
 
+    if(!item)
+        return <></>
+
     if (!item.info)
         return <span>Информации пока нет!</span>
 
