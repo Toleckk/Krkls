@@ -1,0 +1,29 @@
+@import "../theme";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 11;
+    background: $background;
+}
+
+@media(min-width: 768px) {
+    .header {
+        position: static;
+    }
+}
+
+
+.control {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .control {
+        display: block;
+    }
+}

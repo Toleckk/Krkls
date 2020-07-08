@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react'
 import {Lvl} from './Lvl'
-import styles from './Header.module.css'
+import styles from './Header.module.scss'
 import {useCanGo} from '../services/history'
 import {ControlButton} from './ControlButton'
 import {useHistory} from 'react-router'

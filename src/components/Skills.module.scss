@@ -4,11 +4,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 3rem;
 }
 
 @media (min-width: 768px) {
     .skills {
         flex-direction: row;
+        margin-top: 1rem;
     }
 }
 
