@@ -4,6 +4,9 @@
     width: 55px;
     height: 55px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item.highlighted {
@@ -35,4 +38,10 @@
 
 .highlight.available {
     color: $positive;
+}
+
+
+.image {
+    max-width: 41px;
+    max-height: 41px;
 }

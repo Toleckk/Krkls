@@ -4,15 +4,12 @@ import styles from './Item.module.scss'
 import {useSkillsContext} from '../services/skills'
 import {useHighlightContext} from '../services/highlight'
 import {Button} from './Button'
-import {useItemImage} from '../services/image'
 import {useDrawer} from '../services/drawer'
 
 export const Item = ({item}) => {
     const {setItem, open} = useDrawer()
 
     const {findSkill} = useSkillsContext()
-
-    const {sizes, loaded} = useItemImage(item)
 
     const {highlightSkills, resetSkillsHighlight, highlightedItems} = useHighlightContext()
 
@@ -32,7 +29,7 @@ export const Item = ({item}) => {
             onMouseEnter={() => highlightSkills(item)}
             onMouseLeave={resetSkillsHighlight}
         >
-            {loaded && <img style={sizes} src={item.image} alt={item.name}/>}
+            <img className={styles.image} src={item.image} alt={item.name}/>
             <div className={classNames(styles.highlight, {
                 [styles.visible]: required,
                 [styles.available]: required && (required.count <= findSkill(required.name).count),
