@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import {useSkillsContext} from '../services/skills'
 import {Skill} from '../ui/Skill'
 import styles from './Skills.module.scss'
+import {FocusVisibleProvider} from '../services/focus'
 
 export const Skills = () => {
     const {skills} = useSkillsContext()
@@ -11,15 +12,17 @@ export const Skills = () => {
     }), {}))
 
     return (
-        <div className={styles.skills}>{
-            sortedSkill.map((group, i, {length}) => (
-                <Fragment key={i}>
-                    <section className={styles.column}>{
-                        group.map((skill, j) => <Skill skill={skill} key={'' + i + j}/>)
-                    }</section>
-                    {(i < length - 1) && <div className={styles.divider}/>}
-                </Fragment>
-            ))}
-        </div>
+        <FocusVisibleProvider>
+            <div className={styles.skills}>{
+                sortedSkill.map((group, i, {length}) => (
+                    <Fragment key={i}>
+                        <section className={styles.column}>{
+                            group.map((skill, j) => <Skill skill={skill} key={'' + i + j}/>)
+                        }</section>
+                        {(i < length - 1) && <div className={styles.divider}/>}
+                    </Fragment>
+                ))}
+            </div>
+        </FocusVisibleProvider>
     )
 }
