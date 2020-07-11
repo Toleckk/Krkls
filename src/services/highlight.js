@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState} from 'react'
+import React, {createContext, useCallback, useContext, useState} from 'react'
 import {useItems} from './items'
 
 export const HighlightContext = createContext(null)
@@ -11,16 +11,22 @@ export const HighlightContextProvider = ({children}) => {
     const [highlightedItems, setHighlightedItems] = useState({})
     const {items} = useItems()
 
-    const highlightSkills = item => setHighlightedSkills(item.skills)
+    const highlightSkills = useCallback(item => setHighlightedSkills(item.skills), [setHighlightedSkills])
 
-    const resetSkillsHighlight = () => setHighlightedSkills({})
+    const resetSkillsHighlight = useCallback(
+        () => Object.keys(highlightedSkills).length && setHighlightedSkills({}),
+        [highlightedSkills, setHighlightedSkills],
+    )
 
-    const highlightItems = skill => setHighlightedItems(items.reduce((acc, item) => {
+    const highlightItems = useCallback(skill => setHighlightedItems(items.reduce((acc, item) => {
         const count = item.skills[skill.name]
         return count ? {...acc, [item.name]: {name: skill.name, count}} : acc
-    }, {}))
+    }, {})), [setHighlightedItems, items])
 
-    const resetItemsHighlight = () => setHighlightedItems({})
+    const resetItemsHighlight = useCallback(
+        () => Object.keys(highlightedItems).length && setHighlightedItems({}),
+        [highlightedItems, setHighlightedItems],
+    )
 
     const value = {
         highlightItems,
