@@ -50,10 +50,10 @@ export const Skill = ({skill}) => {
                 {(hovered || focused) && max && ('↑' + max)}
                 {required && (required > skill.count) && ('+' + (required - skill.count))}
             </span>
-            <Button className={styles.button} disabled={count >= limit} onClick={() => incrementSkill(name)}>
+            <Button className={styles.button} disabled={count >= limit} onClick={() => incrementSkill(name)} name="increment">
                 <span className={styles.sign}>+</span>
             </Button>
-            <Button className={styles.button} disabled={count <= 0} onClick={() => decrementSkill(name)}>
+            <Button className={styles.button} disabled={count <= 0} onClick={() => decrementSkill(name)} name="decrement">
                 <span className={styles.sign}>-</span>
             </Button>
         </div>
