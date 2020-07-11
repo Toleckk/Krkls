@@ -5,8 +5,8 @@ import ships from '../data/ships.json'
 import weapons from '../data/weapons.json'
 
 const defaultItems = [
-    ...devices.map(device => ({...device, count: 0, type: 'Устройства'})),
-    ...weapons.map(weapon => ({...weapon, count: 0, type: 'Оружие'})),
+    ...devices.map(device => ({...device, count: 0, type: 'Устройства', bigImage: device.image.replace(/\.png/, '65.png')})),
+    ...weapons.map(weapon => ({...weapon, count: 0, type: 'Оружие', bigImage: weapon.image.replace(/\.png/, '65.png')})),
     ...ships.map(ship => ({
         ...ship,
         count: 0,

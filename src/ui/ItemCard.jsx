@@ -22,7 +22,7 @@ export const ItemCard = ({item}) => {
         <div className={styles.modal}>
             <div className={styles.title}>
                 <div className={styles.image}>
-                    <img src={item.image} alt={item.name}/>
+                    <img src={item.bigImage || item.image} alt={item.name}/>
                 </div>
                 <span className={styles.name}>{item.name}</span>
             </div>
