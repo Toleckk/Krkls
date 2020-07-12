@@ -17,7 +17,7 @@ export const Navigation = () => {
 
     const history = useHistory()
     const {reset} = useSkillsContext()
-    const {copy} = useCopyLink()
+    const copy = useCopyLink()
 
     return (
         <div className={classNames(styles.fixed, hidden && styles.hidden)}>
