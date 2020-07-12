@@ -10,7 +10,7 @@ export const TrackableRouter = ({children, ...props}) => (
     </BrowserRouter>
 )
 
-const TrackerContext = createContext(null)
+export const TrackerContext = createContext(null)
 
 
 const Tracker = ({children}) => {
@@ -25,12 +25,14 @@ const Tracker = ({children}) => {
         if (!key)
             return setPrev(null)
 
-        const index = keys.indexOf(prev)
+        if(action !== 'POP' || keys.includes(key)) {
+            const index = keys.indexOf(prev)
 
-        if (!keys.includes(key))
-            setKeys([...keys, key])
-        else if (action === 'PUSH' && index < keys.length - 1)
-            setKeys([...keys.slice(0, index), key])
+            if (!keys.includes(key))
+                setKeys([...keys, key])
+            else if (action === 'PUSH' && index < keys.length - 1)
+                setKeys([...keys.slice(0, index), key])
+        }
 
         setPrev(key)
     }, [setKeys, keys, setPrev, prev])
