@@ -20,9 +20,10 @@
 
 .control {
     display: none;
+    margin-left: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 421px) {
     .control {
         display: block;
     }

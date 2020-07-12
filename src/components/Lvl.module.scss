@@ -19,6 +19,13 @@
 .row {
   display: flex;
   justify-content: space-between;
+  flex: 1;
+}
+
+@media (min-width: 1280px) {
+  .row {
+    flex: unset;
+  }
 }
 
 
