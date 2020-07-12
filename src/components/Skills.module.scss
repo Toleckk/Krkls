@@ -9,6 +9,7 @@
 
 @media (min-width: 768px) {
     .skills {
+        flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
     }
@@ -25,8 +26,7 @@
 
 .column {
     position: relative;
-    margin-right: 3px;
-    margin-left: 3px;
+    margin: 0 3px 1rem;
 }
 
 .divider {
@@ -34,7 +34,15 @@
     min-height: 1px;
     background: $primary;
     box-shadow: 0 0 5px $primary;
-    margin: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media(min-width: 768px) {
+    .divider {
+        min-height: 100%;
+        margin: 0 0.5rem 1rem;
+    }
 }
 
 @media (min-width: 1280px) {
