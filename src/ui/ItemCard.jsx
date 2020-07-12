@@ -4,6 +4,7 @@ import styles from './ItemCard.module.scss'
 import {ItemSkill} from './ItemSkill'
 import {useHighlightContext} from '../services/highlight'
 import {useSkillsContext} from '../services/skills'
+import {Effects} from './Effects'
 
 export const ItemCard = ({item}) => {
     const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
@@ -32,16 +33,19 @@ export const ItemCard = ({item}) => {
                 <div className={styles.scrollable}>
                     {
                         item.info ? (
-                                <table>
-                                    <tbody>
-                                    {Object.keys(item.info).map(key => (
-                                        <tr key={key}>
-                                            <td>{key}</td>
-                                            <td style={{textAlign: 'end'}}>{item.info[key]}</td>
-                                        </tr>
-                                    ))}
-                                    </tbody>
-                                </table>
+                                <>
+                                    <table>
+                                        <tbody>
+                                        {Object.keys(item.info).map(key => (
+                                            <tr key={key}>
+                                                <td>{key}</td>
+                                                <td style={{textAlign: 'end'}}>{item.info[key]}</td>
+                                            </tr>
+                                        ))}
+                                        </tbody>
+                                    </table>
+                                    <Effects item={item}/>
+                                </>
                             )
                             : <span style={{textAlign: 'center'}}>Информации пока нет!</span>
                     }
