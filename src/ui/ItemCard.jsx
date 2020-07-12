@@ -53,7 +53,9 @@ export const ItemCard = ({item}) => {
                             .map(skill => <ItemSkill skill={skill} key={skill.name}/>)
                     }</tbody>
                 </table>
-                {count && <button className={styles.apply} onClick={() => addForItem(item)} title="Добавить">+{count}</button>}
+                {count && <button className={styles.apply} onClick={() => addForItem(item)} title="Добавить">
+                    <span className={styles.count}>+{count}</span>
+                </button>}
             </div>
         </div>
     )
