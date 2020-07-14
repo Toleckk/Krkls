@@ -1,13 +1,29 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Drawer} from './Drawer'
-import {DrawerContext} from '../services/drawer'
+import {useDrawer} from '../services/drawer'
 import {ItemCard} from './ItemCard'
 import styles from './ItemDrawer.module.scss'
 import {Icon} from './Icon'
+import {useHighlightContext} from '../services/highlight'
+import {Redirect, useLocation} from 'react-router'
 
 
-export const ItemDrawer = () => (
-    <DrawerContext.Consumer>{({item, close, opened}) => (
+export const ItemDrawer = () => {
+    const {item, close, opened} = useDrawer()
+    const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
+    const location = useLocation()
+
+    useEffect(() => {
+        if(item) {
+            highlightSkills(item)
+            return resetSkillsHighlight
+        }
+    }, [item, highlightSkills, resetSkillsHighlight])
+
+    if(!item)
+        return <Redirect to={location.pathname}/>
+
+    return (
         <Drawer
             placement="css"
             visible={opened}
@@ -20,5 +36,5 @@ export const ItemDrawer = () => (
                 <Icon icon="hide" className={styles.icon}/>
             </button>
         </Drawer>
-    )}</DrawerContext.Consumer>
-)
+    )
+}

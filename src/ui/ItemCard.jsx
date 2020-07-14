@@ -1,21 +1,14 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react'
+import React, {useCallback, useMemo, useState} from 'react'
 import c from 'classnames'
 import styles from './ItemCard.module.scss'
 import {ItemSkill} from './ItemSkill'
-import {useHighlightContext} from '../services/highlight'
 import {useSkillsContext} from '../services/skills'
 import {Effects} from './Effects'
 import {useDrawer} from '../services/drawer'
 
 export const ItemCard = ({item}) => {
-    const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
     const {addSkills, findSkill, skills} = useSkillsContext()
     const {close} = useDrawer()
-
-    useEffect(() => {
-        highlightSkills(item)
-        return resetSkillsHighlight
-    }, [item, highlightSkills, resetSkillsHighlight])
 
     const requiredSkills = useMemo(() => {
         const required = Object.keys(item.skills)
@@ -41,7 +34,7 @@ export const ItemCard = ({item}) => {
 
     const count = selectedSkills.reduce((acc, s) => {
         const {count} = findSkill(s.name)
-        return acc + (count >= s.count ? 0 : s.count)
+        return acc + Math.max(s.count - count, 0)
     }, 0) || null
 
     const commit = () => {
