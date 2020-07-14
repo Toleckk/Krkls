@@ -17,9 +17,10 @@ const Tracker = ({children}) => {
     const history = useHistory()
 
     const [keys, setKeys] = useState(JSON.parse(sessionStorage.getItem('keys') || '[]'))
-    const [prev, setPrev] = useState(null)
+    const [prev, setPrev] = useState(sessionStorage.getItem('prev'))
 
     useEffect(() => sessionStorage.setItem('keys', JSON.stringify(keys)), [keys])
+    useEffect(() => void (prev && sessionStorage.setItem('prev', prev)), [prev])
 
     const onChange = useCallback(({key}, action) => {
         if (!key)
