@@ -69,15 +69,15 @@ export const SkillsContextProvider = ({children}) => {
         return requiredSkills.every(s => s.count >= item.skills[s.name])
     }, [skills])
 
+    const addSkills = useCallback(minSkills => setSkills(skills.map(skill => {
+        const minSkill = minSkills.find(minSkill => minSkill.name === skill.name)
+        return minSkill && minSkill.count > skill.count ? {...skill, count: minSkill.count} : skill
+    })), [skills, setSkills])
 
-    const addForItem = useCallback(i => {
-        const required = Object.keys(i.skills)
-        setSkills(skills.map(skill => (
-            required.some(name => skill.name === name)
-                ? ({...skill, count: Math.max(skill.count, i.skills[skill.name])})
-                : skill
-        )))
-    }, [skills, setSkills])
+    const addForItem = useCallback(
+        item => addSkills(Object.keys(item.skills).map(name => ({name, count: item.skills[name]}))),
+        [addSkills]
+    )
 
 
     const value = {
