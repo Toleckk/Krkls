@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useContext, useMemo, useState} from 'react'
+import React, {createContext, useCallback, useContext, useEffect, useMemo, useState} from 'react'
 import {useHistory, useLocation} from 'react-router'
 
 export const DrawerContext = createContext(null)
@@ -10,18 +10,16 @@ export const DrawerProvider = ({children}) => {
     const location = useLocation()
     const history = useHistory()
 
-    const opened = location.hash === '#drawer'
-    const setOpened = useCallback(is => {
-        if(is && !opened)
-            history.push(location.pathname + '#drawer')
-        else if (!is && opened)
-            history.push(location.pathname)
-    }, [history, opened, location])
+    const open = useCallback(() => location.hash !== '#drawer' && history.push(location.pathname + '#drawer'), [history, location])
+    const close = useCallback(() => location.hash === '#drawer' && history.push(location.pathname), [history, location])
 
-    const open = useCallback(() => setOpened(true), [setOpened])
-    const close = useCallback(() => setOpened(false), [setOpened])
+    useEffect(() => {
+        const listener = e => (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) && close()
+        document.addEventListener('keydown', listener)
+        return () => document.removeEventListener('keydown', listener)
+    }, [history, location, close])
 
-    const value = useMemo(() => ({item, setItem, open, close, opened}), [item, setItem, opened, open, close])
+    const value = {item, setItem, open, close, opened: location.hash === '#drawer'}
 
     return <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>
 }
