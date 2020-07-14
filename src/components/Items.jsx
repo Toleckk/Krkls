@@ -9,20 +9,20 @@ const Devices = React.lazy(() => import('./Devices').then(m => ({default: m.Devi
 const Weapons = React.lazy(() => import('./Weapons').then(m => ({default: m.Weapons})))
 const Ships = React.lazy(() => import('./Ships').then(m => ({default: m.Ships})))
 
-const Suspense = ({children}) => <React.Suspense fallback={<Loader/>}>{children}</React.Suspense>
+const Suspense = ({Component}) => <React.Suspense fallback={<Loader/>} children={<Component/>}/>
 
 export const Items = () => (
     <DrawerProvider>
         <div className={styles.items}>
             <div className={styles.column}>
-                <Panel title="Устройства" content={<Suspense><Devices/></Suspense>}/>
+                <Panel title="Устройства" content={<Suspense Component={Devices}/>}/>
             </div>
             <div className={styles.column}>
-                <Panel title="Оружие" content={<Suspense><Weapons/></Suspense>}/>
+                <Panel title="Оружие" content={<Suspense Component={Weapons}/>}/>
             </div>
         </div>
         <div className={styles.column}>
-            <Panel title="Корабли" content={<Suspense><Ships/></Suspense>}/>
+            <Panel title="Корабли" content={<Suspense Component={Ships}/>}/>
         </div>
         <ItemDrawer/>
     </DrawerProvider>
