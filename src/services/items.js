@@ -1,18 +1,32 @@
 import React, {useMemo, useContext, createContext, useState} from 'react'
 import {useSkillsContext} from './skills'
-import devices from '../data/devices.json'
-import ships from '../data/ships.json'
-import weapons from '../data/weapons.json'
+import {devices, ships, weapons} from '../data/images'
+import devicesData from '../data/devices.json'
+import shipsData from '../data/ships.json'
+import weaponsData from '../data/weapons.json'
 
 const defaultItems = [
-    ...devices.map(device => ({...device, count: 0, type: 'Устройства', bigImage: device.image.replace(/\.png/, '65.png')})),
-    ...weapons.map(weapon => ({...weapon, count: 0, type: 'Оружие', bigImage: weapon.image.replace(/\.png/, '65.png')})),
-    ...ships.map(ship => ({
+    ...devicesData.map(device => ({
+        ...device,
+        count: 0,
+        type: 'Устройства',
+        image: devices['img_' + device.image],
+        bigImage: devices['img_' + device.image + '65'],
+    })),
+    ...weaponsData.map(weapon => ({
+        ...weapon,
+        count: 0,
+        type: 'Оружие',
+        image: weapons['img_' + weapon.image],
+        bigImage: weapons['img_' + weapon.image + '65'],
+    })),
+    ...shipsData.map(ship => ({
         ...ship,
         count: 0,
         type: 'Корабли',
         class: ship.name,
         name: `${ship.race} ${ship.name}`,
+        image: ships['img_' + ship.image],
         info: {...ship.info, 'Эффективное ХП': ~~(ship.info['Структура'] * parseInt(ship.info['Щиты']) / 100 + +ship.info['Структура'])},
     }))
 ]

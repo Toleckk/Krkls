@@ -2,7 +2,7 @@
   {
     "name": "Транспорт",
     "race": "Гулдуцкий",
-    "image": "/images/ships/127_Main_GTransport.png",
+    "image": "127_Main_GTransport",
     "skills": {
       "Пилотирование": 1
     },
@@ -22,7 +22,7 @@
   {
     "name": "Истребитель",
     "race": "Гулдуцкий",
-    "image": "/images/ships/112_Main_GIntercepter.png",
+    "image": "112_Main_GIntercepter",
     "skills": {
       "Пилотирование": 1
     },
@@ -42,7 +42,7 @@
   {
     "name": "Фрегат",
     "race": "Гулдуцкий",
-    "image": "/images/ships/61_Main_GFregat.png",
+    "image": "61_Main_GFregat",
     "skills": {
       "Пилотирование": 2
     },
@@ -62,7 +62,7 @@
   {
     "name": "Корсар",
     "race": "Омоленианинский",
-    "image": "/images/ships/105_Main_OIntercepterCorsar.png",
+    "image": "105_Main_OIntercepterCorsar",
     "skills": {
       "Пилотирование": 8,
       "Механика": 3,
@@ -84,7 +84,7 @@
   {
     "name": "Корсар",
     "race": "Ирриецкий",
-    "image": "/images/ships/6_Main_IIntercepterCorsar.png",
+    "image": "6_Main_IIntercepterCorsar",
     "skills": {
       "Пилотирование": 8,
       "Биохимия": 3,
@@ -106,7 +106,7 @@
   {
     "name": "Корсар",
     "race": "Анидский",
-    "image": "/images/ships/148_Main_AIntercepterCorsar.png",
+    "image": "148_Main_AIntercepterCorsar",
     "skills": {
       "Пилотирование": 8,
       "Кибернетика": 3,
@@ -128,7 +128,7 @@
   {
     "name": "Корсар",
     "race": "Медрамилльский",
-    "image": "/images/ships/89_Main_MIntercepterCorsar.png",
+    "image": "89_Main_MIntercepterCorsar",
     "skills": {
       "Пилотирование": 8,
       "Электроника": 3,
@@ -150,7 +150,7 @@
   {
     "name": "Корсар МК1",
     "race": "Гулдуцкий",
-    "image": "/images/ships/5_Main_PIntercepterCorsar.png",
+    "image": "5_Main_PIntercepterCorsar",
     "skills": {
       "Пилотирование": 10,
       "Электроника": 3,
@@ -174,7 +174,7 @@
   {
     "name": "Транспорт",
     "race": "Омоленианинский",
-    "image": "/images/ships/45_Main_OTransport.png",
+    "image": "45_Main_OTransport",
     "skills": {
       "Пилотирование": 1
     },
@@ -194,7 +194,7 @@
   {
     "name": "Транспорт МК1",
     "race": "Омоленианинский",
-    "image": "/images/ships/39_Main_OLRTransport.png",
+    "image": "39_Main_OLRTransport",
     "skills": {
       "Пилотирование": 5,
       "Торговля": 4
@@ -215,7 +215,7 @@
   {
     "name": "Транспорт МК2",
     "race": "Омоленианинский",
-    "image": "/images/ships/86_Main_OFTransport.png",
+    "image": "86_Main_OFTransport",
     "skills": {
       "Пилотирование": 6,
       "Торговля": 7
@@ -236,7 +236,7 @@
   {
     "name": "Транспорт",
     "race": "Ирриецкий",
-    "image": "/images/ships/29_Main_ITransport.png",
+    "image": "29_Main_ITransport",
     "skills": {
       "Пилотирование": 1
     },
@@ -256,7 +256,7 @@
   {
     "name": "Транспорт МК1",
     "race": "Ирриецкий",
-    "image": "/images/ships/69_Main_ILRTransport.png",
+    "image": "69_Main_ILRTransport",
     "skills": {
       "Пилотирование": 5,
       "Торговля": 4
@@ -277,7 +277,7 @@
   {
     "name": "Транспорт МК2",
     "race": "Ирриецкий",
-    "image": "/images/ships/117_Main_IFTransport.png",
+    "image": "117_Main_IFTransport",
     "skills": {
       "Пилотирование": 6,
       "Торговля": 7
@@ -298,7 +298,7 @@
   {
     "name": "Транспорт",
     "race": "Анидский",
-    "image": "/images/ships/31_Main_ATransport.png",
+    "image": "31_Main_ATransport",
     "skills": {
       "Пилотирование": 1
     },
@@ -318,7 +318,7 @@
   {
     "name": "Транспорт МК1",
     "race": "Анидский",
-    "image": "/images/ships/118_Main_ALRTransport.png",
+    "image": "118_Main_ALRTransport",
     "skills": {
       "Пилотирование": 5,
       "Торговля": 4
@@ -339,7 +339,7 @@
   {
     "name": "Транспорт МК2",
     "race": "Анидский",
-    "image": "/images/ships/147_Main_AFTransport.png",
+    "image": "147_Main_AFTransport",
     "skills": {
       "Пилотирование": 6,
       "Торговля": 7
@@ -360,7 +360,7 @@
   {
     "name": "Транспорт",
     "race": "Медрамилльский",
-    "image": "/images/ships/129_Main_MTransport.png",
+    "image": "129_Main_MTransport",
     "skills": {
       "Пилотирование": 1
     },
@@ -380,7 +380,7 @@
   {
     "name": "Транспорт МК1",
     "race": "Медрамилльский",
-    "image": "/images/ships/66_Main_MLRTransport.png",
+    "image": "66_Main_MLRTransport",
     "skills": {
       "Пилотирование": 5,
       "Торговля": 4
@@ -401,7 +401,7 @@
   {
     "name": "Транспорт МК2",
     "race": "Медрамилльский",
-    "image": "/images/ships/141_Main_MFTransport.png",
+    "image": "141_Main_MFTransport",
     "skills": {
       "Пилотирование": 6,
       "Торговля": 7
@@ -422,7 +422,7 @@
   {
     "name": "Рудокоп",
     "race": "Омоленианинский",
-    "image": "/images/ships/87_Main_OLMiner.png",
+    "image": "87_Main_OLMiner",
     "skills": {
       "Пилотирование": 4,
       "Добыча": 5
@@ -443,7 +443,7 @@
   {
     "name": "Рудокоп",
     "race": "Ирриецкий",
-    "image": "/images/ships/104_Main_ILMiner.png",
+    "image": "104_Main_ILMiner",
     "skills": {
       "Пилотирование": 4,
       "Добыча": 5
@@ -464,7 +464,7 @@
   {
     "name": "Рудокоп",
     "race": "Анидский",
-    "image": "/images/ships/84_Main_ALMiner.png",
+    "image": "84_Main_ALMiner",
     "skills": {
       "Пилотирование": 4,
       "Добыча": 5
@@ -485,7 +485,7 @@
   {
     "name": "Рудокоп",
     "race": "Медрамилльский",
-    "image": "/images/ships/57_Main_MLMiner.png",
+    "image": "57_Main_MLMiner",
     "skills": {
       "Пилотирование": 4,
       "Добыча": 5
@@ -506,7 +506,7 @@
   {
     "name": "Корвет",
     "race": "Омоленианинский",
-    "image": "/images/ships/94_Main_OScout.png",
+    "image": "94_Main_OScout",
     "skills": {
       "Пилотирование": 2,
       "Механика": 1
@@ -527,7 +527,7 @@
   {
     "name": "Корвет",
     "race": "Ирриецкий",
-    "image": "/images/ships/79_Main_IScout.png",
+    "image": "79_Main_IScout",
     "skills": {
       "Пилотирование": 2,
       "Биохимия": 1
@@ -548,7 +548,7 @@
   {
     "name": "Корвет",
     "race": "Анидский",
-    "image": "/images/ships/13_Main_AScout.png",
+    "image": "13_Main_AScout",
     "skills": {
       "Пилотирование": 2,
       "Кибернетика": 1
@@ -569,7 +569,7 @@
   {
     "name": "Корвет",
     "race": "Медрамилльский",
-    "image": "/images/ships/67_Main_MScout.png",
+    "image": "67_Main_MScout",
     "skills": {
       "Пилотирование": 2,
       "Электроника": 1
@@ -590,7 +590,7 @@
   {
     "name": "Истребитель",
     "race": "Омоленианинский",
-    "image": "/images/ships/37_Main_OIntercepter.png",
+    "image": "37_Main_OIntercepter",
     "skills": {
       "Пилотирование": 4,
       "Механика": 2
@@ -611,7 +611,7 @@
   {
     "name": "Истребитель",
     "race": "Ирриецкий",
-    "image": "/images/ships/151_Main_IIntercepter.png",
+    "image": "151_Main_IIntercepter",
     "skills": {
       "Пилотирование": 4,
       "Биохимия": 2
@@ -632,7 +632,7 @@
   {
     "name": "Истребитель",
     "race": "Анидский",
-    "image": "/images/ships/96_Main_AIntercepter.png",
+    "image": "96_Main_AIntercepter",
     "skills": {
       "Пилотирование": 4,
       "Кибернетика": 2
@@ -653,7 +653,7 @@
   {
     "name": "Истребитель",
     "race": "Медрамилльский",
-    "image": "/images/ships/17_Main_MIntercepter.png",
+    "image": "17_Main_MIntercepter",
     "skills": {
       "Пилотирование": 4,
       "Электроника": 2
@@ -674,7 +674,7 @@
   {
     "name": "Научный",
     "race": "Омоленианинский",
-    "image": "/images/ships/36_Main_OSience.png",
+    "image": "36_Main_OSience",
     "skills": {
       "Пилотирование": 3,
       "Механика": 3
@@ -695,7 +695,7 @@
   {
     "name": "Научный",
     "race": "Ирриецкий",
-    "image": "/images/ships/70_Main_ISience.png",
+    "image": "70_Main_ISience",
     "skills": {
       "Пилотирование": 3,
       "Биохимия": 3
@@ -716,7 +716,7 @@
   {
     "name": "Научный",
     "race": "Анидский",
-    "image": "/images/ships/135_Main_ASience.png",
+    "image": "135_Main_ASience",
     "skills": {
       "Пилотирование": 3,
       "Кибернетика": 3
@@ -737,7 +737,7 @@
   {
     "name": "Научный",
     "race": "Медрамилльский",
-    "image": "/images/ships/124_Main_MSience.png",
+    "image": "124_Main_MSience",
     "skills": {
       "Пилотирование": 3,
       "Электроника": 3
@@ -758,7 +758,7 @@
   {
     "name": "Фрегат",
     "race": "Омоленианинский",
-    "image": "/images/ships/15_Main_OFregat.png",
+    "image": "15_Main_OFregat",
     "skills": {
       "Пилотирование": 5,
       "Механика": 3,
@@ -780,7 +780,7 @@
   {
     "name": "Фрегат",
     "race": "Ирриецкий",
-    "image": "/images/ships/115_Main_IFregat.png",
+    "image": "115_Main_IFregat",
     "skills": {
       "Пилотирование": 5,
       "Биохимия": 3,
@@ -802,7 +802,7 @@
   {
     "name": "Фрегат",
     "race": "Анидский",
-    "image": "/images/ships/88_Main_AFregat.png",
+    "image": "88_Main_AFregat",
     "skills": {
       "Пилотирование": 5,
       "Кибернетика": 3,
@@ -824,7 +824,7 @@
   {
     "name": "Фрегат",
     "race": "Медрамилльский",
-    "image": "/images/ships/50_Main_MFregat.png",
+    "image": "50_Main_MFregat",
     "skills": {
       "Пилотирование": 5,
       "Электроника": 3,
@@ -846,7 +846,7 @@
   {
     "name": "Крейсер",
     "race": "Омоленианинский",
-    "image": "/images/ships/111_Main_OCruiser.png",
+    "image": "111_Main_OCruiser",
     "skills": {
       "Пилотирование": 6,
       "Механика": 4,
@@ -868,7 +868,7 @@
   {
     "name": "Крейсер",
     "race": "Ирриецкий",
-    "image": "/images/ships/116_Main_ICruiser.png",
+    "image": "116_Main_ICruiser",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 4,
@@ -890,7 +890,7 @@
   {
     "name": "Крейсер",
     "race": "Анидский",
-    "image": "/images/ships/3_Main_ACruiser.png",
+    "image": "3_Main_ACruiser",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 4,
@@ -912,7 +912,7 @@
   {
     "name": "Крейсер",
     "race": "Медрамилльский",
-    "image": "/images/ships/18_Main_MCruiser.png",
+    "image": "18_Main_MCruiser",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 4,
@@ -934,7 +934,7 @@
   {
     "name": "Линкор",
     "race": "Омоленианинский",
-    "image": "/images/ships/51_Main_OLinkor.png",
+    "image": "51_Main_OLinkor",
     "skills": {
       "Пилотирование": 7,
       "Механика": 4,
@@ -956,7 +956,7 @@
   {
     "name": "Линкор",
     "race": "Ирриецкий",
-    "image": "/images/ships/125_Main_ILinkor.png",
+    "image": "125_Main_ILinkor",
     "skills": {
       "Пилотирование": 7,
       "Биохимия": 4,
@@ -978,7 +978,7 @@
   {
     "name": "Линкор",
     "race": "Анидский",
-    "image": "/images/ships/16_Main_ALinkor.png",
+    "image": "16_Main_ALinkor",
     "skills": {
       "Пилотирование": 7,
       "Кибернетика": 4,
@@ -1000,7 +1000,7 @@
   {
     "name": "Линкор",
     "race": "Медрамилльский",
-    "image": "/images/ships/62_Main_MLinkor.png",
+    "image": "62_Main_MLinkor",
     "skills": {
       "Пилотирование": 7,
       "Электроника": 4,
@@ -1022,7 +1022,7 @@
   {
     "name": "Тяжелый истребитель",
     "race": "Омоленианинский",
-    "image": "/images/ships/24_Main_OIntercepterHavy.png",
+    "image": "24_Main_OIntercepterHavy",
     "skills": {
       "Пилотирование": 6,
       "Механика": 2,
@@ -1044,7 +1044,7 @@
   {
     "name": "Тяжелый истребитель",
     "race": "Ирриецкий",
-    "image": "/images/ships/46_Main_IIntercepterHavy.png",
+    "image": "46_Main_IIntercepterHavy",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 2,
@@ -1066,7 +1066,7 @@
   {
     "name": "Тяжелый истребитель",
     "race": "Анидский",
-    "image": "/images/ships/133_Main_AIntercepterHavy.png",
+    "image": "133_Main_AIntercepterHavy",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 2,
@@ -1088,7 +1088,7 @@
   {
     "name": "Тяжелый истребитель",
     "race": "Медрамилльский",
-    "image": "/images/ships/28_Main_MIntercepterHavy.png",
+    "image": "28_Main_MIntercepterHavy",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 2,
@@ -1110,7 +1110,7 @@
   {
     "name": "Броненосец",
     "race": "Омоленианинский",
-    "image": "/images/ships/44_Main_OFregatArmored.png",
+    "image": "44_Main_OFregatArmored",
     "skills": {
       "Пилотирование": 6,
       "Механика": 3,
@@ -1132,7 +1132,7 @@
   {
     "name": "Броненосец",
     "race": "Ирриецкий",
-    "image": "/images/ships/21_Main_IFregatArmored.png",
+    "image": "21_Main_IFregatArmored",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 3,
@@ -1154,7 +1154,7 @@
   {
     "name": "Броненосец",
     "race": "Анидский",
-    "image": "/images/ships/120_Main_AFregatArmored.png",
+    "image": "120_Main_AFregatArmored",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 3,
@@ -1176,7 +1176,7 @@
   {
     "name": "Броненосец",
     "race": "Медрамилльский",
-    "image": "/images/ships/23_Main_MFregatArmored.png",
+    "image": "23_Main_MFregatArmored",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 3,
@@ -1198,7 +1198,7 @@
   {
     "name": "Штурмовик",
     "race": "Омоленианинский",
-    "image": "/images/ships/134_Main_OFregatAssault.png",
+    "image": "134_Main_OFregatAssault",
     "skills": {
       "Пилотирование": 9,
       "Механика": 4,
@@ -1220,7 +1220,7 @@
   {
     "name": "Штурмовик",
     "race": "Ирриецкий",
-    "image": "/images/ships/9_Main_IFregatAssault.png",
+    "image": "9_Main_IFregatAssault",
     "skills": {
       "Пилотирование": 9,
       "Биохимия": 4,
@@ -1242,7 +1242,7 @@
   {
     "name": "Штурмовик",
     "race": "Анидский",
-    "image": "/images/ships/95_Main_AFregatAssault.png",
+    "image": "95_Main_AFregatAssault",
     "skills": {
       "Пилотирование": 9,
       "Кибернетика": 4,
@@ -1264,7 +1264,7 @@
   {
     "name": "Штурмовик",
     "race": "Медрамилльский",
-    "image": "/images/ships/26_Main_MFregatAssault.png",
+    "image": "26_Main_MFregatAssault",
     "skills": {
       "Пилотирование": 9,
       "Электроника": 4,
@@ -1286,7 +1286,7 @@
   {
     "name": "Ударный Штурмовик",
     "race": "Омоленианинский",
-    "image": "/images/ships/123_Main_OFregatAssaultM1.png",
+    "image": "123_Main_OFregatAssaultM1",
     "skills": {
       "Пилотирование": 9,
       "Механика": 4,
@@ -1308,7 +1308,7 @@
   {
     "name": "Ударный Штурмовик",
     "race": "Ирриецкий",
-    "image": "/images/ships/8_Main_IFregatAssaultM1.png",
+    "image": "8_Main_IFregatAssaultM1",
     "skills": {
       "Пилотирование": 9,
       "Механика": 4,
@@ -1330,7 +1330,7 @@
   {
     "name": "Ударный Штурмовик",
     "race": "Анидский",
-    "image": "/images/ships/126_Main_AFregatAssaultM1.png",
+    "image": "126_Main_AFregatAssaultM1",
     "skills": {
       "Пилотирование": 9,
       "Механика": 4,
@@ -1352,7 +1352,7 @@
   {
     "name": "Ударный Штурмовик",
     "race": "Медрамилльский",
-    "image": "/images/ships/93_Main_MFregatAssaultM1.png",
+    "image": "93_Main_MFregatAssaultM1",
     "skills": {
       "Пилотирование": 9,
       "Механика": 4,
@@ -1374,7 +1374,7 @@
   {
     "name": "Разведчик",
     "race": "Омоленианинский",
-    "image": "/images/ships/99_Main_OScoutM1.png",
+    "image": "99_Main_OScoutM1",
     "skills": {
       "Пилотирование": 6,
       "Механика": 2,
@@ -1396,7 +1396,7 @@
   {
     "name": "Разведчик",
     "race": "Ирриецкий",
-    "image": "/images/ships/53_Main_IScoutM1.png",
+    "image": "53_Main_IScoutM1",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 2,
@@ -1418,7 +1418,7 @@
   {
     "name": "Разведчик",
     "race": "Анидский",
-    "image": "/images/ships/4_Main_AScoutM1.png",
+    "image": "4_Main_AScoutM1",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 2,
@@ -1440,7 +1440,7 @@
   {
     "name": "Разведчик",
     "race": "Медрамилльский",
-    "image": "/images/ships/128_Main_MScoutM1.png",
+    "image": "128_Main_MScoutM1",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 2,
@@ -1462,7 +1462,7 @@
   {
     "name": "Бриг",
     "race": "Омоленианинский",
-    "image": "/images/ships/63_Main_OBrig.png",
+    "image": "63_Main_OBrig",
     "skills": {
       "Пилотирование": 6,
       "Механика": 5,
@@ -1484,7 +1484,7 @@
   {
     "name": "Бриг",
     "race": "Ирриецкий",
-    "image": "/images/ships/121_Main_IBrig.png",
+    "image": "121_Main_IBrig",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 5,
@@ -1506,7 +1506,7 @@
   {
     "name": "Бриг",
     "race": "Анидский",
-    "image": "/images/ships/98_Main_ABrig.png",
+    "image": "98_Main_ABrig",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 5,
@@ -1528,7 +1528,7 @@
   {
     "name": "Бриг",
     "race": "Медрамилльский",
-    "image": "/images/ships/143_Main_MBrig.png",
+    "image": "143_Main_MBrig",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 5,
@@ -1550,7 +1550,7 @@
   {
     "name": "Бриг",
     "race": "Гулдуцкий",
-    "image": "/images/ships/27_Main_GBrig.png",
+    "image": "27_Main_GBrig",
     "skills": {
       "Пилотирование": 6,
       "Наведение": 5,
@@ -1572,7 +1572,7 @@
   {
     "name": "Ударный Бриг",
     "race": "Омоленианинский",
-    "image": "/images/ships/106_Main_OShockBrig.png",
+    "image": "106_Main_OShockBrig",
     "skills": {
       "Пилотирование": 6,
       "Механика": 6,
@@ -1594,7 +1594,7 @@
   {
     "name": "Ударный Бриг",
     "race": "Ирриецкий",
-    "image": "/images/ships/82_Main_IShockBrig.png",
+    "image": "82_Main_IShockBrig",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 6,
@@ -1616,7 +1616,7 @@
   {
     "name": "Ударный Бриг",
     "race": "Анидский",
-    "image": "/images/ships/49_Main_AShockBrig.png",
+    "image": "49_Main_AShockBrig",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 6,
@@ -1638,7 +1638,7 @@
   {
     "name": "Ударный Бриг",
     "race": "Медрамилльский",
-    "image": "/images/ships/119_Main_MShockBrig.png",
+    "image": "119_Main_MShockBrig",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 6,
@@ -1660,7 +1660,7 @@
   {
     "name": "Ударный Бриг",
     "race": "Гулдуцкий",
-    "image": "/images/ships/25_Main_GShockBrig.png",
+    "image": "25_Main_GShockBrig",
     "skills": {
       "Пилотирование": 6,
       "Наведение": 6,
@@ -1682,7 +1682,7 @@
   {
     "name": "Осадный Бриг",
     "race": "Омоленианинский",
-    "image": "/images/ships/142_Main_OSiegeBrig.png",
+    "image": "142_Main_OSiegeBrig",
     "skills": {
       "Пилотирование": 7,
       "Механика": 6,
@@ -1704,7 +1704,7 @@
   {
     "name": "Осадный Бриг",
     "race": "Ирриецкий",
-    "image": "/images/ships/54_Main_ISiegeBrig.png",
+    "image": "54_Main_ISiegeBrig",
     "skills": {
       "Пилотирование": 7,
       "Биохимия": 6,
@@ -1726,7 +1726,7 @@
   {
     "name": "Осадный Бриг",
     "race": "Анидский",
-    "image": "/images/ships/81_Main_ASiegeBrig.png",
+    "image": "81_Main_ASiegeBrig",
     "skills": {
       "Пилотирование": 7,
       "Кибернетика": 6,
@@ -1748,7 +1748,7 @@
   {
     "name": "Осадный Бриг",
     "race": "Медрамилльский",
-    "image": "/images/ships/107_Main_MSiegeBrig.png",
+    "image": "107_Main_MSiegeBrig",
     "skills": {
       "Пилотирование": 7,
       "Электроника": 6,
@@ -1770,7 +1770,7 @@
   {
     "name": "Осадный Бриг",
     "race": "Гулдуцкий",
-    "image": "/images/ships/34_Main_GSiegeBrig.png",
+    "image": "34_Main_GSiegeBrig",
     "skills": {
       "Пилотирование": 7,
       "Наведение": 6,
@@ -1792,7 +1792,7 @@
   {
     "name": "Осадный Линкор",
     "race": "Омоленианинский",
-    "image": "/images/ships/12_Main_OSiegeLinkor.png",
+    "image": "12_Main_OSiegeLinkor",
     "skills": {
       "Пилотирование": 6,
       "Механика": 5,
@@ -1814,7 +1814,7 @@
   {
     "name": "Осадный Линкор",
     "race": "Ирриецкий",
-    "image": "/images/ships/58_Main_ISiegeLinkor.png",
+    "image": "58_Main_ISiegeLinkor",
     "skills": {
       "Пилотирование": 6,
       "Биохимия": 5,
@@ -1836,7 +1836,7 @@
   {
     "name": "Осадный Линкор",
     "race": "Анидский",
-    "image": "/images/ships/75_Main_ASiegeLinkor.png",
+    "image": "75_Main_ASiegeLinkor",
     "skills": {
       "Пилотирование": 6,
       "Кибернетика": 5,
@@ -1858,7 +1858,7 @@
   {
     "name": "Осадный Линкор",
     "race": "Медрамилльский",
-    "image": "/images/ships/52_Main_MSiegeLinkor.png",
+    "image": "52_Main_MSiegeLinkor",
     "skills": {
       "Пилотирование": 6,
       "Электроника": 5,
@@ -1880,7 +1880,7 @@
   {
     "name": "Палавен",
     "race": "Омоленианинский",
-    "image": "/images/ships/91_Main_OPalaven.png",
+    "image": "91_Main_OPalaven",
     "skills": {
       "Пилотирование": 2
     },
@@ -1900,7 +1900,7 @@
   {
     "name": "Палавен",
     "race": "Ирриецкий",
-    "image": "/images/ships/83_Main_IPalaven.png",
+    "image": "83_Main_IPalaven",
     "skills": {
       "Пилотирование": 2
     },
@@ -1920,7 +1920,7 @@
   {
     "name": "Палавен",
     "race": "Анидский",
-    "image": "/images/ships/85_Main_APalaven.png",
+    "image": "85_Main_APalaven",
     "skills": {
       "Пилотирование": 2
     },
@@ -1940,7 +1940,7 @@
   {
     "name": "Палавен",
     "race": "Медрамилльский",
-    "image": "/images/ships/1_Main_MPalaven.png",
+    "image": "1_Main_MPalaven",
     "skills": {
       "Пилотирование": 2
     },
