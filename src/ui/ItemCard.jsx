@@ -45,8 +45,8 @@ export const ItemCard = ({item}) => {
     }, 0) || null
 
     const commit = () => {
-        addSkills(selectedSkills)
         close()
+        addSkills(selectedSkills)
     }
 
     return (
