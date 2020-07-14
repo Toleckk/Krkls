@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useContext, useEffect, useMemo, useState} from 'react'
+import React, {createContext, useCallback, useContext, useEffect, useState} from 'react'
 import {useHistory, useLocation} from 'react-router'
 
 export const DrawerContext = createContext(null)

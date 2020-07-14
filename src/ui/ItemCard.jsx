@@ -7,7 +7,7 @@ import {Effects} from './Effects'
 import {useDrawer} from '../services/drawer'
 
 export const ItemCard = ({item}) => {
-    const {addSkills, findSkill, skills} = useSkillsContext()
+    const {addSkills, findSkill} = useSkillsContext()
     const {close} = useDrawer()
 
     const requiredSkills = useMemo(() => {
@@ -16,7 +16,7 @@ export const ItemCard = ({item}) => {
             ...findSkill(key),
             count: Math.max(findSkill(key).count, +item.skills[findSkill(key).name]),
         }))
-    }, [skills, item, findSkill])
+    }, [item, findSkill])
 
     const [selectedSkills, selectSkills] = useState(requiredSkills)
     const addSkill = useCallback((name, count) => {
