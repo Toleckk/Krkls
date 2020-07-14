@@ -14,11 +14,11 @@ export const ItemDrawer = () => {
     const location = useLocation()
 
     useEffect(() => {
-        if(item) {
+        if(item && opened) {
             highlightSkills(item)
             return resetSkillsHighlight
         }
-    }, [item, highlightSkills, resetSkillsHighlight])
+    }, [item, highlightSkills, resetSkillsHighlight, opened])
 
     if(!item)
         return <Redirect to={location.pathname}/>
