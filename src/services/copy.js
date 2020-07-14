@@ -11,5 +11,12 @@ export const useCopyLink = () => {
 
     const {copy} = useClipboard(copyParams)
 
-    return useCallback(() => copy(window.location.origin + location.pathname), [copy, location.pathname])
+    return useCallback(() => {
+        const url = window.location.origin + location.pathname
+        if(navigator && navigator.share)
+            navigator.share({url, title: 'Krkls'})
+        else
+            copy(url)
+        }, [copy, location.pathname],
+    )
 }
