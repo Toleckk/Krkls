@@ -1,5 +1,5 @@
 import React, {createContext, useCallback, useContext, useMemo, useRef} from 'react'
-import {useLocation, useHistory} from 'react-router'
+import {useHistory, useLocation} from 'react-router'
 import jsonSkills from '../data/skills.json'
 
 export const defaultSkills = jsonSkills.map(skill => ({...skill, count: 0}))
@@ -18,12 +18,12 @@ export const SkillsContextProvider = ({children}) => {
     const setSkills = useCallback(skills => {
         skillsRef.current = skills
         const path = skillsToPath(skills)
-        if(path !== pathname.substr(1))
+        if (path !== pathname.substr(1))
             history.push(path)
     }, [history, pathname, skillsRef])
 
     const skills = useMemo(() => {
-        if(skillsRef.current) {
+        if (skillsRef.current) {
             const skills = skillsRef.current
             skillsRef.current = null
             return skills
@@ -76,7 +76,7 @@ export const SkillsContextProvider = ({children}) => {
 
     const addForItem = useCallback(
         item => addSkills(Object.keys(item.skills).map(name => ({name, count: item.skills[name]}))),
-        [addSkills]
+        [addSkills],
     )
 
 
@@ -91,7 +91,7 @@ export const SkillsContextProvider = ({children}) => {
         isItemAvailable,
         addForItem,
         findSkill,
-        addSkills
+        addSkills,
     }
 
     return <SkillsContext.Provider value={value}>{children}</SkillsContext.Provider>
@@ -105,4 +105,3 @@ const pathToSkills = path => path
     .substr(1)
     .split('')
     .map((e, i) => ({...defaultSkills[i], count: parseInt(e, 13)}))
-    .concat(defaultSkills.slice(path.length - 1))
