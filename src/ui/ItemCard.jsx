@@ -1,24 +1,53 @@
-import React, {useEffect} from 'react'
+import React, {useCallback, useEffect, useMemo, useState} from 'react'
 import c from 'classnames'
 import styles from './ItemCard.module.scss'
 import {ItemSkill} from './ItemSkill'
 import {useHighlightContext} from '../services/highlight'
 import {useSkillsContext} from '../services/skills'
 import {Effects} from './Effects'
+import {useDrawer} from '../services/drawer'
 
 export const ItemCard = ({item}) => {
     const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
-    const {addForItem, findSkill} = useSkillsContext()
+    const {addSkills, findSkill, skills} = useSkillsContext()
+    const {close} = useDrawer()
 
     useEffect(() => {
         highlightSkills(item)
         return resetSkillsHighlight
     }, [item, highlightSkills, resetSkillsHighlight])
 
-    const count = Object.keys(item.skills).map(key => {
-        const count = findSkill(key).count
-        return item.skills[key] > count ? item.skills[key] - count : 0
-    }).reduce((a, b) => a + b, 0) || undefined
+    const requiredSkills = useMemo(() => {
+        const required = Object.keys(item.skills)
+        return required.map(key => ({
+            ...findSkill(key),
+            count: Math.max(findSkill(key).count, +item.skills[findSkill(key).name]),
+        }))
+    }, [skills, item, findSkill])
+
+    const [selectedSkills, selectSkills] = useState(requiredSkills)
+    const addSkill = useCallback((name, count) => {
+        if(selectedSkills === requiredSkills)
+            return selectSkills([{name, count}])
+
+        const newSkills = [...selectedSkills.filter(skill => skill.name !== name), {name, count}]
+
+        if(!newSkills.reduce((acc, b) => acc + b.count, 0))
+            return selectSkills(requiredSkills)
+
+        selectSkills(newSkills)
+        },[selectSkills, selectedSkills, requiredSkills]
+    )
+
+    const count = selectedSkills.reduce((acc, s) => {
+        const {count} = findSkill(s.name)
+        return acc + (count >= s.count ? 0 : s.count)
+    }, 0) || null
+
+    const commit = () => {
+        addSkills(selectedSkills)
+        close()
+    }
 
     return (
         <div className={styles.modal}>
@@ -56,10 +85,10 @@ export const ItemCard = ({item}) => {
                         <tbody>{
                             Object.keys(item.skills)
                                 .map(key => ({name: key, count: item.skills[key]}))
-                                .map(skill => <ItemSkill skill={skill} key={skill.name}/>)
+                                .map(skill => <ItemSkill skill={skill} key={skill.name} setSkill={addSkill}/>)
                         }</tbody>
                     </table>
-                    {count && <button className={styles.apply} onClick={() => addForItem(item)} title="Добавить">
+                    {count && <button className={styles.apply} onClick={commit} title="Добавить">
                         <span className={styles.count}>+{count}</span>
                     </button>}
                 </div>

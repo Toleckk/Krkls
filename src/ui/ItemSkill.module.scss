@@ -16,9 +16,8 @@
 }
 
 
-.button {
-  //border-bottom: 1px solid $secondary;
-  //padding: 0 3px 0 1px;
+.button.active {
+  color: $positive;
 }
 
 .button:hover {
