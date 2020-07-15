@@ -36,5 +36,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#FFFFFF",
-  "background_color": "#0d152d"
+  "background_color": "#0d152d",
+  "permissions": ["clipboard"]
 }
