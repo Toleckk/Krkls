@@ -13,7 +13,7 @@ export const useCopyLink = () => {
 
     return useCallback(() => {
         const url = window.location.origin + location.pathname
-        if(navigator && navigator.share)
+        if(navigator && navigator.share && navigator.canShare && navigator.canShare({url, title: 'Krkls'}))
             navigator.share({url, title: 'Krkls'})
         else
             copy(url)
