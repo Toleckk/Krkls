@@ -399,7 +399,7 @@
   },
   {
     "name": "Искажатель радаров",
-    "image": "19_Main_XVacuumShield",
+    "image": "19_Main_XVaccumShield",
     "skills": {
       "Ремонт": 5,
       "Уклонение": 5
@@ -469,7 +469,7 @@
   },
   {
     "name": "Кристализатор энергии",
-    "image": "36_Main_MRepair",
+    "image": "36_Main_MRepair2",
     "skills": {
       "Электроника": 5
     },
