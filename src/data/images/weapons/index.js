@@ -84,6 +84,8 @@ import img_8_Main_OSplitterEvo from './8_Main_OSplitterEvo.png'
 import img_8_Main_OSplitterEvo65 from './8_Main_OSplitterEvo65.png'
 import img_9_Main_MRailCannon from './9_Main_MRailCannon.png'
 import img_9_Main_MRailCannon65 from './9_Main_MRailCannon65.png'
+import img_10_Main_GWither from './10_Main_GWither.png'
+import img_10_Main_GWither65 from './10_Main_GWither65.png'
 
 export {
     img_10_Main_AMultiblasterEvo,
@@ -172,4 +174,6 @@ export {
     img_8_Main_OSplitterEvo65,
     img_9_Main_MRailCannon,
     img_9_Main_MRailCannon65,
+    img_10_Main_GWither,
+    img_10_Main_GWither65,
 }
