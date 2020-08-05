@@ -91,6 +91,7 @@ import img_96_Main_AIntercepter from './96_Main_AIntercepter.png'
 import img_98_Main_ABrig from './98_Main_ABrig.png'
 import img_99_Main_OScoutM1 from './99_Main_OScoutM1.png'
 import img_9_Main_IFregatAssault from './9_Main_IFregatAssault.png'
+import img_143_Main_AFregatAssaultV1 from './143_Main_AFregatAssaultV1.png'
 
 export {
     img_103_Main_MIndustrial,
@@ -186,4 +187,5 @@ export {
     img_98_Main_ABrig,
     img_99_Main_OScoutM1,
     img_9_Main_IFregatAssault,
+    img_143_Main_AFregatAssaultV1,
 }
