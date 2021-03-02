@@ -2,22 +2,30 @@
   "name": "krkls",
   "version": "1.0.0",
   "description": "Skills calculator for VK SW online game",
-  "main": "src/index.js",
+  "main": "src/index.tsx",
   "dependencies": {
-    "@testing-library/dom": "^7.19.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router": "^5.1.12",
+    "@types/react-router-dom": "^5.1.7",
     "classnames": "^2.2.6",
-    "focus-visible": "^5.1.0",
-    "node-sass": "^4.14.1",
+    "focus-visible": "^5.2.0",
     "normalize.css": "^8.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "use-clipboard-copy": "^0.1.2"
+    "react-scripts": "4.0.3",
+    "sass": "^1.32.8",
+    "typescript": "^4.1.2",
+    "use-clipboard-copy": "^0.1.2",
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,7 +34,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
