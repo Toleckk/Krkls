@@ -1,24 +1,24 @@
-@import "../theme";
+@import '../theme';
 
 .button {
-    width: 2rem;
-    height: 2rem;
-    padding: 0 !important;
+  width: 2rem;
+  height: 2rem;
+  padding: 0 !important;
 }
 
 .button + .button {
-    margin-left: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 @media (min-width: 1280px) {
-    .button {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
+  .button {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 .icon {
-    width: 60%;
-    height: auto;
-    fill: $text;
+  width: 60%;
+  height: auto;
+  fill: $text;
 }

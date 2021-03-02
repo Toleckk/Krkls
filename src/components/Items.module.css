@@ -1,17 +1,16 @@
 .items {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {
-    .items {
-        flex-direction: row;
-    }
+  .items {
+    flex-direction: row;
+  }
 }
 
-
 .column {
-    flex: 1;
-    margin: 2px;
-    display: flex;
+  flex: 1;
+  margin: 2px;
+  display: flex;
 }

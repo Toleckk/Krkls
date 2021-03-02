@@ -1,0 +1,4 @@
+* text eol=lf
+*.jpg -text diff=jpg
+*.png -text diff=png
+*.ico -text diff=ico

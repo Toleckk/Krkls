@@ -1,20 +1,17 @@
-@import "../theme";
+@import '../theme';
 
 .cell {
   min-width: 1.2rem;
   text-align: end;
 }
 
-
 .count {
   color: $positive;
 }
 
-
 .count.error {
   color: $error;
 }
-
 
 .button.active {
   color: $positive;

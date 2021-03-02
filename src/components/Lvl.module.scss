@@ -1,4 +1,4 @@
-@import "../theme";
+@import '../theme';
 
 .column {
   display: flex;
@@ -6,7 +6,7 @@
   flex: 1;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .column {
     width: 60vw;
     flex-grow: 0;
@@ -14,7 +14,6 @@
     flex-basis: auto;
   }
 }
-
 
 .row {
   display: flex;
@@ -27,7 +26,6 @@
     flex: unset;
   }
 }
-
 
 .lvl {
   min-width: 2.5rem;
@@ -46,19 +44,16 @@
   border-left: 1px solid $secondary;
 }
 
-
 .lvl.required {
   color: $error;
   filter: drop-shadow(0 0 3px $error);
 }
-
 
 .exp {
   margin-left: 5px;
   margin-right: 5px;
   display: inline-block;
 }
-
 
 .progress {
   background: $secondary;
@@ -67,7 +62,6 @@
   display: flex;
   justify-content: flex-start;
 }
-
 
 .has {
   background: $select;

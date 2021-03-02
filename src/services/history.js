@@ -3,52 +3,49 @@ import {useHistory} from 'react-router'
 import {BrowserRouter} from 'react-router-dom'
 
 export const TrackableRouter = ({children, ...props}) => (
-    <BrowserRouter {...props}>
-        <Tracker>
-            {children}
-        </Tracker>
-    </BrowserRouter>
+  <BrowserRouter {...props}>
+    <Tracker>{children}</Tracker>
+  </BrowserRouter>
 )
 
 export const TrackerContext = createContext(null)
 
-
 const Tracker = ({children}) => {
-    const history = useHistory()
+  const history = useHistory()
 
-    const [keys, setKeys] = useState(JSON.parse(sessionStorage.getItem('keys') || '[]'))
-    const [prev, setPrev] = useState(sessionStorage.getItem('prev'))
+  const [keys, setKeys] = useState(JSON.parse(sessionStorage.getItem('keys') || '[]'))
+  const [prev, setPrev] = useState(sessionStorage.getItem('prev'))
 
-    useEffect(() => sessionStorage.setItem('keys', JSON.stringify(keys)), [keys])
-    useEffect(() => void (prev && sessionStorage.setItem('prev', prev)), [prev])
+  useEffect(() => sessionStorage.setItem('keys', JSON.stringify(keys)), [keys])
+  useEffect(() => void (prev && sessionStorage.setItem('prev', prev)), [prev])
 
-    const onChange = useCallback(({key}, action) => {
-        if (!key)
-            return setPrev(null)
+  const onChange = useCallback(
+    ({key}, action) => {
+      if (!key) return setPrev(null)
 
-        if(action !== 'POP' || keys.includes(key)) {
-            const index = keys.indexOf(prev)
+      if (action !== 'POP' || keys.includes(key)) {
+        const index = keys.indexOf(prev)
 
-            if (!keys.includes(key))
-                setKeys([...keys, key])
-            else if (action === 'PUSH' && index < keys.length - 1)
-                setKeys([...keys.slice(0, index), key])
-        }
+        if (!keys.includes(key)) setKeys([...keys, key])
+        else if (action === 'PUSH' && index < keys.length - 1)
+          setKeys([...keys.slice(0, index), key])
+      }
 
-        setPrev(key)
-    }, [setKeys, keys, setPrev, prev])
+      setPrev(key)
+    },
+    [setKeys, keys, setPrev, prev],
+  )
 
-    useEffect(() => history.listen(onChange), [history, onChange])
+  useEffect(() => history.listen(onChange), [history, onChange])
 
-    const index = useMemo(() => keys.indexOf(prev), [keys, prev])
+  const index = useMemo(() => keys.indexOf(prev), [keys, prev])
 
-    const canGoBack = index >= 0
-    const canGoForward = index < keys.length - 1
+  const canGoBack = index >= 0
+  const canGoForward = index < keys.length - 1
 
-    const value = useMemo(() => ({canGoBack, canGoForward}), [canGoBack, canGoForward])
+  const value = useMemo(() => ({canGoBack, canGoForward}), [canGoBack, canGoForward])
 
-    return <TrackerContext.Provider value={value}>{children}</TrackerContext.Provider>
+  return <TrackerContext.Provider value={value}>{children}</TrackerContext.Provider>
 }
-
 
 export const useCanGo = () => useContext(TrackerContext)
