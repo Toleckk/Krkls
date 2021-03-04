@@ -1,29 +1,16 @@
-import React, {useMemo} from 'react'
+import React from 'react'
 import classNames from 'classnames'
-import {useSkillsContext} from '../services/skills'
-import {getExperience, short} from '../services/lvl'
+import {short} from '../utils'
 import styles from './Lvl.module.scss'
-import {useHighlightContext} from '../services/highlight'
+import {useAppSelector} from '../store'
+import {selectSkillsSum} from '../store/skills'
+import {selectExp, selectRequiredLvl} from '../store/lvls'
 
 export const Lvl = () => {
-  const {sum, skills} = useSkillsContext()
-  const {highlightedSkills} = useHighlightContext()
-
-  const requiredLvl = useMemo(
-    () =>
-      skills
-        .filter(skill => highlightedSkills[skill.name])
-        .map(({count, name}) =>
-          highlightedSkills[name] > count ? highlightedSkills[name] - count : 0,
-        )
-        .reduce((acc, cur) => acc + cur, 0) || 1,
-    [skills, highlightedSkills],
-  )
-
-  const exp = getExperience(sum)
-  const requiredExp = getExperience(requiredLvl + sum)
-
-  const style = useMemo(() => ({minWidth: (exp / requiredExp) * 100 + '%'}), [exp, requiredExp])
+  const sum = useAppSelector(selectSkillsSum)
+  const requiredLvl = useAppSelector(selectRequiredLvl)
+  const exp = useAppSelector(selectExp(sum))
+  const requiredExp = useAppSelector(selectExp(requiredLvl + sum))
 
   return (
     <div className={styles.column}>
@@ -38,7 +25,7 @@ export const Lvl = () => {
         </div>
       </div>
       <div className={styles.progress}>
-        <div className={styles.has} style={style} />
+        <div className={styles.has} style={{minWidth: (exp / requiredExp) * 100 + '%'}} />
       </div>
     </div>
   )

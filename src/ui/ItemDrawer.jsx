@@ -1,15 +1,19 @@
 import React, {useEffect} from 'react'
+import {Redirect, useLocation} from 'react-router'
 import {Drawer} from './Drawer'
 import {useDrawer} from '../services/drawer'
 import {ItemCard} from './ItemCard'
 import styles from './ItemDrawer.module.scss'
 import {Icon} from './Icon'
-import {useHighlightContext} from '../services/highlight'
-import {Redirect, useLocation} from 'react-router'
+import {actions as highlightActions} from '../store/highlight'
+import {useAction} from '../store'
 
 export const ItemDrawer = () => {
   const {item, close, opened} = useDrawer()
-  const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
+
+  const highlightSkills = useAction(highlightActions.highlightSkills)
+  const resetSkillsHighlight = useAction(() => highlightActions.resetSkills())
+
   const location = useLocation()
 
   useEffect(() => {

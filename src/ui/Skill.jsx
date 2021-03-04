@@ -1,17 +1,24 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import c from 'classnames'
-import {useSkillsContext} from '../services/skills'
-import {useHighlightContext} from '../services/highlight'
 import {Button} from './Button'
 import styles from './Skill.module.scss'
 import useFocusVisible from '../services/focus'
+import {useAction, useAppSelector} from '../store'
+import {actions as skillsActions} from '../store/skills'
+import {actions as highlightActions, selectHighlightedSkills} from '../store/highlight'
+import {selectItems} from '../store/items'
 
 export const Skill = ({skill}) => {
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
 
-  const {incrementSkill, decrementSkill} = useSkillsContext()
-  const {highlightItems, resetItemsHighlight, highlightedSkills} = useHighlightContext()
+  const incrementSkill = useAction(name => skillsActions.increment({name}))
+  const decrementSkill = useAction(name => skillsActions.decrement({name}))
+  const resetItemsHighlight = useAction(highlightActions.resetItems)
+  const highlightedSkills = useAppSelector(selectHighlightedSkills)
+  const highlightItems = useAction(skill => highlightActions.highlightItemsForSkill({skill, items}))
+  const items = useAppSelector(selectItems)
+
   const {focusVisible, onBlur, onFocus} = useFocusVisible()
 
   const {count, max, limit, name} = skill
@@ -35,7 +42,7 @@ export const Skill = ({skill}) => {
       resetItemsHighlight()
       setFocused(false)
     }
-  }, [focusVisible, focused, highlightItems, skill, setFocused, resetItemsHighlight])
+  }, [focusVisible, focused, highlightItems, items, skill, setFocused, resetItemsHighlight])
 
   return (
     <div
