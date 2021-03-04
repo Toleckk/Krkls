@@ -1,10 +1,10 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {StateWithHistory} from 'redux-undo'
 import skills, {Skill, SkillName, Skills} from '../../data/skills.json'
-import {adjustByName} from './helpers'
+import {adjustByName, urlToCounts} from './helpers'
 
-const urlValue = window.location.pathname.match(/[0-9a-c]+/)?.[0].split('') || []
-export const initialState = skills.map((skill, i) => ({...skill, count: Number(urlValue[i]) || 0}))
+const urlValue = urlToCounts(window.location.pathname)
+export const initialState = skills.map((skill, i) => ({...skill, count: urlValue[i] || 0}))
 
 export const {reducer, actions} = createSlice({
   name: 'skills',
