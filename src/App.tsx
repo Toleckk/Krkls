@@ -10,9 +10,11 @@ import {TrackableRouter} from './services/history'
 import {Navigation} from './components/Navigation'
 import {AlertProvider} from './services/alert'
 import {Alert} from './ui/Alert'
+import {Provider} from 'react-redux'
+import {store} from './store'
 
-export default function App() {
-  return (
+export const App = () => (
+  <Provider store={store}>
     <TrackableRouter>
       <Switch>
         <Route path="/:build([0-9A-Ca-c]{16})">
@@ -36,5 +38,5 @@ export default function App() {
         </Route>
       </Switch>
     </TrackableRouter>
-  )
-}
+  </Provider>
+)
