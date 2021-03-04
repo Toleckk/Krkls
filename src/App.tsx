@@ -13,28 +13,28 @@ import {Alert} from './ui/Alert'
 
 export default function App() {
   return (
-      <TrackableRouter>
-        <Switch>
-          <Route path="/:build([0-9A-Ca-c]{16})">
-            <SkillsContextProvider>
-              <ItemsProvider>
-                <HighlightContextProvider>
-                  <AlertProvider>
-                    <Header/>
-                    <Skills/>
-                    <br/>
-                    <Items/>
-                    <Navigation/>
-                    <Alert/>
-                  </AlertProvider>
-                </HighlightContextProvider>
-              </ItemsProvider>
-            </SkillsContextProvider>
-          </Route>
-          <Route>
-            <Redirect to="/0000000000000000"/>
-          </Route>
-        </Switch>
-      </TrackableRouter>
+    <TrackableRouter>
+      <Switch>
+        <Route path="/:build([0-9A-Ca-c]{16})">
+          <SkillsContextProvider>
+            <ItemsProvider>
+              <HighlightContextProvider>
+                <AlertProvider>
+                  <Header />
+                  <Skills />
+                  <br />
+                  <Items />
+                  <Navigation />
+                  <Alert />
+                </AlertProvider>
+              </HighlightContextProvider>
+            </ItemsProvider>
+          </SkillsContextProvider>
+        </Route>
+        <Route>
+          <Redirect to="/0000000000000000" />
+        </Route>
+      </Switch>
+    </TrackableRouter>
   )
 }

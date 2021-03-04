@@ -1,8 +1,8 @@
 .list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .item {
-    margin: 2px;
+  margin: 2px;
 }

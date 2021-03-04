@@ -1,74 +1,69 @@
-@import "../theme";
+@import '../theme';
 
 .skill {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .skill + .skill {
-    margin-top: 3px;
+  margin-top: 3px;
 }
 
 .skill:focus {
-    outline: none;
+  outline: none;
 }
 
-
 .name {
-    flex: 1;
-    padding-right: 0.8rem;
+  flex: 1;
+  padding-right: 0.8rem;
 }
 
 .name.required {
-    color: $select;
-    filter: drop-shadow(0 3px 5px $select);
+  color: $select;
+  filter: drop-shadow(0 3px 5px $select);
 }
-
 
 .count {
-    min-width: 1.2rem;
+  min-width: 1.2rem;
 }
-
 
 .required_count {
-    min-width: 2rem;
-    margin-right: 0.5rem;
+  min-width: 2rem;
+  margin-right: 0.5rem;
 }
 
-
 .button {
-    background: $neutral-dark !important;
-    width: 2em;
-    height: 2em;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: $neutral-dark !important;
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button + .button {
-    margin-left: 0.1rem;
+  margin-left: 0.1rem;
 }
 
 @media (min-width: 768px) {
-    .button {
-        width: 1.5em;
-        height: 1.5em;
-    }
+  .button {
+    width: 1.5em;
+    height: 1.5em;
+  }
 
-    .button + .button {
-        margin-left: 0.3rem;
-    }
+  .button + .button {
+    margin-left: 0.3rem;
+  }
 }
 
-
 .sign {
-    margin-top: -2px;
-    font-size: large;
+  margin-top: -2px;
+  font-size: large;
 }
 
 @media (min-width: 1280px) {
-    .sign {
-        font-size: medium;
-    }
+  .sign {
+    font-size: medium;
+  }
 }

@@ -4,19 +4,25 @@ import {useLocation} from 'react-router'
 import {useClipboard} from 'use-clipboard-copy'
 
 export const useCopyLink = () => {
-    const location = useLocation()
-    const {open} = useAlert()
+  const location = useLocation()
+  const {open} = useAlert()
 
-    const copyParams = useMemo(() => ({onSuccess: () => open('Ссылка скопирована в буфер обмена!')}), [open])
+  const copyParams = useMemo(
+    () => ({onSuccess: () => open('Ссылка скопирована в буфер обмена!')}),
+    [open],
+  )
 
-    const {copy} = useClipboard(copyParams)
+  const {copy} = useClipboard(copyParams)
 
-    return useCallback(() => {
-        const url = window.location.origin + location.pathname
-        if(navigator && navigator.share && navigator.canShare && navigator.canShare({url, title: 'Krkls'}))
-            navigator.share({url, title: 'Krkls'})
-        else
-            copy(url)
-        }, [copy, location.pathname],
+  return useCallback(() => {
+    const url = window.location.origin + location.pathname
+    if (
+      navigator &&
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({url, title: 'Krkls'})
     )
+      navigator.share({url, title: 'Krkls'})
+    else copy(url)
+  }, [copy, location.pathname])
 }

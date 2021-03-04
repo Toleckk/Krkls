@@ -1,4 +1,4 @@
-@import "../theme";
+@import '../theme';
 
 $height: 13vw;
 $main-button-size: ($height - 1vw) * 2;
@@ -7,7 +7,6 @@ $half-round-size: calc(#{$round-size} / 2);
 $minus-half-round-size: calc(#{$round-size} / -2);
 
 $transition: 200ms linear all;
-
 
 .fixed {
   position: fixed;
@@ -30,12 +29,11 @@ $transition: 200ms linear all;
   border: 0;
 }
 
-@media(min-width: 421px) {
+@media (min-width: 421px) {
   .fixed {
     display: none;
   }
 }
-
 
 .button {
   background: transparent;
@@ -46,7 +44,6 @@ $transition: 200ms linear all;
   padding: 1px 6px;
 }
 
-
 .icon {
   width: 100%;
   fill: $text;
@@ -56,13 +53,11 @@ $transition: 200ms linear all;
   opacity: 0.6;
 }
 
-
 .main {
   width: $main-button-size;
   position: relative;
   height: 100%;
 }
-
 
 .container {
   position: absolute;
@@ -72,7 +67,6 @@ $transition: 200ms linear all;
   height: $round-size;
   padding: 2px;
 }
-
 
 .round {
   width: 100%;
@@ -94,19 +88,17 @@ $transition: 200ms linear all;
   box-shadow: 0 0 0.6rem $secondary;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .round {
     display: none;
   }
 }
-
 
 .copy {
   width: 50%;
   fill: $select;
   opacity: 0.9;
 }
-
 
 .show {
   position: absolute;

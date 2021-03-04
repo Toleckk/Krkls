@@ -1,38 +1,37 @@
-@import "theme";
+@import 'theme';
 
 body {
-    margin: 0.5rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: $background;
-    color: $text;
+  margin: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $background;
+  color: $text;
 }
 
 * {
-    box-sizing: border-box;
-    user-select: none;
-    touch-action: manipulation;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: manipulation;
 }
 
 button {
-    cursor: pointer;
-    color: inherit;
-    outline: none;
-    border: 0;
-    background: none;
-    padding: 0;
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  border: 0;
+  background: none;
+  padding: 0;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
