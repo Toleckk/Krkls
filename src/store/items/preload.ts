@@ -1,10 +1,10 @@
 import devicesData from '../../data/devices.json'
+import {Device, Ship, Weapon} from './types'
+import {devices, ships, weapons} from '../../data/images'
 import weaponsData from '../../data/weapons.json'
 import shipsData from '../../data/ships.json'
-import {devices, ships, weapons} from '../../data/images'
-import {Device, Item, Ship, Weapon} from './types'
 
-export const items: Item[] = [
+export const getDefaultItems = () => [
   ...devicesData.map<Device>(device => ({
     ...device,
     count: 0,

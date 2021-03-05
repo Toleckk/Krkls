@@ -1,14 +1,7 @@
-import {createSelector, createSlice} from '@reduxjs/toolkit'
-import {selectSkills} from '../skills'
 import {Item, Ship} from './types'
-import {items} from './data'
+import {createSelector} from '@reduxjs/toolkit'
+import {selectSkills} from '../skills'
 import {availableItems, isDevice, isShip, isWeapon} from './helpers'
-
-export const {reducer, actions} = createSlice({
-  name: 'items',
-  initialState: items,
-  reducers: {},
-})
 
 export const selectItems = (state: {items: Item[]}) => state.items
 

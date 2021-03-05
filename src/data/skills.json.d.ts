@@ -16,15 +16,12 @@ export type SkillName =
   | 'Тактика'
   | 'Контроль'
 
-export type Skill = {
+export type SkillData = {
   name: SkillName
   group: number
   limit: number
   max?: number
-  count: number
 }
 
-export type Skills = Skill[]
-
-declare const skillsData: Skills
+declare const skillsData: SkillData[]
 export default skillsData

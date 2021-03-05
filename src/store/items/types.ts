@@ -20,3 +20,5 @@ export type Ship = ShipData & {
 }
 
 export type Item = Device | Ship | Weapon
+
+export type Items = Item[]

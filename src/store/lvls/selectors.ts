@@ -1,13 +1,7 @@
-import {createSelector, createSlice} from '@reduxjs/toolkit'
 import initialLvls from '../../data/lvls.json'
+import {createSelector} from '@reduxjs/toolkit'
 import {selectSkills} from '../skills'
 import {selectHighlightedSkills} from '../highlight'
-
-export const {reducer, actions} = createSlice({
-  name: 'lvls',
-  initialState: initialLvls,
-  reducers: {},
-})
 
 export const selectExp = (lvl: number) => (state: {lvls: typeof initialLvls}) => state.lvls[lvl]
 

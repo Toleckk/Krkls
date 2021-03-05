@@ -1,16 +1,17 @@
 import {configureStore} from '@reduxjs/toolkit'
 import undoable from 'redux-undo'
-import {reducer as skills} from './skills'
-import {reducer as items} from './items'
-import {reducer as highlight} from './highlight'
-import {reducer as lvls} from './lvls'
+import {createSkillsReducer, getDefaultSkills} from './skills'
+import {createItemsReducer, getDefaultItems} from './items'
+import {createHighlightReducer, getDefaultHighlight} from './highlight'
+import {createLvlsReducer, getDefaultLvls} from './lvls'
+import {Store} from './types'
 
-export const store = configureStore({
+export const store = configureStore<Store>({
   reducer: {
-    skills: undoable(skills),
-    highlight,
-    items,
-    lvls,
+    skills: undoable(createSkillsReducer(getDefaultSkills())),
+    highlight: createHighlightReducer(getDefaultHighlight()),
+    items: createItemsReducer(getDefaultItems()),
+    lvls: createLvlsReducer(getDefaultLvls()),
   },
 })
 
@@ -20,7 +21,7 @@ store.subscribe(() =>
     '',
     `/${store
       .getState()
-      .skills.present.map(skill => skill.count)
+      .skills.present.map(skill => skill.count.toString(13))
       .join('')}`,
   ),
 )

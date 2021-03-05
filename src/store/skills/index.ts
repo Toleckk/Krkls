@@ -1,2 +1,5 @@
-export * from './skills'
-export * from '../../data/skills.json.d'
+export * from './reducer'
+export * as actions from './actions'
+export * from './selectors'
+export * from './types'
+export {getDefaultSkills} from './preload'
