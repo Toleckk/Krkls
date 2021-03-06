@@ -1,8 +1,8 @@
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux'
 import {useCallback, useRef} from 'react'
-import {store} from './store'
+import {Store} from './types'
 
-export const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector
+export const useAppSelector: TypedUseSelectorHook<Store> = useSelector
 
 export const useAction = <A extends (...args: any[]) => any>(
   createAction: A,

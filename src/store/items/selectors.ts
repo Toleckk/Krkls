@@ -2,6 +2,7 @@ import {Item, Ship} from './types'
 import {createSelector} from '@reduxjs/toolkit'
 import {selectSkills} from '../skills'
 import {availableItems, isDevice, isShip, isWeapon} from './helpers'
+import {ItemHighlight, selectSkillHighlight} from '../highlight'
 
 export const selectItems = (state: {items: Item[]}) => state.items
 
@@ -42,3 +43,27 @@ export const selectSortedShips = createSelector(selectShips, ships => {
     return -1
   })
 })
+
+export const selectHighlightedItems = createSelector(
+  selectItems,
+  selectSkills,
+  selectSkillHighlight,
+  (items, skills, skill) => {
+    if (!skill) {
+      return {}
+    }
+
+    return items.reduce<ItemHighlight['skills']>((skills, item) => {
+      const count = item.skills[skill]
+
+      if (!count) {
+        return skills
+      }
+
+      return {
+        ...skills,
+        [item.name]: {name: skill, count},
+      }
+    }, {})
+  },
+)

@@ -4,9 +4,8 @@ import {Button} from './Button'
 import styles from './Skill.module.scss'
 import useFocusVisible from '../services/focus'
 import {useAction, useAppSelector} from '../store'
-import {actions as skillsActions} from '../store/skills'
-import {actions as highlightActions, selectHighlightedSkills} from '../store/highlight'
-import {selectItems} from '../store/items'
+import {actions as skillsActions, selectHighlightedSkills} from '../store/skills'
+import {actions as highlightActions} from '../store/highlight'
 
 export const Skill = ({skill}) => {
   const [hovered, setHovered] = useState(false)
@@ -14,10 +13,9 @@ export const Skill = ({skill}) => {
 
   const incrementSkill = useAction(name => skillsActions.increment({name}))
   const decrementSkill = useAction(name => skillsActions.decrement({name}))
-  const resetItemsHighlight = useAction(highlightActions.resetItems)
+  const resetHighlight = useAction(() => highlightActions.reset())
   const highlightedSkills = useAppSelector(selectHighlightedSkills)
-  const highlightItems = useAction(skill => highlightActions.highlightItemsForSkill({skill, items}))
-  const items = useAppSelector(selectItems)
+  const highlightSkill = useAction(() => highlightActions.highlightSkill({skill: skill.name}))
 
   const {focusVisible, onBlur, onFocus} = useFocusVisible()
 
@@ -25,24 +23,24 @@ export const Skill = ({skill}) => {
   const required = highlightedSkills[name]
 
   const onMouseEnter = useCallback(() => {
-    highlightItems(skill)
+    highlightSkill()
     setHovered(true)
-  }, [highlightItems, setHovered, skill])
+  }, [highlightSkill, setHovered])
 
   const onMouseLeave = useCallback(() => {
-    resetItemsHighlight()
+    resetHighlight()
     setHovered(false)
-  }, [resetItemsHighlight, setHovered])
+  }, [resetHighlight, setHovered])
 
   useEffect(() => {
     if (focusVisible && !focused) {
-      highlightItems(skill)
+      highlightSkill()
       setFocused(true)
     } else if (!focusVisible && focused) {
-      resetItemsHighlight()
+      resetHighlight()
       setFocused(false)
     }
-  }, [focusVisible, focused, highlightItems, items, skill, setFocused, resetItemsHighlight])
+  }, [focusVisible, focused, highlightSkill, setFocused, resetHighlight])
 
   return (
     <div

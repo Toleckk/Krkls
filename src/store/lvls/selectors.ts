@@ -1,13 +1,12 @@
-import initialLvls from '../../data/lvls.json'
 import {createSelector} from '@reduxjs/toolkit'
-import {selectSkills} from '../skills'
-import {selectHighlightedSkills} from '../highlight'
+import initialLvls from '../../data/lvls.json'
+import {selectSkills, selectHighlightedSkills} from '../skills'
 
 export const selectExp = (lvl: number) => (state: {lvls: typeof initialLvls}) => state.lvls[lvl]
 
 export const selectRequiredLvl = createSelector(
   selectSkills,
-  selectHighlightedSkills,
+  (...args: Parameters<typeof selectHighlightedSkills>) => selectHighlightedSkills(...args),
   (skills, highlightedSkills) =>
     skills
       .filter(skill => highlightedSkills[skill.name])

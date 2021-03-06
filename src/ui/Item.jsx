@@ -5,13 +5,14 @@ import {Button} from './Button'
 import {useDrawer} from '../services/drawer'
 import {useAction, useAppSelector} from '../store'
 import {selectSkillByName} from '../store/skills'
-import {actions as highlightActions, selectHighlightedItems} from '../store/highlight'
+import {selectHighlightedItems} from '../store/items'
+import {actions as highlightActions} from '../store/highlight'
 
 export const Item = ({item}) => {
   const {setItem, open, opened} = useDrawer()
   const highlightedItems = useAppSelector(selectHighlightedItems)
-  const highlightSkills = useAction(() => highlightActions.highlightSkills(item))
-  const resetSkillsHighlight = useAction(() => highlightActions.resetSkills())
+  const highlightItem = useAction(() => highlightActions.highlightItem({item}))
+  const resetHighlight = useAction(() => highlightActions.reset())
 
   const {available, name} = item
   const required = highlightedItems[name]
@@ -25,7 +26,7 @@ export const Item = ({item}) => {
 
   const onMouseLeave = () => {
     if (!opened) {
-      resetSkillsHighlight()
+      resetHighlight()
     }
   }
 
@@ -35,7 +36,7 @@ export const Item = ({item}) => {
       className={classNames(styles.item, {[styles.highlighted]: required})}
       title={name}
       onClick={openDrawer}
-      onMouseEnter={highlightSkills}
+      onMouseEnter={highlightItem}
       onMouseLeave={onMouseLeave}
     >
       <img className={styles.image} src={item.image} alt={item.name} />

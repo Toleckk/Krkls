@@ -1,15 +1,16 @@
 import {SkillName} from '../../data/skills.json'
+import {Item} from '../items'
 
-export type Highlight = {
-  skills: SkillsHighlight
-  items: ItemsHighlight
+export type SkillHighlight = SkillName
+
+export type ItemHighlight = Pick<Item, 'skills'>
+
+export type SkillsHighlight = {
+  skill: SkillHighlight
 }
 
-export type SkillsHighlight = Partial<Record<SkillName, number>>
-
-export type ItemsHighlight = Record<string, ItemHighlight>
-
-export type ItemHighlight = {
-  name: string
-  count: number
+export type ItemsHighlight = {
+  item: ItemHighlight
 }
+
+export type Highlight = SkillsHighlight | ItemsHighlight | Record<never, never>

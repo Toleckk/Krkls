@@ -11,17 +11,17 @@ import {useAction} from '../store'
 export const ItemDrawer = () => {
   const {item, close, opened} = useDrawer()
 
-  const highlightSkills = useAction(highlightActions.highlightSkills)
-  const resetSkillsHighlight = useAction(() => highlightActions.resetSkills())
+  const highlightItem = useAction(highlightActions.highlightItem)
+  const resetHighlight = useAction(() => highlightActions.reset())
 
   const location = useLocation()
 
   useEffect(() => {
     if (item && opened) {
-      highlightSkills(item)
-      return resetSkillsHighlight
+      highlightItem({item})
+      return resetHighlight
     }
-  }, [item, highlightSkills, resetSkillsHighlight, opened])
+  }, [item, highlightItem, resetHighlight, opened])
 
   if (!item) return <Redirect to={location.pathname} />
 

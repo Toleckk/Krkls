@@ -1,12 +1,7 @@
 import {createAction} from '@reduxjs/toolkit'
-import {Skill} from '../skills'
+import {SkillName} from '../../data/skills.json'
 import {Item} from '../items'
-import {ItemsHighlight, SkillsHighlight} from './types'
 
-export const highlightSkills = createAction<{skills: SkillsHighlight}>('highlight/highlightSkills')
-export const highlightItems = createAction<{items: ItemsHighlight}>('highlight/highlightItems')
-export const highlightItemsForSkill = createAction<{items: Item[]; skill: Skill}>(
-  'highlight/highlightItemsForSkill',
-)
-export const resetItems = createAction('highlight/resetItems')
-export const resetSkills = createAction('highlight/resetSkills')
+export const highlightSkill = createAction<{skill: SkillName}>('highlight/highlightSkill')
+export const highlightItem = createAction<{item: Pick<Item, 'skills'>}>('highlight/highlightItem')
+export const reset = createAction('highlight/reset')

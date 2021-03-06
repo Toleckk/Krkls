@@ -1,5 +1,5 @@
 export * as actions from './actions'
-export * from './reducer'
+export {createHighlightReducer} from './reducer'
+export {getDefaultHighlight} from './preload'
 export * from './selectors'
 export * from './types'
-export {getDefaultHighlight} from './preload'
