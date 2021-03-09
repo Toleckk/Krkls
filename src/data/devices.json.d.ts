@@ -1,8 +1,6 @@
-import type {SkillName} from './skills.json'
-
 export type DeviceData = {
   name: string
-  skills: Partial<Record<SkillName, number>>
+  skills: Record<string, number>
   info: Record<string, string | number | undefined>
   image: string
   effects: string[]

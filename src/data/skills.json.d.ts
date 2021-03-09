@@ -17,7 +17,7 @@ export type SkillName =
   | 'Контроль'
 
 export type SkillData = {
-  name: SkillName
+  name: string
   group: number
   limit: number
   max?: number

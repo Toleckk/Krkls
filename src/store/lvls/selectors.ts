@@ -1,19 +1,29 @@
 import {createSelector} from '@reduxjs/toolkit'
-import initialLvls from '../../data/lvls.json'
-import {selectSkills, selectHighlightedSkills} from '../skills'
+import {selectHighlightedSkills, selectSkills} from '../skills'
+import {Lvls} from './types'
+import {composeRequiredLvl, sumCountField} from './helpers'
 
-export const selectExp = (lvl: number) => (state: {lvls: typeof initialLvls}) => state.lvls[lvl]
+export const selectLvls = (state: {lvls: Lvls}) => state.lvls
+
+export const selectCurrentLvl = createSelector(selectSkills, selectLvls, (skills, lvls) => {
+  const lvl = sumCountField(skills)
+
+  return {
+    lvl,
+    exp: lvls[lvl],
+  }
+})
 
 export const selectRequiredLvl = createSelector(
+  selectLvls,
   selectSkills,
   (...args: Parameters<typeof selectHighlightedSkills>) => selectHighlightedSkills(...args),
-  (skills, highlightedSkills) =>
-    skills
-      .filter(skill => highlightedSkills[skill.name])
-      .map(({count, name}) => {
-        const {[name]: requiredCount = 0} = highlightedSkills
+  (lvls, skills, highlight) => {
+    const lvl = composeRequiredLvl(skills, highlight)
 
-        return requiredCount > count ? requiredCount - count : 0
-      })
-      .reduce((acc, cur) => acc + cur, 0) || 1,
+    return {
+      lvl,
+      exp: lvls[lvl],
+    }
+  },
 )
