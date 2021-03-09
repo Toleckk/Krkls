@@ -1,8 +1,9 @@
 import React from 'react'
+import {useAppSelector} from '../store'
 import {List} from '../ui/List'
-import {useItems} from '../services/items'
+import {selectDevices} from '../store/items'
 
 export const Devices = () => {
-  const {devices} = useItems()
+  const devices = useAppSelector(selectDevices)
   return <List items={devices} />
 }

@@ -1,14 +1,13 @@
-import React, {memo, useMemo} from 'react'
+import React, {memo} from 'react'
 import {List} from '../ui/List'
 import styles from './Ships.module.css'
-import {useItems, sortShips} from '../services/items'
+import {useAppSelector} from '../store'
+import {selectSortedShips} from '../store/items'
 
 const key = ship => ship.race + ' ' + ship.name
 
 export const Ships = memo(() => {
-  const {ships} = useItems()
-
-  const sortedShips = useMemo(() => sortShips(ships), [ships])
+  const sortedShips = useAppSelector(selectSortedShips)
 
   return (
     <div className={styles.ships}>

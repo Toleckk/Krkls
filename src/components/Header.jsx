@@ -1,19 +1,21 @@
-import React, {useCallback} from 'react'
+import React from 'react'
+import {ActionCreators} from 'redux-undo'
 import {Lvl} from './Lvl'
 import styles from './Header.module.scss'
-import {useCanGo} from '../services/history'
 import {ControlButton} from './ControlButton'
-import {useHistory} from 'react-router'
-import {useSkillsContext} from '../services/skills'
 import {useCopyLink} from '../services/copy'
+import {useAction, useAppSelector} from '../store'
+import {actions as skillsActions} from '../store/skills'
 
 export const Header = () => {
-  const {canGoBack, canGoForward} = useCanGo()
-  const history = useHistory()
+  const {canRedo, canUndo} = useAppSelector(store => ({
+    canUndo: !!store.skills.past.length,
+    canRedo: !!store.skills.future.length,
+  }))
+  const undo = useAction(ActionCreators.undo)
+  const redo = useAction(ActionCreators.redo)
 
-  const {reset} = useSkillsContext()
-  const onUndo = useCallback(() => history.goBack(), [history])
-  const onRedo = useCallback(() => history.goForward(), [history])
+  const reset = useAction(skillsActions.reset)
   const copy = useCopyLink()
 
   return (
@@ -21,9 +23,9 @@ export const Header = () => {
       <Lvl />
       <div className={styles.control}>
         <ControlButton icon="copy" title="Копировать ссылку" onClick={copy} />
-        <ControlButton icon="undo" disabled={!canGoBack} onClick={onUndo} title="Назад" />
+        <ControlButton icon="undo" disabled={!canUndo} onClick={undo} title="Назад" />
         <ControlButton onClick={reset} icon="reset" title="Сбросить" />
-        <ControlButton icon="redo" disabled={!canGoForward} onClick={onRedo} title="Вперёд" />
+        <ControlButton icon="redo" disabled={!canRedo} onClick={redo} title="Вперёд" />
       </div>
     </header>
   )

@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import c from 'classnames'
-import {useSkillsContext} from '../services/skills'
 import styles from './ItemSkill.module.scss'
+import {useAppSelector} from '../store'
+import {selectSkillByName} from '../store/skills'
 
 export const ItemSkill = ({skill: {name, count}, setSkill}) => {
   const [active, setActive] = useState(false)
   const toggle = () => setActive(!active)
 
-  const {skills} = useSkillsContext()
-  const skill = skills.find(skill => skill.name === name)
+  const skill = useAppSelector(selectSkillByName(name))
 
   const onClick = () => {
     setSkill(name, active ? 0 : count)

@@ -1,23 +1,27 @@
 import React, {useEffect} from 'react'
+import {Redirect, useLocation} from 'react-router'
 import {Drawer} from './Drawer'
 import {useDrawer} from '../services/drawer'
 import {ItemCard} from './ItemCard'
 import styles from './ItemDrawer.module.scss'
 import {Icon} from './Icon'
-import {useHighlightContext} from '../services/highlight'
-import {Redirect, useLocation} from 'react-router'
+import {actions as highlightActions} from '../store/highlight'
+import {useAction} from '../store'
 
 export const ItemDrawer = () => {
   const {item, close, opened} = useDrawer()
-  const {highlightSkills, resetSkillsHighlight} = useHighlightContext()
+
+  const highlightItem = useAction(highlightActions.highlightItem)
+  const resetHighlight = useAction(() => highlightActions.reset())
+
   const location = useLocation()
 
   useEffect(() => {
     if (item && opened) {
-      highlightSkills(item)
-      return resetSkillsHighlight
+      highlightItem({item})
+      return resetHighlight
     }
-  }, [item, highlightSkills, resetSkillsHighlight, opened])
+  }, [item, highlightItem, resetHighlight, opened])
 
   if (!item) return <Redirect to={location.pathname} />
 

@@ -2,33 +2,33 @@ import React, {useState} from 'react'
 import classNames from 'classnames'
 import styles from './Navigation.module.scss'
 import {Icon} from '../ui/Icon'
-import {useHistory} from 'react-router'
-import {useCanGo} from '../services/history'
-import {useSkillsContext} from '../services/skills'
 import {useCopyLink} from '../services/copy'
+import {actions as skillsActions} from '../store/skills'
+import {useAction, useAppSelector} from '../store'
+import {ActionCreators} from 'redux-undo'
 
 export const Navigation = () => {
+  const undo = useAction(ActionCreators.undo)
+  const redo = useAction(ActionCreators.redo)
+  const {canUndo, canRedo} = useAppSelector(state => ({
+    canUndo: !!state.skills.past.length,
+    canRedo: !!state.skills.future.length,
+  }))
+  const reset = useAction(skillsActions.reset)
+
   const [hidden, setHidden] = useState(true)
   const hide = () => setHidden(true)
   const show = () => setHidden(false)
 
-  const {canGoForward, canGoBack} = useCanGo()
-
-  const history = useHistory()
-  const {reset} = useSkillsContext()
   const copy = useCopyLink()
 
   return (
     <div className={classNames(styles.fixed, hidden && styles.hidden)}>
-      <button className={styles.button} onClick={() => history.goBack()} disabled={!canGoBack}>
-        <Icon icon="undo" className={classNames(styles.icon, !canGoBack && styles.disabled)} />
+      <button className={styles.button} onClick={undo} disabled={!canUndo}>
+        <Icon icon="undo" className={classNames(styles.icon, !canUndo && styles.disabled)} />
       </button>
-      <button
-        className={styles.button}
-        onClick={() => history.goForward()}
-        disabled={!canGoForward}
-      >
-        <Icon icon="redo" className={classNames(styles.icon, !canGoForward && styles.disabled)} />
+      <button className={styles.button} onClick={redo} disabled={!canRedo}>
+        <Icon icon="redo" className={classNames(styles.icon, !canRedo && styles.disabled)} />
       </button>
 
       <div className={styles.main}>

@@ -1,11 +1,13 @@
 import React, {Fragment} from 'react'
-import {useSkillsContext} from '../services/skills'
 import {Skill} from '../ui/Skill'
 import styles from './Skills.module.scss'
 import {FocusVisibleProvider} from '../services/focus'
+import {useAppSelector} from '../store'
+import {selectSkills} from '../store/skills'
 
 export const Skills = () => {
-  const {skills} = useSkillsContext()
+  const skills = useAppSelector(selectSkills)
+
   const sortedSkill = Object.values(
     skills.reduce(
       (acc, s) => ({

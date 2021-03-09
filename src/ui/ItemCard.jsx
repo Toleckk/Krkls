@@ -2,12 +2,17 @@ import React, {useCallback, useMemo, useState} from 'react'
 import c from 'classnames'
 import styles from './ItemCard.module.scss'
 import {ItemSkill} from './ItemSkill'
-import {useSkillsContext} from '../services/skills'
 import {Effects} from './Effects'
 import {useDrawer} from '../services/drawer'
+import {useAction, useAppSelector} from '../store'
+import {selectSkills, actions as skillsActions} from '../store/skills'
 
 export const ItemCard = ({item}) => {
-  const {addSkills, findSkill} = useSkillsContext()
+  const addSkills = useAction(skillsActions.add)
+
+  const skills = useAppSelector(selectSkills)
+  const findSkill = useCallback(name => skills.find(skill => skill.name === name), [skills])
+
   const {close} = useDrawer()
 
   const requiredSkills = useMemo(() => {
@@ -18,18 +23,18 @@ export const ItemCard = ({item}) => {
     }))
   }, [item, findSkill])
 
-  const [selectedSkills, selectSkills] = useState(requiredSkills)
+  const [selectedSkills, setSelectedSkills] = useState(requiredSkills)
   const addSkill = useCallback(
     (name, count) => {
-      if (selectedSkills === requiredSkills) return selectSkills([{name, count}])
+      if (selectedSkills === requiredSkills) return setSelectedSkills([{name, count}])
 
       const newSkills = [...selectedSkills.filter(skill => skill.name !== name), {name, count}]
 
-      if (!newSkills.reduce((acc, b) => acc + b.count, 0)) return selectSkills(requiredSkills)
+      if (!newSkills.reduce((acc, b) => acc + b.count, 0)) return setSelectedSkills(requiredSkills)
 
-      selectSkills(newSkills)
+      setSelectedSkills(newSkills)
     },
-    [selectSkills, selectedSkills, requiredSkills],
+    [setSelectedSkills, selectedSkills, requiredSkills],
   )
 
   const count =
@@ -40,7 +45,7 @@ export const ItemCard = ({item}) => {
 
   const commit = () => {
     close()
-    addSkills(selectedSkills)
+    addSkills({skills: selectedSkills})
   }
 
   return (
