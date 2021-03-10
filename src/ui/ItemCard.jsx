@@ -71,7 +71,7 @@ export const ItemCard = ({item}) => {
                   ))}
                 </tbody>
               </table>
-              <Effects item={item} />
+              {!!item.effects && <Effects effects={item.effects} />}
             </>
           ) : (
             <span style={{textAlign: 'center'}}>Информации пока нет!</span>

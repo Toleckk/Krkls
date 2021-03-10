@@ -1,4 +1,4 @@
-@import '../theme';
+@import '../../theme';
 
 .list {
   padding-left: 3px;
@@ -8,9 +8,13 @@
 
 .item {
   margin-top: 0.2rem;
+
+  &::before {
+    content: '— ';
+  }
 }
 
-.colored {
+.select {
   color: $select;
   opacity: 0.9;
 }
