@@ -1,0 +1,44 @@
+@import '../../theme.scss';
+
+.button {
+  border: 1px solid $secondary;
+  background-color: $negative;
+  transition: all 100ms linear;
+
+  color: $text;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background: $negative;
+    pointer-events: none;
+  }
+
+  &:hover:not(:disabled),
+  &[data-focus-visible-added]:not(:disabled) {
+    filter: drop-shadow(0 0 5px $secondary);
+    box-shadow: 0 0 5px $secondary;
+  }
+
+  &.available {
+    background-color: $neutral;
+  }
+
+  &.md {
+    width: 2rem;
+    height: 2rem;
+
+    @media (min-width: 768px) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  &.lg {
+    width: 55px;
+    height: 55px;
+  }
+}
