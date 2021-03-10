@@ -1,8 +1,6 @@
-@import '../theme';
+@import "../../theme";
 
 .item {
-  width: 55px;
-  height: 55px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -23,16 +21,11 @@
   color: $error;
   font-size: larger;
   font-weight: bold;
-  opacity: 0;
   transition: opacity 100ms linear;
   pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.highlight.visible {
-  opacity: 1;
 }
 
 .highlight.available {
