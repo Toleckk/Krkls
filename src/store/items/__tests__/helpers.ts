@@ -10,9 +10,10 @@ import {
   sortByAvailable,
   sortByAvailableShipsAndName,
   withAvailable,
+  withHighlight,
 } from '../helpers'
-import {Available, Device, Item, Ship, Weapon} from '../types'
-import {Skill} from '../../skills'
+import {Available, Device, Item, Items, Ship, Weapon} from '../types'
+import {Skill, Skills} from '../../skills'
 
 describe('items helpers', () => {
   const itemFields: Omit<Item, 'type'> = {
@@ -336,6 +337,73 @@ describe('items helpers', () => {
       const highlight = composeItemsHighlight(highlightItems, skill)
 
       expect(highlight).toEqual(itemHighlight)
+    })
+  })
+
+  describe('withHighlight', () => {
+    const items: Items = [
+      {...weapon, name: 'item1', skills: {skill1: 1, skill2: 4}},
+      {...weapon, name: 'item2', skills: {skill3: 5, skill4: 1}},
+      {...weapon, name: 'item3', skills: {skill1: 5, skill4: 3}},
+      {...weapon, name: 'item4', skills: {skill2: 1}},
+    ]
+
+    const skills: Skills = [
+      {...skillFields, name: 'skill1', count: 3},
+      {...skillFields, name: 'skill2', count: 3},
+      {...skillFields, name: 'skill3', count: 3},
+      {...skillFields, name: 'skill4', count: 3},
+    ]
+    const notExistingSkill: string = 'not existing skill'
+
+    it('should return input if highlight is undefined', () => {
+      const highlighted = withHighlight(items, skills, undefined)
+
+      expect(highlighted).toBe(items)
+    })
+
+    it('should return input if highlighted skill is not found', () => {
+      const highlighted = withHighlight(items, skills, notExistingSkill)
+
+      expect(highlighted).toBe(items)
+    })
+
+    test.each([
+      [
+        'skill1',
+        [
+          {...items[0], highlight: {value: 1, available: true}},
+          items[1],
+          {...items[2], highlight: {value: 5, available: false}},
+          items[3],
+        ],
+      ],
+      [
+        'skill2',
+        [
+          {...items[0], highlight: {value: 4, available: false}},
+          items[1],
+          items[2],
+          {...items[3], highlight: {value: 1, available: true}},
+        ],
+      ],
+      [
+        'skill3',
+        [items[0], {...items[1], highlight: {value: 5, available: false}}, items[2], items[3]],
+      ],
+      [
+        'skill4',
+        [
+          items[0],
+          {...items[1], highlight: {value: 1, available: true}},
+          {...items[2], highlight: {value: 3, available: true}},
+          items[3],
+        ],
+      ],
+    ])('should add highlight field', (skill, expected) => {
+      const highlighted = withHighlight(items, skills, skill)
+
+      expect(highlighted).toEqual(expected)
     })
   })
 })

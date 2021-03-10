@@ -24,3 +24,10 @@ export type Item = Device | Ship | Weapon
 export type Items = Item[]
 
 export type Available<T extends Item> = T & {available: boolean}
+
+export type WithHighlight<I> = I & {
+  highlight?: {
+    value: number
+    available: boolean
+  }
+}

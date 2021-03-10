@@ -10,21 +10,46 @@ import {
   sortByAvailable,
   sortByAvailableShipsAndName,
   withAvailable,
+  withHighlight,
 } from './helpers'
 import {selectSkillHighlight} from '../highlight'
 
 export const selectItems = (state: {items: Item[]}) => state.items
 
-export const selectWeapons = createSelector(selectItems, selectSkills, (items, skills) =>
-  sortByAvailable(withAvailable(items.filter(isWeapon), skills)),
+export const selectWeapons = createSelector(
+  selectItems,
+  selectSkills,
+  selectSkillHighlight,
+  (items, skills, highlight) =>
+    withHighlight(
+      sortByAvailable(withAvailable(items.filter(isWeapon), skills)),
+      skills,
+      highlight,
+    ),
 )
 
-export const selectDevices = createSelector(selectItems, selectSkills, (items, skills) =>
-  sortByAvailable(withAvailable(items.filter(isDevice), skills)),
+export const selectDevices = createSelector(
+  selectItems,
+  selectSkills,
+  selectSkillHighlight,
+  (items, skills, highlight) =>
+    withHighlight(
+      sortByAvailable(withAvailable(items.filter(isDevice), skills)),
+      skills,
+      highlight,
+    ),
 )
 
-export const selectSortedShips = createSelector(selectItems, selectSkills, (items, skills) =>
-  sortByAvailableShipsAndName(groupShipsByClass(withAvailable(items.filter(isShip), skills))),
+export const selectSortedShips = createSelector(
+  selectItems,
+  selectSkills,
+  selectSkillHighlight,
+  (items, skills, highlight) =>
+    sortByAvailableShipsAndName(
+      groupShipsByClass(
+        withHighlight(withAvailable(items.filter(isShip), skills), skills, highlight),
+      ),
+    ),
 )
 
 export const selectHighlightedItems = createSelector(
