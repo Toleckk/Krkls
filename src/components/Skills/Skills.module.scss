@@ -1,22 +1,18 @@
-@import '../theme.scss';
+@import '../../theme.scss';
 
 .skills {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-top: 3rem;
-}
 
-@media (min-width: 768px) {
-  .skills {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
   }
-}
 
-@media (min-width: 1280px) {
-  .skills {
+  @media (min-width: 1280px) {
     justify-content: space-between;
     flex-direction: row;
     margin-top: 1rem;
@@ -35,17 +31,14 @@
   box-shadow: 0 0 5px $primary;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
 
-@media (min-width: 768px) {
-  .divider {
+
+  @media (min-width: 768px) {
     min-height: 100%;
     margin: 0 0.5rem 1rem;
   }
-}
 
-@media (min-width: 1280px) {
-  .divider {
+  @media (min-width: 1280px) {
     margin: 0;
   }
 }
