@@ -4,6 +4,7 @@ import {short} from '../utils'
 import styles from './Lvl.module.scss'
 import {useAppSelector} from '../store'
 import {selectCurrentLvl, selectRequiredLvl} from '../store/lvls'
+import {Line} from '../ui/Line'
 
 export const Lvl = () => {
   const current = useAppSelector(selectCurrentLvl)
@@ -21,9 +22,7 @@ export const Lvl = () => {
           <span className={classNames(styles.lvl, styles.required)}>{required.lvl}</span>
         </div>
       </div>
-      <div className={styles.progress}>
-        <div className={styles.has} style={{minWidth: (current.exp / required.exp) * 100 + '%'}} />
-      </div>
+      <Line value={current.exp / required.exp} />
     </div>
   )
 }

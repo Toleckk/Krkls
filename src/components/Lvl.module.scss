@@ -54,18 +54,3 @@
   margin-right: 5px;
   display: inline-block;
 }
-
-.progress {
-  background: $secondary;
-  box-shadow: 0 0 3px $secondary;
-  height: 1px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.has {
-  background: $select;
-  box-shadow: 0 0 3px $select;
-  height: 100%;
-  transition: min-width 200ms linear;
-}
