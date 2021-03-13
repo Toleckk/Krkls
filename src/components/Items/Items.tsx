@@ -1,9 +1,10 @@
-import React, {useCallback} from 'react'
+import React from 'react'
 import {useAction, useAppSelector} from '../../store'
 import {selectDevices, selectSortedShips, selectWeapons} from '../../store/items'
 import {ItemsPanel} from '../ItemsPanel'
-import {useDrawer} from '../../services/drawer'
 import {actions} from '../../store/highlight'
+import {useModal} from '../../contexts/ModalContext'
+import {ItemDrawer} from '../../modals/ItemDrawer'
 import s from './Items.module.scss'
 
 export const Items = () => {
@@ -14,14 +15,7 @@ export const Items = () => {
   const highlightItem = useAction(item => actions.highlightItem({item}))
   const resetHighlight = useAction(() => actions.reset())
 
-  const {setItem, open, opened} = useDrawer()
-  const openDrawer = useCallback(
-    item => {
-      setItem(item)
-      open()
-    },
-    [setItem, open],
-  )
+  const {open, isOpened} = useModal(ItemDrawer)
 
   return (
     <div>
@@ -30,18 +24,18 @@ export const Items = () => {
           <ItemsPanel
             title="Устройства"
             items={devices}
-            onClick={openDrawer}
+            onClick={open}
             onMouseEnter={highlightItem}
-            onMouseLeave={() => !opened && resetHighlight()}
+            onMouseLeave={() => !isOpened && resetHighlight()}
           />
         </div>
         <div className={s.column}>
           <ItemsPanel
             title="Оружие"
             items={weapons}
-            onClick={openDrawer}
+            onClick={open}
             onMouseEnter={highlightItem}
-            onMouseLeave={() => !opened && resetHighlight()}
+            onMouseLeave={() => !isOpened && resetHighlight()}
           />
         </div>
       </div>
@@ -49,9 +43,9 @@ export const Items = () => {
         <ItemsPanel
           title="Корабли"
           items={ships}
-          onClick={openDrawer}
+          onClick={open}
           onMouseEnter={highlightItem}
-          onMouseLeave={() => !opened && resetHighlight()}
+          onMouseLeave={() => !isOpened && resetHighlight()}
         />
       </div>
     </div>

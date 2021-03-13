@@ -13,32 +13,12 @@
   }
 
   @media (min-width: 1280px) {
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 1rem;
   }
 }
 
 .column {
-  position: relative;
-  margin: 0 3px 1rem;
-}
-
-.divider {
-  min-width: 1px;
-  min-height: 1px;
-  background: $primary;
-  box-shadow: 0 0 5px $primary;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-
-
-  @media (min-width: 768px) {
-    min-height: 100%;
-    margin: 0 0.5rem 1rem;
-  }
-
-  @media (min-width: 1280px) {
-    margin: 0;
-  }
+  margin-bottom: 1rem;
 }

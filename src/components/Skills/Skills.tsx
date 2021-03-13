@@ -5,6 +5,8 @@ import {actions as skillActions, selectSkills, Skill as TSkill} from '../../stor
 import {actions as highlightActions} from '../../store/highlight'
 import {WithHighlight} from '../../store/items'
 import s from './Skills.module.scss'
+import {Divider} from '../../ui/Divider'
+import {useMedia} from 'use-media'
 
 export const Skills = () => {
   const skills = useAppSelector(selectSkills)
@@ -25,23 +27,31 @@ export const Skills = () => {
     ),
   )
 
+  const isTablet = useMedia({minWidth: 768})
+
   return (
     <div className={s.skills}>
       {sortedSkill.map((group, i, {length}) => (
         <Fragment key={i}>
-          <section className={s.column}>
+          <ul className={s.column}>
             {group.map((skill, j) => (
-              <Skill
-                skill={skill}
-                key={'' + i + j}
-                onIncrement={increment}
-                onDecrement={decrement}
-                onMouseEnter={highlightSkill}
-                onMouseLeave={resetHighlight}
-              />
+              <li>
+                <Skill
+                  skill={skill}
+                  key={'' + i + j}
+                  onIncrement={increment}
+                  onDecrement={decrement}
+                  onMouseEnter={highlightSkill}
+                  onMouseLeave={resetHighlight}
+                />
+              </li>
             ))}
-          </section>
-          {i < length - 1 && <div className={s.divider} />}
+          </ul>
+          {i < length - 1 && (
+            <div className={s.column}>
+              <Divider className={s.divider} vertical={isTablet} />
+            </div>
+          )}
         </Fragment>
       ))}
     </div>

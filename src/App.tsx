@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import {Redirect, Route, Switch} from 'react-router'
 import {Skills} from './components/Skills'
@@ -9,6 +9,12 @@ import {AlertProvider} from './services/alert'
 import {Alert} from './ui/Alert'
 import {Provider} from 'react-redux'
 import {store} from './store'
+import {FocusVisibleProvider} from './services/focus'
+import {ModalProvider} from './contexts/ModalContext'
+
+const ItemDrawer = React.lazy(() =>
+  import('./modals/ItemDrawer').then(i => ({default: i.ItemDrawer})),
+)
 
 export const App = () => (
   <Provider store={store}>
@@ -16,12 +22,19 @@ export const App = () => (
       <Switch>
         <Route path="/:build([0-9A-Ca-c]{16})">
           <AlertProvider>
-            <Header />
-            <Skills />
-            <br />
-            <Items />
-            <Navigation />
-            <Alert />
+            <ModalProvider>
+              <FocusVisibleProvider>
+                <Header />
+                <Skills />
+                <br />
+                <Items />
+                <Navigation />
+                <Alert />
+                <Suspense fallback={null}>
+                  <ItemDrawer />
+                </Suspense>
+              </FocusVisibleProvider>
+            </ModalProvider>
           </AlertProvider>
         </Route>
         <Route>
