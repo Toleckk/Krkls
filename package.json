@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.15",
+    "@types/nanoid": "^2.1.0",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -19,6 +20,7 @@
     "@types/react-router-dom": "^5.1.7",
     "classnames": "^2.2.6",
     "focus-visible": "^5.2.0",
+    "nanoid": "^3.1.21",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -30,6 +32,7 @@
     "redux-undo": "^1.0.1",
     "sass": "^1.32.8",
     "typescript": "^4.1.2",
+    "use-boolean-state": "^1.0.2",
     "use-clipboard-copy": "^0.1.2",
     "use-media": "^1.4.0",
     "web-vitals": "^1.0.1"
