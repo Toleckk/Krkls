@@ -23,7 +23,7 @@ export const createSkillsReducer = (initialState: Skills) =>
         }),
         skills,
       ),
-    [add.type]: (skills, action: PayloadAction<{skills: Skills}>) =>
+    [add.type]: (skills, action: PayloadAction<{skills: Array<{name: string; count: number}>}>) =>
       addSkillsCounts(skills, action.payload.skills),
     [reset.type]: () => initialState,
   })

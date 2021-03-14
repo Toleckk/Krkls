@@ -1,0 +1,16 @@
+@import '../../theme';
+
+.tip {
+  width: 100%;
+  background: #000000dd;
+  box-shadow: 0 0 0.3rem #{$secondary}dd;
+  color: $text;
+  padding: 15px 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: linear all;
+
+  @media (min-width: 768px) {
+    width: initial;
+  }
+}

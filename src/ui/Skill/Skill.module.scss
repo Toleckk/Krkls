@@ -1,0 +1,62 @@
+@import '../../theme';
+
+.skill {
+  display: flex;
+  align-items: center;
+
+  & + & {
+    margin-top: 3px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.name {
+  flex: 1;
+  padding-right: 0.8rem;
+
+  &.required {
+    color: $select;
+    filter: drop-shadow(0 3px 5px $select);
+  }
+}
+
+.count {
+  min-width: 1.2rem;
+}
+
+.required_count {
+  min-width: 2rem;
+  margin-right: 0.5rem;
+}
+
+.button {
+  background: $neutral-dark !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & + & {
+    margin-left: 0.1rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 1.5em;
+    height: 1.5em;
+
+    & + & {
+      margin-left: 0.3rem;
+    }
+  }
+}
+
+.sign {
+  margin-top: -2px;
+  font-size: large;
+
+  @media (min-width: 1280px) {
+    font-size: medium;
+  }
+}

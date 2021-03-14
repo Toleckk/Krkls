@@ -1,0 +1,29 @@
+@import "../../theme";
+
+.divider {
+  flex-shrink: 0;
+
+  &:not(:global(.vertical)) {
+    height: 1px;
+    min-width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &:global(.vertical) {
+    width: 1px;
+    min-height: 100%;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+  }
+
+  &.primary {
+    background: $primary;
+    box-shadow: 0 0 5px $primary;
+  }
+
+  &.secondary {
+    background: $secondary;
+    box-shadow: 0 0 5px $secondary;
+  }
+}

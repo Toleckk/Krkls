@@ -1,0 +1,10 @@
+@import '../../theme';
+
+.button + .button {
+  margin-left: 0.5rem;
+}
+
+.icon {
+  width: 60%;
+  fill: $text;
+}

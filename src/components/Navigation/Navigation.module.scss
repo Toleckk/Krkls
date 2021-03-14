@@ -1,0 +1,114 @@
+@import '../../theme';
+
+$height: 13vw;
+$main-button-size: ($height - 1vw) * 2;
+$round-size: calc(#{$main-button-size} - 10px);
+$half-round-size: calc(#{$round-size} / 2);
+$minus-half-round-size: calc(#{$round-size} / -2);
+
+$transition: 200ms linear all;
+
+.fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background: $background;
+  border-top: 1px solid $secondary;
+  box-shadow: 0 0 5px $secondary;
+  height: $height;
+  align-items: center;
+  transition: $transition;
+}
+
+.fixed.hidden {
+  transform: translateY(100%);
+  box-shadow: none;
+  border: 0;
+}
+
+@media (min-width: 421px) {
+  .fixed {
+    display: none;
+  }
+}
+
+.button {
+  background: transparent;
+  border: 0;
+  max-height: 70%;
+  max-width: 2.2rem;
+  display: flex;
+  padding: 1px 6px;
+}
+
+.icon {
+  width: 100%;
+  fill: $text;
+}
+
+.icon.disabled {
+  opacity: 0.6;
+}
+
+.main {
+  width: $main-button-size;
+  position: relative;
+  height: 100%;
+}
+
+.container {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: $round-size;
+  height: $round-size;
+  padding: 2px;
+}
+
+.round {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid $select;
+  box-shadow: inset 0 0 0.2rem $select, 0 0 0.1rem $select;
+  background: $background;
+  transition: $transition;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.round.hidden {
+  border-top-width: $half-round-size;
+  box-shadow: 0 0 0.6rem $secondary;
+}
+
+@media (min-width: 768px) {
+  .round {
+    display: none;
+  }
+}
+
+.copy {
+  width: 50%;
+  fill: $select;
+  opacity: 0.9;
+}
+
+.show {
+  position: absolute;
+  transition: $transition;
+  fill: $background;
+  top: $minus-half-round-size;
+  height: 100%;
+}
+
+.show.hidden {
+  opacity: 0;
+  top: 0;
+}

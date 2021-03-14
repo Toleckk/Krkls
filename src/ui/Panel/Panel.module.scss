@@ -1,0 +1,29 @@
+@import '../../theme';
+
+.panel {
+  border: 1px solid $secondary;
+  box-shadow: 0 0 2px $secondary inset;
+  width: 100%;
+}
+
+.title {
+  border-bottom: 2px solid $secondary;
+  margin: 0;
+  font-size: medium;
+  font-weight: 400;
+  text-align: center;
+  padding: 1px;
+
+}
+
+.content {
+  margin: 1px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .content {
+    margin: 2px;
+  }
+}

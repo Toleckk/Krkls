@@ -1,0 +1,61 @@
+@import '../../theme';
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  background: $background;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  align-self: center;
+
+  @media (min-width: 1280px) {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+
+.image {
+  min-width: 75px;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  @media (min-width: 421px) and (max-width: 1279px) {
+    min-height: 55px;
+  }
+}
+
+.name {
+  font-size: large;
+  color: $select;
+  filter: drop-shadow(0 2px 5px $select);
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  flex-direction: column;
+}
+
+.scrollable {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0px;
+  justify-content: center;
+  min-height: 10rem;
+
+  @media (min-width: 1280px) {
+    flex: unset;
+  }
+}

@@ -1,0 +1,14 @@
+.items {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.column {
+  flex: 1;
+  margin: 2px;
+  display: flex;
+}

@@ -1,3 +1,6 @@
+import {ItemHighlight} from '../highlight'
+import {WithHighlight} from '../items'
+
 export const adjustByName = <S extends string, T extends {name: S}>(
   name: S,
   fn: (el: T) => T,
@@ -30,3 +33,23 @@ export const addSkillsCounts = <T extends {name: string; count: number}>(
 
     return skill
   })
+
+export const withHighlight = <T extends {name: string; count: number}>(
+  skills: T[],
+  highlight: ItemHighlight | undefined,
+): WithHighlight<T>[] => {
+  if (!highlight) {
+    return skills
+  }
+
+  return skills.map(skill => ({
+    ...skill,
+    highlight:
+      skill.name in highlight.skills
+        ? {
+            available: highlight.skills[skill.name] <= skill.count,
+            value: highlight.skills[skill.name],
+          }
+        : undefined,
+  }))
+}

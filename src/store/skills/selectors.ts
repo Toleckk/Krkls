@@ -2,8 +2,13 @@ import {createSelector} from '@reduxjs/toolkit'
 import {StateWithHistory} from 'redux-undo'
 import {Skills} from './types'
 import {selectItemHighlight} from '../highlight'
+import {withHighlight} from './helpers'
 
-export const selectSkills = (state: {skills: StateWithHistory<Skills>}) => state.skills.present
+export const selectSkills = createSelector(
+  (state: {skills: StateWithHistory<Skills>}) => state.skills.present,
+  selectItemHighlight,
+  withHighlight,
+)
 
 // TODO: rework
 export const selectSkillByName = (name?: string) => (state: {skills: StateWithHistory<Skills>}) =>
