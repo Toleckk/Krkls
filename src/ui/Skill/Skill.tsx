@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react'
 import c from 'classnames'
 import {Button} from '../Button'
 import {Skill as TSkill} from '../../store/skills'
-import useFocusVisible from '../../services/focus'
+import {useFocusVisible} from '../../contexts/FocusVisible'
 import s from './Skill.module.scss'
 import {WithHighlight} from '../../store/items'
 

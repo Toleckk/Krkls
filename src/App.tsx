@@ -9,7 +9,7 @@ import {AlertProvider} from './services/alert'
 import {Alert} from './ui/Alert'
 import {Provider} from 'react-redux'
 import {store} from './store'
-import {FocusVisibleProvider} from './services/focus'
+import {FocusVisibleProvider} from './contexts/FocusVisible'
 import {ModalProvider} from './contexts/ModalContext'
 
 const ItemDrawer = React.lazy(() =>

@@ -1,21 +1,18 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import {FocusVisibleContext} from './FocusVisibleContext'
 
-export const FocusVisibleContext = React.createContext({
-  hadKeyboardEvent: true,
-  isInitialized: false,
-})
-
-export const FocusVisibleProvider = ({children}) => {
-  const [hadKeyboardEvent, setHadKeyboardEvent] = useState(true)
+export const FocusVisibleProvider: React.FC = ({children}) => {
+  const [hadKeyboardEvent, setHadKeyboardEvent] = useState(false)
 
   useEffect(() => {
     const onPointerDown = () => setHadKeyboardEvent(false)
 
-    const onInitialPointerMove = e => {
-      if (e.target.nodeName && e.target.nodeName.toLowerCase() === 'html') return
-
-      setHadKeyboardEvent(false)
-      removeInitialPointerMoveListeners()
+    const onInitialPointerMove = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement | null
+      if (!target?.nodeName || target.nodeName.toLowerCase() !== 'html') {
+        setHadKeyboardEvent(false)
+        removeInitialPointerMoveListeners()
+      }
     }
 
     const addInitialPointerMoveListeners = () => {
@@ -42,10 +39,10 @@ export const FocusVisibleProvider = ({children}) => {
       document.removeEventListener('touchend', onInitialPointerMove)
     }
 
-    const onKeyDown = e => {
-      if (e.metaKey || e.altKey || e.ctrlKey) return
-
-      setHadKeyboardEvent(true)
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!e.metaKey && !e.altKey && !e.ctrlKey) {
+        setHadKeyboardEvent(true)
+      }
     }
 
     const onVisibilityChange = () => {
@@ -79,18 +76,4 @@ export const FocusVisibleProvider = ({children}) => {
       {children}
     </FocusVisibleContext.Provider>
   )
-}
-
-export default function useFocusVisible() {
-  const [isFocused, setIsFocused] = useState(false)
-  const {hadKeyboardEvent, isInitialized} = useContext(FocusVisibleContext)
-
-  const onFocus = () => setIsFocused(true)
-  const onBlur = () => setIsFocused(false)
-
-  return {
-    focusVisible: isInitialized ? hadKeyboardEvent && isFocused : isFocused,
-    onFocus,
-    onBlur,
-  }
 }
