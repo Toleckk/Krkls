@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import classNames from 'classnames'
-import styles from './Navigation.module.scss'
-import {Icon} from '../ui/Icon'
-import {useCopyLink} from '../services/copy'
-import {actions as skillsActions} from '../store/skills'
-import {useAction, useAppSelector} from '../store'
 import {ActionCreators} from 'redux-undo'
+import {useBooleanState} from 'use-boolean-state'
+import {Icon} from '../../ui/Icon'
+import {useCopyLink} from '../../services/copy'
+import {actions as skillsActions} from '../../store/skills'
+import {useAction, useAppSelector} from '../../store'
+import styles from './Navigation.module.scss'
 
 export const Navigation = () => {
   const undo = useAction(ActionCreators.undo)
@@ -16,9 +17,7 @@ export const Navigation = () => {
   }))
   const reset = useAction(skillsActions.reset)
 
-  const [hidden, setHidden] = useState(true)
-  const hide = () => setHidden(true)
-  const show = () => setHidden(false)
+  const [hidden, hide, show] = useBooleanState(true)
 
   const copy = useCopyLink()
 
