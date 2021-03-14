@@ -7,7 +7,14 @@ export const ModalProvider: React.FC = ({children}) => {
 
   const open = useCallback<Open>(
     <P extends ModalProps>(component: ComponentType<P>, props?: OwnModalProps<P>) =>
-      setModals(modals => modals.concat({component, props})),
+      setModals(modals =>
+        modals
+          .filter(modal => modal.component !== component)
+          .concat({
+            component,
+            props,
+          }),
+      ),
     [setModals],
   )
   const close = useCallback<Close>(
