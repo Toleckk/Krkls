@@ -1,0 +1,22 @@
+@import '../../theme';
+
+.alert {
+  position: fixed;
+  left: 0.5rem;
+  top: 2.2rem;
+  width: calc(100% - 1rem);
+
+  transition-property: opacity;
+  transition-timing-function: linear;
+
+  @media (min-width: 768px) {
+    top: unset;
+    bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &:global(.disappearing) {
+    opacity: 0;
+  }
+}
