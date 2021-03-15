@@ -14,14 +14,3 @@ export const store = configureStore<Store>({
     lvls: createLvlsReducer(getDefaultLvls()),
   },
 })
-
-store.subscribe(() =>
-  window.history.replaceState(
-    {},
-    '',
-    `/${store
-      .getState()
-      .skills.present.map(skill => skill.count.toString(13))
-      .join('')}`,
-  ),
-)

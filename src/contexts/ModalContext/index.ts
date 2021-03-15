@@ -1,3 +1,4 @@
+export * from './ModalBrowserRouter'
 export * from './ModalContext'
 export * from './ModalProvider'
 export * from './types'
