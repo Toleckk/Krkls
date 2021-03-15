@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import {useAction, useAppSelector} from '../../store'
 import {selectDevices, selectSortedShips, selectWeapons} from '../../store/items'
 import {ItemsPanel} from '../ItemsPanel'
 import {actions} from '../../store/highlight'
 import {useModal} from '../../contexts/ModalContext'
-import {ItemDrawerProps} from '../../modals/ItemDrawer'
 import s from './Items.module.scss'
 
 export const Items = () => {
@@ -15,7 +14,9 @@ export const Items = () => {
   const highlightItem = useAction(item => actions.highlightItem({item}))
   const resetHighlight = useAction(() => actions.reset())
 
-  const {open, isOpened} = useModal<ItemDrawerProps>('item')
+  const {open: openModal, isOpened} = useModal<string>('item')
+
+  const open = useCallback(item => openModal(item.name), [openModal])
 
   return (
     <div>

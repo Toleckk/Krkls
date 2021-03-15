@@ -19,9 +19,9 @@ export type ItemDrawerProps = {
 }
 
 export const ItemDrawer: React.FC<ItemDrawerProps> = React.memo(({name, show, onHide}) => {
-  const {props, isOpened, close} = useModal<ItemDrawerProps>('item')
+  const {props, isOpened, close} = useModal<string>('item')
 
-  const item = useAppSelector(selectItemByName(name || props?.name))
+  const item = useAppSelector(selectItemByName(name || props))
   const addSkills = useAction(actions.add)
 
   const handleAddClick = useCallback(
