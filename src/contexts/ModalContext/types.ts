@@ -13,7 +13,7 @@ export type ModalProps = {
 export type OwnModalProps<T extends ModalProps> = Omit<T, keyof ModalProps>
 
 export type Open = {
-  <P extends ModalProps>(name: string, props: OwnModalProps<P>): void
+  <P>(name: string, props: P extends ModalProps ? OwnModalProps<P> : P): void
   (name: string): void
 }
 

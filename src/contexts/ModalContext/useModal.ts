@@ -3,20 +3,22 @@ import {Exact} from '../../../utils/Exact'
 import {ModalContext} from './ModalContext'
 import {Modal, ModalProps, OwnModalProps} from './types'
 
-export type BoundOpen<P extends ModalProps> = Exact<P, ModalProps> extends never
-  ? (props: OwnModalProps<P>) => void
-  : () => void
+export type BoundOpen<P extends ModalProps> = P extends ModalProps
+  ? Exact<P, ModalProps> extends never
+    ? (props: OwnModalProps<P>) => void
+    : () => void
+  : (props: P) => void
 
 export type BoundClose = () => void
 
-export type UseModalResult<P extends ModalProps> = {
+export type UseModalResult<P> = {
   open: BoundOpen<P>
   close: BoundClose
   isOpened: boolean
-  props?: OwnModalProps<P>
+  props?: P extends ModalProps ? OwnModalProps<P> : P
 }
 
-export const useModal = <P extends ModalProps>(name: string): UseModalResult<P> => {
+export const useModal = <P>(name: string): UseModalResult<P> => {
   const {modals, open: openModal, close: closeModal} = useContext(ModalContext)
   const modal: undefined | Modal = modals.find(modal => modal.name === name)
 
@@ -27,6 +29,6 @@ export const useModal = <P extends ModalProps>(name: string): UseModalResult<P> 
     open,
     close,
     isOpened: !!modal,
-    props: modal?.props as OwnModalProps<P>,
+    props: modal?.props as P extends ModalProps ? OwnModalProps<P> : P,
   }
 }
