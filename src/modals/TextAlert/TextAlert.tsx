@@ -10,7 +10,7 @@ export type TextAlertProps = ModalProps & {
 }
 
 export const TextAlert: React.FC<TextAlertProps> = ({text, id, delay, onHide, show}) => {
-  const {props, isOpened, close} = useModal(TextAlert)
+  const {props, isOpened, close} = useModal<TextAlertProps>('text alert')
 
   if (!show && !isOpened) {
     return null

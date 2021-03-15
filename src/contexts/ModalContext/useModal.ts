@@ -1,4 +1,4 @@
-import {ComponentType, useCallback, useContext} from 'react'
+import {useCallback, useContext} from 'react'
 import {Exact} from '../../../utils/Exact'
 import {ModalContext} from './ModalContext'
 import {Modal, ModalProps, OwnModalProps} from './types'
@@ -16,17 +16,17 @@ export type UseModalResult<P extends ModalProps> = {
   props?: OwnModalProps<P>
 }
 
-export const useModal = <P extends ModalProps>(component: ComponentType<P>): UseModalResult<P> => {
+export const useModal = <P extends ModalProps>(name: string): UseModalResult<P> => {
   const {modals, open: openModal, close: closeModal} = useContext(ModalContext)
-  const modal: undefined | Modal<P> = modals.find(modal => modal.component === component)
+  const modal: undefined | Modal = modals.find(modal => modal.name === name)
 
-  const open = useCallback<any>((props: any) => openModal(component, props), [component, openModal])
-  const close = useCallback<BoundClose>(() => closeModal(component), [component, closeModal])
+  const open = useCallback<any>((props: any) => openModal(name, props), [name, openModal])
+  const close = useCallback<BoundClose>(() => closeModal(name), [name, closeModal])
 
   return {
     open,
     close,
     isOpened: !!modal,
-    props: modal?.props,
+    props: modal?.props as OwnModalProps<P>,
   }
 }
