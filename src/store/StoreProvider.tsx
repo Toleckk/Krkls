@@ -17,13 +17,7 @@ export const StoreProvider: React.FC = ({children}) => {
           .join('')}`
 
         if (pathname !== newPathName) {
-          history.replace(
-            {
-              pathname: newPathName,
-              search: history.location.search,
-            },
-            history.location.state,
-          )
+          history.replace(newPathName + history.location.search, history.location.state)
         }
       }),
     [history],
