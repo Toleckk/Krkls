@@ -5,8 +5,7 @@ import {Skills} from './components/Skills'
 import {Items} from './components/Items'
 import {Header} from './components/Header'
 import {Navigation} from './components/Navigation'
-import {Provider} from 'react-redux'
-import {store} from './store'
+import {StoreProvider} from './store'
 import {FocusVisibleProvider} from './contexts/FocusVisible'
 import {ModalBrowserRouter} from './contexts/ModalContext'
 import {TextAlert} from './modals/TextAlert'
@@ -16,7 +15,7 @@ const ItemDrawer = React.lazy(() =>
 )
 
 export const App = () => (
-  <Provider store={store}>
+  <StoreProvider>
     <BrowserRouter>
       <Switch>
         <Route path="/:build([0-9A-Ca-c]{16})">
@@ -39,5 +38,5 @@ export const App = () => (
         </Route>
       </Switch>
     </BrowserRouter>
-  </Provider>
+  </StoreProvider>
 )
