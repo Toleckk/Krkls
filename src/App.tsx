@@ -8,7 +8,7 @@ import {Navigation} from './components/Navigation'
 import {Provider} from 'react-redux'
 import {store} from './store'
 import {FocusVisibleProvider} from './contexts/FocusVisible'
-import {ModalProvider} from './contexts/ModalContext'
+import {ModalBrowserRouter} from './contexts/ModalContext'
 import {TextAlert} from './modals/TextAlert'
 
 const ItemDrawer = React.lazy(() =>
@@ -20,7 +20,7 @@ export const App = () => (
     <BrowserRouter>
       <Switch>
         <Route path="/:build([0-9A-Ca-c]{16})">
-          <ModalProvider>
+          <ModalBrowserRouter>
             <FocusVisibleProvider>
               <Header />
               <Skills />
@@ -32,7 +32,7 @@ export const App = () => (
                 <ItemDrawer />
               </Suspense>
             </FocusVisibleProvider>
-          </ModalProvider>
+          </ModalBrowserRouter>
         </Route>
         <Route>
           <Redirect to="/0000000000000000" />
