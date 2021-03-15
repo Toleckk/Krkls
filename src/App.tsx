@@ -15,8 +15,8 @@ const ItemDrawer = React.lazy(() =>
 )
 
 export const App = () => (
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <Switch>
         <Route path="/:build([0-9A-Ca-c]{16})">
           <ModalBrowserRouter>
@@ -37,6 +37,6 @@ export const App = () => (
           <Redirect to="/0000000000000000" />
         </Route>
       </Switch>
-    </BrowserRouter>
-  </StoreProvider>
+    </StoreProvider>
+  </BrowserRouter>
 )
