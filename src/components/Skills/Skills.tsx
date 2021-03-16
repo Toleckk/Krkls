@@ -35,10 +35,9 @@ export const Skills = () => {
         <Fragment key={i}>
           <ul className={s.column}>
             {group.map((skill, j) => (
-              <li>
+              <li key={'' + i + j}>
                 <Skill
                   skill={skill}
-                  key={'' + i + j}
                   onIncrement={increment}
                   onDecrement={decrement}
                   onMouseEnter={highlightSkill}
