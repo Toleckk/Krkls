@@ -1,7 +1,6 @@
 import React, {Suspense} from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import {Redirect, Route, Switch} from 'react-router'
-import {Skills} from './components/Skills'
 import {Navigation} from './components/Navigation'
 import {StoreProvider} from './store'
 import {FocusVisibleProvider} from './contexts/FocusVisible'
@@ -9,6 +8,7 @@ import {ModalBrowserRouter} from './contexts/ModalContext'
 import {TextAlert} from './modals/TextAlert'
 import {HeaderContainer} from './containers/HeaderContainer'
 import {ItemsContainer} from './containers/ItemsContainer'
+import {SkillsContainer} from './containers/SkillsContainer'
 
 const ItemDrawer = React.lazy(() =>
   import('./modals/ItemDrawer').then(i => ({default: i.ItemDrawer})),
@@ -22,7 +22,7 @@ export const App = () => (
           <ModalBrowserRouter>
             <FocusVisibleProvider>
               <HeaderContainer />
-              <Skills />
+              <SkillsContainer />
               <br />
               <ItemsContainer />
               <Navigation />
