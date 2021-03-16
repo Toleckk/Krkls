@@ -17,21 +17,23 @@ export type ItemsPanelProps = {
 export const ItemsPanel: React.FC<ItemsPanelProps> = ({title, items, ...props}) => (
   <Panel title={title}>
     <ul className={s.flex}>
-      {items.map(item => (
-        <li className={Array.isArray(item) ? undefined : s.item}>
-          {Array.isArray(item) ? (
-            <ul className={s.flex} key={item[0].name}>
+      {items.map((item, i) =>
+        Array.isArray(item) ? (
+          <li key={item[0]?.name || i}>
+            <ul className={s.flex}>
               {item.map(item => (
-                <li className={s.item}>
+                <li className={s.item} key={item.name}>
                   <Item key={item.name} item={item} {...props} />
                 </li>
               ))}
             </ul>
-          ) : (
+          </li>
+        ) : (
+          <li key={item.name} className={s.item}>
             <Item key={item.name} item={item} {...props} />
-          )}
-        </li>
-      ))}
+          </li>
+        ),
+      )}
     </ul>
   </Panel>
 )
