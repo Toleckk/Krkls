@@ -1,16 +1,14 @@
 import React, {useCallback} from 'react'
+import {selectSortedItems} from './selectors'
 import {Items} from '../../components/Items'
 import {useAction, useAppSelector} from '../../store'
-import {selectDevices, selectSortedShips, selectWeapons} from '../../store/items'
 import {actions} from '../../store/highlight'
 import {useModal} from '../../contexts/ModalContext'
 
 export type ItemsContainerProps = any
 
 export const ItemsContainer: React.FC<ItemsContainerProps> = () => {
-  const devices = useAppSelector(selectDevices)
-  const weapons = useAppSelector(selectWeapons)
-  const ships = useAppSelector(selectSortedShips)
+  const {devices, ships, weapons} = useAppSelector(selectSortedItems)
 
   const {open, isOpened} = useModal<string>('item')
   const openModal = useCallback(item => open(item.name), [open])

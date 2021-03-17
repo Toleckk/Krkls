@@ -3,9 +3,7 @@ import {Navigation} from '../../components/Navigation'
 import {useSkillsNavigation} from '../../hooks/useSkillsNavigation'
 import {useCopyLink} from '../../hooks/useCopyLink'
 
-export type NavigationContainerProps = any
-
-export const NavigationContainer: React.FC<NavigationContainerProps> = () => {
+export const NavigationContainer: React.FC = () => {
   const {canRedo, canUndo, redo, undo, reset} = useSkillsNavigation()
   const copy = useCopyLink()
 

@@ -1,6 +1,6 @@
+import {ItemHighlight} from '../../../store/highlight'
+import {Skills} from '../../../store/skills'
 import {composeRequiredLvl, sumCountField} from '../helpers'
-import {ItemHighlight} from '../../highlight'
-import {Skills} from '../../skills'
 
 describe('lvls helpers', () => {
   describe('sumCountField', () => {

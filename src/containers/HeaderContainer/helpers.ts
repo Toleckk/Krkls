@@ -1,5 +1,5 @@
-import {Skills} from '../skills'
-import {ItemHighlight} from '../highlight'
+import {Skills} from '../../store/skills'
+import {ItemHighlight} from '../../store/highlight'
 
 export const sumCountField = (list: Array<{count: number}>) =>
   list.reduce((sum, {count}) => sum + count, 0)

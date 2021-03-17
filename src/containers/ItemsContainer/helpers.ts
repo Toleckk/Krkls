@@ -1,6 +1,6 @@
-import {Available, Device, Item, Ship, Weapon, WithHighlight} from './types'
-import {Skill, Skills} from '../skills'
-import {SkillHighlight} from '../highlight'
+import {Skill, Skills} from '../../store/skills'
+import {SkillHighlight} from '../../store/highlight'
+import {Available, Device, Item, Ship, Weapon, WithHighlight} from '../../store/items'
 
 export const sortByAvailable = <I extends Item>(items: Available<I>[]): Available<I>[] =>
   [...items].sort((a, b) => (a.available === b.available ? 0 : a.available ? -1 : 1))
@@ -13,13 +13,6 @@ export const withAvailable = <I extends Item>(items: I[], skills: Skill[]): Avai
 
 export const isItemAvailable = ({skills: itemSkills}: Item, skills: Skill[]): boolean =>
   skills.every(({count, name}) => !(name in itemSkills) || count >= (itemSkills[name] || 0))
-
-export const isWeapon = (item: Record<string, unknown>): item is Weapon => item.type === 'Оружие'
-
-export const isShip = (item: Record<string, unknown>): item is Ship => item.type === 'Корабли'
-
-export const isDevice = (item: Record<string, unknown>): item is Device =>
-  item.type === 'Устройства'
 
 export const countAvailableShips = (ships: Available<Ship>[]) =>
   ships.filter(ship => ship.available).length
@@ -93,3 +86,27 @@ export const withHighlight = <I extends Pick<Item, 'skills'>>(
         : undefined,
   }))
 }
+
+export const groupByType = (
+  items: Item[],
+): {
+  devices: Device[]
+  weapons: Weapon[]
+  ships: Ship[]
+} =>
+  items.reduce<{
+    weapons: Weapon[]
+    devices: Device[]
+    ships: Ship[]
+  }>(
+    (groups, item) => {
+      const type =
+        item.type === 'Устройства' ? 'devices' : item.type === 'Оружие' ? 'weapons' : 'ships'
+
+      return {
+        ...groups,
+        [type]: (groups[type] as any).concat(item),
+      }
+    },
+    {weapons: [], devices: [], ships: []},
+  )
