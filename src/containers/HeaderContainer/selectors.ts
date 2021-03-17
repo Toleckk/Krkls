@@ -1,7 +1,7 @@
 import {createSelector} from '@reduxjs/toolkit'
 import {selectHighlight, selectItems, selectLvls, selectPresentSkills} from '../../store'
-import {composeRequiredLvl, sumCountField} from './helpers'
 import {findByProp} from '../../utils'
+import {composeRequiredLvl, sumCountField} from './helpers'
 
 export const selectLvl = createSelector(
   selectPresentSkills,

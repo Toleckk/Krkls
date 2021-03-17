@@ -1,7 +1,8 @@
+import React from 'react'
 import {Meta, Story} from '@storybook/react/types-6-0'
-import {ItemCard, ItemCardProps} from './ItemCard'
 import {devices} from '../../data/images'
 import {Device} from '../../store/items'
+import {ItemCard, ItemCardProps} from './ItemCard'
 
 export default {
   component: ItemCard,

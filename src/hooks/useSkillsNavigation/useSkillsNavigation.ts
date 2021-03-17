@@ -1,5 +1,5 @@
-import {useAction, useAppSelector} from '../../store'
 import {ActionCreators} from 'redux-undo'
+import {useAction, useAppSelector} from '../../store'
 import {actions as skillsActions} from '../../store/skills'
 import {selectSkillsHistoryState} from './selectors'
 

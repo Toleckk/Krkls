@@ -3,7 +3,7 @@ import {Skills} from '../types'
 
 describe('skills helpers', () => {
   describe('adjustByName', () => {
-    const notExistingName: string = 'not-existing-name'
+    const notExistingName = 'not-existing-name'
     const list = Array(10)
       .fill(0)
       .map((_, i) => ({name: String(i)}))
@@ -78,8 +78,8 @@ describe('skills helpers', () => {
   })
 
   describe('findByName', () => {
-    const name: string = 'name'
-    const notExistingName: string = 'not existing name'
+    const name = 'name'
+    const notExistingName = 'not existing name'
     const item = {name}
     const items = [{name: 'a'}, item, {name: 'b'}]
 

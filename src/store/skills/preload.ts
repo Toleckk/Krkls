@@ -1,5 +1,5 @@
-import {Skills} from './types'
 import skills from '../../data/skills.json'
+import {Skills} from './types'
 
 export const getDefaultSkills = (): Skills => {
   const counts = urlToCounts(window.location.pathname)

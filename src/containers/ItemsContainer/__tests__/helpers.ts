@@ -315,7 +315,7 @@ describe('items helpers', () => {
       {...skillFields, name: 'skill3', count: 3},
       {...skillFields, name: 'skill4', count: 3},
     ]
-    const notExistingSkill: string = 'not existing skill'
+    const notExistingSkill = 'not existing skill'
 
     it('should return input if highlight is undefined', () => {
       const highlighted = withHighlight(items, skills, undefined)

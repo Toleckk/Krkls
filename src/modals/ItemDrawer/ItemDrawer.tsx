@@ -7,10 +7,10 @@ import {Icon} from '../../ui/Icon'
 import {ItemSkills} from '../../components/ItemSkills'
 import {useAction, useAppSelector} from '../../store'
 import {actions} from '../../store/skills'
-import {selectItemByName} from './selectors'
-import s from './ItemDrawer.module.scss'
 import {Divider} from '../../ui/Divider'
 import {actions as highlightActions} from '../../store/highlight'
+import {selectItemByName} from './selectors'
+import s from './ItemDrawer.module.scss'
 
 export type ItemDrawerProps = {
   name?: string

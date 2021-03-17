@@ -1,5 +1,5 @@
-import {Skill, Skills} from './types'
 import {createReducer, PayloadAction} from '@reduxjs/toolkit'
+import {Skill, Skills} from './types'
 import {addSkillsCounts, adjustByName} from './helpers'
 import {add, decrement, increment, reset} from './actions'
 

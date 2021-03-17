@@ -1,7 +1,7 @@
 import {createSelector} from '@reduxjs/toolkit'
 import {selectHighlight, selectItems, selectPresentSkills} from '../../store'
-import {groupSkills, withHighlight} from './helpers'
 import {findByProp} from '../../utils'
+import {groupSkills, withHighlight} from './helpers'
 
 export const selectGroupedSkills = createSelector(
   selectPresentSkills,
