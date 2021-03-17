@@ -1,47 +1,40 @@
 import React, {Fragment} from 'react'
-import {Skill} from '../../ui/Skill'
-import {useAction, useAppSelector} from '../../store'
-import {actions as skillActions, selectSkills, Skill as TSkill} from '../../store/skills'
-import {actions as highlightActions} from '../../store/highlight'
-import {WithHighlight} from '../../store/items'
-import s from './Skills.module.scss'
-import {Divider} from '../../ui/Divider'
 import {useMedia} from 'use-media'
+import {Skill} from '../../ui/Skill'
+import {Skill as TSkill} from '../../store/skills'
+import {Divider} from '../../ui/Divider'
+import s from './Skills.module.scss'
 
-export const Skills = () => {
-  const skills = useAppSelector(selectSkills)
+export type SkillsProps = {
+  skills: TSkill[][]
+  onIncrement?: (skill: TSkill) => unknown
+  onDecrement?: (skill: TSkill) => unknown
+  onHighlight?: (skill: TSkill) => unknown
+  onResetHighlight?: () => unknown
+}
 
-  const increment = useAction(skillActions.increment)
-  const decrement = useAction(skillActions.decrement)
-
-  const highlightSkill = useAction(skill => highlightActions.highlightSkill({skill: skill.name}))
-  const resetHighlight = useAction(highlightActions.reset)
-
-  const sortedSkill = Object.values(
-    skills.reduce<Record<string, WithHighlight<TSkill>[]>>(
-      (acc, s) => ({
-        ...acc,
-        [s.group]: acc[s.group] ? acc[s.group].concat(s) : [s],
-      }),
-      {},
-    ),
-  )
-
+export const Skills: React.FC<SkillsProps> = ({
+  skills,
+  onHighlight,
+  onResetHighlight,
+  onDecrement,
+  onIncrement,
+}) => {
   const isTablet = useMedia({minWidth: 768})
 
   return (
     <div className={s.skills}>
-      {sortedSkill.map((group, i, {length}) => (
+      {skills.map((group, i, {length}) => (
         <Fragment key={i}>
           <ul className={s.column}>
             {group.map((skill, j) => (
               <li key={'' + i + j}>
                 <Skill
                   skill={skill}
-                  onIncrement={increment}
-                  onDecrement={decrement}
-                  onMouseEnter={highlightSkill}
-                  onMouseLeave={resetHighlight}
+                  onIncrement={onIncrement}
+                  onDecrement={onDecrement}
+                  onMouseEnter={onHighlight}
+                  onMouseLeave={onResetHighlight}
                 />
               </li>
             ))}

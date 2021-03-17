@@ -20,12 +20,20 @@ export const Lvl: React.FC<LvlProps> = ({requiredLvl, requiredExp, currentLvl, c
   <div className={s.column}>
     <div className={s.row}>
       <div>
-        <span className={s.lvl}>{currentLvl}</span>
-        <span className={s.exp}>{short(currentExp)}</span>
+        <span title="Текущий уровень" className={s.lvl}>
+          {currentLvl}
+        </span>
+        <span title="Текущий опыт" className={s.exp}>
+          {short(currentExp)}
+        </span>
       </div>
-      <div>
-        <span className={s.exp}>{short(requiredExp)}</span>
-        <span className={c(s.lvl, s.required)}>{requiredLvl}</span>
+      <div aria-hidden={currentLvl === requiredLvl}>
+        <span title="Необходимый опыт" className={s.exp}>
+          {short(requiredExp)}
+        </span>
+        <span title="Необходимый уровень" className={c(s.lvl, s.required)}>
+          {requiredLvl}
+        </span>
       </div>
     </div>
     <Line value={currentExp / requiredExp} />

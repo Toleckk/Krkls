@@ -1,14 +1,14 @@
 import React, {Suspense} from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import {Redirect, Route, Switch} from 'react-router'
-import {Skills} from './components/Skills'
-import {Items} from './components/Items'
-import {Header} from './components/Header'
-import {Navigation} from './components/Navigation'
 import {StoreProvider} from './store'
 import {FocusVisibleProvider} from './contexts/FocusVisible'
 import {ModalBrowserRouter} from './contexts/ModalContext'
 import {TextAlert} from './modals/TextAlert'
+import {HeaderContainer} from './containers/HeaderContainer'
+import {ItemsContainer} from './containers/ItemsContainer'
+import {SkillsContainer} from './containers/SkillsContainer'
+import {NavigationContainer} from './containers/NavigationContainer'
 
 const ItemDrawer = React.lazy(() =>
   import('./modals/ItemDrawer').then(i => ({default: i.ItemDrawer})),
@@ -21,11 +21,11 @@ export const App = () => (
         <Route path="/:build([0-9A-Ca-c]{16})">
           <ModalBrowserRouter>
             <FocusVisibleProvider>
-              <Header />
-              <Skills />
+              <HeaderContainer />
+              <SkillsContainer />
               <br />
-              <Items />
-              <Navigation />
+              <ItemsContainer />
+              <NavigationContainer />
               <TextAlert />
               <Suspense fallback={null}>
                 <ItemDrawer />

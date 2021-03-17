@@ -3,17 +3,14 @@ import {
   composeItemsHighlight,
   countAvailableShips,
   groupShipsByClass,
-  isDevice,
   isItemAvailable,
-  isShip,
-  isWeapon,
   sortByAvailable,
   sortByAvailableShipsAndName,
   withAvailable,
   withHighlight,
 } from '../helpers'
-import {Available, Device, Item, Items, Ship, Weapon} from '../types'
-import {Skill, Skills} from '../../skills'
+import {Available, Device, Item, Items, Ship, Weapon} from '../../../store/items'
+import {Skill, Skills} from '../../../store/skills'
 
 describe('items helpers', () => {
   const itemFields: Omit<Item, 'type'> = {
@@ -74,42 +71,6 @@ describe('items helpers', () => {
     {...weapon, skills: {min: 1}},
   ]
   const items: Item[] = [...availableItems, ...unavailableItems]
-
-  describe('isDevice', () => {
-    it('should return true if arg is a device', () => {
-      const result = isDevice(device)
-      expect(result).toBe(true)
-    })
-
-    test.each([weapon, ship])('should return false if arg is not a device', item => {
-      const result = isDevice(item)
-      expect(result).toBe(false)
-    })
-  })
-
-  describe('isShip', () => {
-    it('should return true if arg is a ship', () => {
-      const result = isShip(ship)
-      expect(result).toBe(true)
-    })
-
-    test.each([weapon, device])('should return false if arg is not a ship', item => {
-      const result = isShip(item)
-      expect(result).toBe(false)
-    })
-  })
-
-  describe('isWeapon', () => {
-    it('should return true if arg is a weapon', () => {
-      const result = isWeapon(weapon)
-      expect(result).toBe(true)
-    })
-
-    test.each([ship, device])('should return false if arg is not a weapon', item => {
-      const result = isWeapon(item)
-      expect(result).toBe(false)
-    })
-  })
 
   describe('isItemAvailable', () => {
     test.each(availableItems)('should return true if item is available', item => {
