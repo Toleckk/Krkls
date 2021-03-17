@@ -1,3 +1,5 @@
+import {findByProp} from '../../utils'
+
 export const adjustByName = <S extends string, T extends {name: S}>(
   name: S,
   fn: (el: T) => T,
@@ -15,7 +17,7 @@ export const adjustByName = <S extends string, T extends {name: S}>(
 export const findByName = <S extends string, T extends {name: S}>(
   name: S,
   items: T[],
-): T | undefined => items.find(item => item.name === name)
+): T | undefined => findByProp('name', name, items)
 
 export const addSkillsCounts = <T extends {name: string; count: number}>(
   currentSkills: T[],
