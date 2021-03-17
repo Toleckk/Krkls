@@ -1,3 +1,4 @@
 export * from './store'
-export * from './utils'
 export * from './StoreProvider'
+export * from './selectors'
+export * from './utils'

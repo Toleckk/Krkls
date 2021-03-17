@@ -1,6 +1,5 @@
 import {createSelector} from '@reduxjs/toolkit'
-import {selectPresentSkills} from '../../store/skills'
-import {selectHighlight} from '../../store/highlight'
+import {selectHighlight, selectPresentSkills, selectItems} from '../../store'
 import {
   groupByType,
   groupShipsByClass,
@@ -9,7 +8,7 @@ import {
   withAvailable,
   withHighlight,
 } from './helpers'
-import {Available, Item, selectItems, WithHighlight} from '../../store/items'
+import {Available, Item, WithHighlight} from '../../store/items'
 
 export const selectSortedItems = createSelector(
   selectItems,
