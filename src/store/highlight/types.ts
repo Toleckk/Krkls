@@ -1,16 +1,10 @@
-import {Item} from '../items'
-
-export type SkillHighlight = string
-
-export type ItemHighlight = Pick<Item, 'skills' | 'name'>
-
 export type SkillsHighlight = {
-  skill: SkillHighlight
+  skill: string
   item?: undefined
 }
 
 export type ItemsHighlight = {
-  item: ItemHighlight
+  item: string
   skill?: undefined
 }
 

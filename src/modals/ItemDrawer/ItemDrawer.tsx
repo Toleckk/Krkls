@@ -37,7 +37,7 @@ export const ItemDrawer: React.FC<ItemDrawerProps> = React.memo(({name, show, on
 
   useEffect(() => {
     if (item && (show || isOpened)) {
-      highlightItem({item})
+      highlightItem({item: item.name})
     } else {
       resetHighlight()
     }

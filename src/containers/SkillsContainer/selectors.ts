@@ -8,9 +8,9 @@ export const selectGroupedSkills = createSelector(
   selectHighlight,
   selectItems,
   (skills, highlight, items) => {
-    const item = findByProp('name', highlight.item?.name, items)
+    const item = findByProp('name', highlight.item, items)
 
-    const fullSkills = withHighlight(skills, item)
+    const fullSkills = withHighlight(skills, item?.skills)
 
     return groupSkills(fullSkills)
   },

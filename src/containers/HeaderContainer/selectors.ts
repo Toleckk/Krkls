@@ -19,7 +19,7 @@ export const selectLvl = createSelector(
       return {current, required: current}
     }
 
-    const item = findByProp('name', highlight.item.name, items)
+    const item = findByProp('name', highlight.item, items)
 
     if (!item) {
       return {current, required: current}

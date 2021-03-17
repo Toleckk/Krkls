@@ -1,6 +1,6 @@
 import {Skill, Skills} from '../../store/skills'
-import {SkillHighlight} from '../../store/highlight'
 import {Available, Device, Item, Ship, Weapon, WithHighlight} from '../../store/items'
+import {findByProp} from '../../utils'
 
 export const sortByAvailable = <I extends Item>(items: Available<I>[]): Available<I>[] =>
   [...items].sort((a, b) => (a.available === b.available ? 0 : a.available ? -1 : 1))
@@ -63,13 +63,13 @@ export const composeItemsHighlight = (items: Item[], skill: string) =>
 export const withHighlight = <I extends Pick<Item, 'skills'>>(
   items: I[],
   skills: Skills,
-  highlight: SkillHighlight | undefined,
+  highlight: string | undefined,
 ): WithHighlight<I>[] => {
   if (!highlight) {
     return items
   }
 
-  const skill = skills.find(skill => skill.name === highlight)
+  const skill = findByProp('name', highlight, skills)
 
   if (!skill) {
     return items

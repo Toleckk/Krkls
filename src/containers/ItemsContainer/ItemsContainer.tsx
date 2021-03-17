@@ -4,16 +4,15 @@ import {Items} from '../../components/Items'
 import {useAction, useAppSelector} from '../../store'
 import {actions} from '../../store/highlight'
 import {useModal} from '../../contexts/ModalContext'
+import {Item} from '../../store/items'
 
-export type ItemsContainerProps = any
-
-export const ItemsContainer: React.FC<ItemsContainerProps> = () => {
+export const ItemsContainer: React.FC = () => {
   const {devices, ships, weapons} = useAppSelector(selectSortedItems)
 
   const {open, isOpened} = useModal<string>('item')
-  const openModal = useCallback(item => open(item.name), [open])
+  const openModal = useCallback((item: Item) => open(item.name), [open])
 
-  const highlightItem = useAction(item => actions.highlightItem({item}))
+  const highlightItem = useAction((item: Item) => actions.highlightItem({item: item.name}))
 
   const reset = useAction(actions.reset)
   const resetHighlight = useCallback(() => {
