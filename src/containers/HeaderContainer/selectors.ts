@@ -1,12 +1,14 @@
 import {createSelector} from '@reduxjs/toolkit'
-import {selectHighlight, selectLvls, selectPresentSkills} from '../../store'
+import {selectHighlight, selectItems, selectLvls, selectPresentSkills} from '../../store'
 import {composeRequiredLvl, sumCountField} from './helpers'
+import {findByProp} from '../../utils'
 
 export const selectLvl = createSelector(
   selectPresentSkills,
   selectLvls,
   selectHighlight,
-  (skills, lvls, highlight) => {
+  selectItems,
+  (skills, lvls, highlight, items) => {
     const currentLvl = sumCountField(skills)
     const current = {
       lvl: currentLvl,
@@ -17,7 +19,13 @@ export const selectLvl = createSelector(
       return {current, required: current}
     }
 
-    const requiredLvl = composeRequiredLvl(skills, highlight.item.skills)
+    const item = findByProp('name', highlight.item.name, items)
+
+    if (!item) {
+      return {current, required: current}
+    }
+
+    const requiredLvl = composeRequiredLvl(skills, item.skills)
     return {current, required: {lvl: requiredLvl, exp: lvls[requiredLvl]}}
   },
 )

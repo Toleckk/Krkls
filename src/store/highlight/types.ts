@@ -2,7 +2,7 @@ import {Item} from '../items'
 
 export type SkillHighlight = string
 
-export type ItemHighlight = Pick<Item, 'skills'>
+export type ItemHighlight = Pick<Item, 'skills' | 'name'>
 
 export type SkillsHighlight = {
   skill: SkillHighlight
