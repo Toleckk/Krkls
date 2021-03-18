@@ -8,7 +8,7 @@ import {
   selectSkills,
 } from '../selectors'
 import {Item} from '../items'
-import {Highlight, ItemHighlight, SkillHighlight} from '../highlight'
+import {Highlight} from '../highlight'
 
 describe('selectors', () => {
   describe('selectSkills', () => {
@@ -47,8 +47,8 @@ describe('selectors', () => {
   })
 
   describe('selectHighlight', () => {
-    const item: ItemHighlight = {skills: {}}
-    const skill: SkillHighlight = 'skill'
+    const item = 'item'
+    const skill = 'skill'
 
     const stores: Array<{highlight: Highlight}> = [
       {highlight: {}},

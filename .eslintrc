@@ -24,6 +24,22 @@
         ]
       }
     ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "../**/components",
+          "../**/containers",
+          "../**/contexts",
+          "../**/data",
+          "../**/hooks",
+          "../**/modals",
+          "../**/store",
+          "../**/ui",
+          "../**/utils"
+        ]
+      }
+    ],
     "import/no-useless-path-segments": "error",
     "import/no-commonjs": "error",
     "import/no-duplicates": "error",

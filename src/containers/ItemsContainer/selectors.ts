@@ -1,6 +1,6 @@
 import {createSelector} from '@reduxjs/toolkit'
-import {selectHighlight, selectPresentSkills, selectItems} from '../../store'
-import {Available, Item, WithHighlight} from '../../store/items'
+import {selectHighlight, selectPresentSkills, selectItems} from '@krkls/store'
+import {Available, Item, WithHighlight} from '@krkls/store/items'
 import {
   groupByType,
   groupShipsByClass,

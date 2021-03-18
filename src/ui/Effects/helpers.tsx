@@ -17,4 +17,4 @@ export const extractContentFromSelection = (str: string): string => {
   return content ?? str
 }
 
-export const isSelected = (str: string) => /^\|.+\|$/.test(str)
+export const isSelected = (str: string): boolean => /^\|.+\|$/.test(str)

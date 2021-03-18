@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
 import {useMedia} from 'use-media'
-import {Skill} from '../../ui/Skill'
-import {Skill as TSkill} from '../../store/skills'
-import {Divider} from '../../ui/Divider'
+import {Skill} from '@krkls/ui/Skill'
+import {Skill as TSkill} from '@krkls/store/skills'
+import {Divider} from '@krkls/ui/Divider'
 import s from './Skills.module.scss'
 
 export type SkillsProps = {

@@ -1,4 +1,4 @@
-import skills from '../../data/skills.json'
+import skills from '@krkls/data/skills.json'
 import {Skills} from './types'
 
 export const getDefaultSkills = (): Skills => {

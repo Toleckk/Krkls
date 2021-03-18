@@ -1,6 +1,6 @@
 import {ActionCreators} from 'redux-undo'
-import {useAction, useAppSelector} from '../../store'
-import {actions as skillsActions} from '../../store/skills'
+import {useAction, useAppSelector} from '@krkls/store'
+import {actions as skillsActions} from '@krkls/store/skills'
 import {selectSkillsHistoryState} from './selectors'
 
 export type UseSkillsNavigationResult = {

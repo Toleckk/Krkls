@@ -14,7 +14,7 @@ const ItemDrawer = React.lazy(() =>
   import('./modals/ItemDrawer').then(i => ({default: i.ItemDrawer})),
 )
 
-export const App = () => (
+export const App: React.FC = () => (
   <BrowserRouter>
     <StoreProvider>
       <Switch>

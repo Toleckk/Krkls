@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import c from 'classnames'
+import {Skill as TSkill} from '@krkls/store/skills'
+import {useFocusVisible} from '@krkls/contexts/FocusVisible'
+import {WithHighlight} from '@krkls/store/items'
 import {Button} from '../Button'
-import {Skill as TSkill} from '../../store/skills'
-import {useFocusVisible} from '../../contexts/FocusVisible'
-import {WithHighlight} from '../../store/items'
 import s from './Skill.module.scss'
 
 export type FullSkill = WithHighlight<TSkill>

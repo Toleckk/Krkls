@@ -1,7 +1,7 @@
 import type {StateWithHistory} from 'redux-undo'
 import {createSelector} from '@reduxjs/toolkit'
-import {Item, Items} from '../../store/items'
-import {Skills} from '../../store/skills'
+import {Item, Items} from '@krkls/store/items'
+import {Skills} from '@krkls/store/skills'
 
 export const selectItemByName = (name: string | undefined) =>
   createSelector(

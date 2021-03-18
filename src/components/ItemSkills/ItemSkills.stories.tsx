@@ -1,3 +1,4 @@
+import React from 'react'
 import {Meta, Story} from '@storybook/react/types-6-0'
 import {ItemSkills, ItemSkillsProps} from './ItemSkills'
 

@@ -1,6 +1,6 @@
 import React from 'react'
+import {Available, Device, Item, Ship, Weapon, WithHighlight} from '@krkls/store/items'
 import {ItemsPanel} from '../ItemsPanel'
-import {Available, Device, Item, Ship, Weapon, WithHighlight} from '../../store/items'
 import s from './Items.module.scss'
 
 export type ItemsProps = {

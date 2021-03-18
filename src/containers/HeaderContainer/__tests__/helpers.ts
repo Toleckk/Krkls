@@ -1,5 +1,5 @@
-import {ItemHighlight} from '../../../store/highlight'
-import {Skills} from '../../../store/skills'
+import {Skills} from '@krkls/store/skills'
+import {Item} from '@krkls/store/items'
 import {composeRequiredLvl, sumCountField} from '../helpers'
 
 describe('lvls helpers', () => {
@@ -36,7 +36,7 @@ describe('lvls helpers', () => {
       [{name: 'skill5', count: 0, group: 0, limit: 0}],
     ]
 
-    test.each<ItemHighlight['skills']>([{}, {skill: 1}, {skill2: 3}])(
+    test.each<Item['skills']>([{}, {skill: 1}, {skill2: 3}])(
       'should return 0 if empty list is given',
       highlight => {
         const requiredLvl = composeRequiredLvl([], highlight)
@@ -53,7 +53,7 @@ describe('lvls helpers', () => {
       },
     )
 
-    test.each<[Skills, ItemHighlight['skills'], number]>([
+    test.each<[Skills, Item['skills'], number]>([
       [
         [
           {name: '1', limit: 0, group: 0, count: 0},

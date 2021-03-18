@@ -1,7 +1,7 @@
 import React, {HTMLAttributes} from 'react'
 import c from 'classnames'
-import {Effects} from '../../ui/Effects'
-import {Divider} from '../../ui/Divider'
+import {Effects} from '@krkls/ui/Effects'
+import {Divider} from '@krkls/ui/Divider'
 import s from './ItemCard.module.scss'
 
 export type ItemCardProps = {

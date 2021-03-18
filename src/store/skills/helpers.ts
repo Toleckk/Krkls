@@ -1,4 +1,4 @@
-import {findByProp} from '../../utils'
+import {findByProp} from '@krkls/utils'
 
 export const adjustByName = <S extends string, T extends {name: S}>(
   name: S,

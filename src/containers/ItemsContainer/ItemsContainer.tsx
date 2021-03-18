@@ -1,9 +1,9 @@
 import React, {useCallback} from 'react'
-import {Items} from '../../components/Items'
-import {useAction, useAppSelector} from '../../store'
-import {actions} from '../../store/highlight'
-import {useModal} from '../../contexts/ModalContext'
-import {Item} from '../../store/items'
+import {Items} from '@krkls/components/Items'
+import {useAction, useAppSelector} from '@krkls/store'
+import {actions} from '@krkls/store/highlight'
+import {useModal} from '@krkls/contexts/ModalContext'
+import {Item} from '@krkls/store/items'
 import {selectSortedItems} from './selectors'
 
 export const ItemsContainer: React.FC = () => {

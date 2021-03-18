@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 import {Meta, Story} from '@storybook/react/types-6-0'
-import {ModalProvider} from '../../contexts/ModalContext'
-import {useAlert} from '../../hooks/useAlert'
+import {ModalProvider} from '@krkls/contexts/ModalContext'
+import {useAlert} from '@krkls/hooks/useAlert'
 import {TextAlert, TextAlertProps} from './TextAlert'
 
 export default {

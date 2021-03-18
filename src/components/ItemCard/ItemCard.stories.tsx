@@ -1,7 +1,7 @@
 import React from 'react'
 import {Meta, Story} from '@storybook/react/types-6-0'
-import {devices} from '../../data/images'
-import {Device} from '../../store/items'
+import {devices} from '@krkls/data/images'
+import {Device} from '@krkls/store/items'
 import {ItemCard, ItemCardProps} from './ItemCard'
 
 export default {

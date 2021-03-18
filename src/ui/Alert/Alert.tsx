@@ -29,3 +29,5 @@ export const Alert: React.FC<AlertProps> = React.memo(({children, delay = 3000, 
     </div>
   )
 })
+
+Alert.displayName = 'Alert'

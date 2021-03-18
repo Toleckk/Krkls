@@ -1,6 +1,6 @@
-import {Skill, Skills} from '../../store/skills'
-import {Available, Device, Item, Ship, Weapon, WithHighlight} from '../../store/items'
-import {findByProp} from '../../utils'
+import {Skill, Skills} from '@krkls/store/skills'
+import {Available, Device, Item, Ship, Weapon, WithHighlight} from '@krkls/store/items'
+import {findByProp} from '@krkls/utils'
 
 export const sortByAvailable = <I extends Item>(items: Available<I>[]): Available<I>[] =>
   [...items].sort((a, b) => (a.available === b.available ? 0 : a.available ? -1 : 1))

@@ -1,7 +1,7 @@
 import React from 'react'
-import {Navigation} from '../../components/Navigation'
-import {useSkillsNavigation} from '../../hooks/useSkillsNavigation'
-import {useCopyLink} from '../../hooks/useCopyLink'
+import {Navigation} from '@krkls/components/Navigation'
+import {useSkillsNavigation} from '@krkls/hooks/useSkillsNavigation'
+import {useCopyLink} from '@krkls/hooks/useCopyLink'
 
 export const NavigationContainer: React.FC = () => {
   const {canRedo, canUndo, redo, undo, reset} = useSkillsNavigation()
