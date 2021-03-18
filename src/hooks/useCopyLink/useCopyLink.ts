@@ -3,7 +3,9 @@ import {useLocation} from 'react-router'
 import {useClipboard} from 'use-clipboard-copy'
 import {useAlert} from '../useAlert'
 
-export const useCopyLink = () => {
+export type Share = () => void
+
+export const useCopyLink = (): Share => {
   const location = useLocation()
   const {open} = useAlert()
 
@@ -11,7 +13,7 @@ export const useCopyLink = () => {
     onSuccess: () => open({text: 'Ссылка скопирована в буфер обмена!'}),
   })
 
-  return useCallback(() => {
+  return useCallback<Share>(() => {
     const shareData = {
       title: 'Krkls',
       url: window.location.origin + location.pathname,

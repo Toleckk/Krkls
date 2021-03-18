@@ -14,7 +14,7 @@ export const withAvailable = <I extends Item>(items: I[], skills: Skill[]): Avai
 export const isItemAvailable = ({skills: itemSkills}: Item, skills: Skill[]): boolean =>
   skills.every(({count, name}) => !(name in itemSkills) || count >= (itemSkills[name] || 0))
 
-export const countAvailableShips = (ships: Available<Ship>[]) =>
+export const countAvailableShips = <T extends {available: boolean}>(ships: T[]): number =>
   ships.filter(ship => ship.available).length
 
 export const groupShipsByClass = <T extends Ship>(ships: T[]): T[][] => {
@@ -46,7 +46,7 @@ export const sortByAvailableShipsAndName = <S extends Available<Ship>>(groups: S
     return aCount < bCount ? 1 : -1
   })
 
-export const composeItemsHighlight = (items: Item[], skill: string) =>
+export const composeItemsHighlight = (items: Item[], skill: string): Record<string, number> =>
   items.reduce<Record<string, number>>((highlight, item) => {
     const count = item.skills[skill]
 
