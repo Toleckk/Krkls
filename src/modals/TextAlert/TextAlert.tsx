@@ -1,7 +1,6 @@
 import React from 'react'
+import {Alert, Tip} from '@krkls/ui'
 import {ModalProps, useModal} from '@krkls/contexts/ModalContext'
-import {Alert} from '@krkls/ui/Alert'
-import {Tip} from '@krkls/ui/Tip'
 
 export type TextAlertProps = ModalProps & {
   id?: string

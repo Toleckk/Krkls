@@ -1,5 +1,5 @@
 import React from 'react'
-import {Skills} from '@krkls/components/Skills'
+import {Skills} from '@krkls/components'
 import {useAction, useAppSelector} from '@krkls/store'
 import {actions as skillActions} from '@krkls/store/skills'
 import {actions as highlightActions} from '@krkls/store/highlight'

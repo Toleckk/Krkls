@@ -1,7 +1,7 @@
 import {useCallback} from 'react'
 import {nanoid} from 'nanoid'
+import {TextAlertProps} from '@krkls/modals'
 import {OwnModalProps, useModal, UseModalResult} from '@krkls/contexts/ModalContext'
-import {TextAlertProps} from '@krkls/modals/TextAlert'
 
 export type UseAlertResult = Omit<UseModalResult<TextAlertProps>, 'open' | 'props'> & {
   open: (props: Omit<OwnModalProps<TextAlertProps>, 'id'>) => void

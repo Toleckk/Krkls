@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import c from 'classnames'
 import {Skill as TSkill} from '@krkls/store/skills'
-import {useFocusVisible} from '@krkls/contexts/FocusVisible'
 import {WithHighlight} from '@krkls/store/items'
+import {useFocusVisible} from '@krkls/contexts/FocusVisible'
 import {Button} from '../Button'
 import s from './Skill.module.scss'
 

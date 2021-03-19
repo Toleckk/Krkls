@@ -1,7 +1,7 @@
 import React from 'react'
 import c from 'classnames'
 import {short} from '@krkls/utils'
-import {Line} from '@krkls/ui/Line'
+import {Line} from '@krkls/ui'
 import s from './Lvl.module.scss'
 
 export type LvlDescription = {

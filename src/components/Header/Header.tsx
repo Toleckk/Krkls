@@ -1,5 +1,5 @@
 import React from 'react'
-import {ControlButton} from '@krkls/ui/ControlButton'
+import {ControlButton} from '@krkls/ui'
 import {Lvl} from '../Lvl'
 import s from './Header.module.scss'
 

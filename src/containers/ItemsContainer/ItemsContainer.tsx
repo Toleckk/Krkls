@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react'
-import {Items} from '@krkls/components/Items'
+import {Items} from '@krkls/components'
 import {useAction, useAppSelector} from '@krkls/store'
 import {actions} from '@krkls/store/highlight'
 import {useModal} from '@krkls/contexts/ModalContext'

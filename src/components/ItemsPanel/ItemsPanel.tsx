@@ -1,7 +1,6 @@
 import React from 'react'
 import type {Available, Item as TItem, WithHighlight} from '@krkls/store/items'
-import {Panel} from '@krkls/ui/Panel'
-import {Item} from '@krkls/ui/Item'
+import {Item, Panel} from '@krkls/ui'
 import s from './ItemsPanel.module.scss'
 
 export type FullItem = WithHighlight<Available<TItem>>

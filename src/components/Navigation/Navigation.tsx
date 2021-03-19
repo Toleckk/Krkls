@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import {useBooleanState} from 'use-boolean-state'
-import {Icon} from '@krkls/ui/Icon'
+import {Icon} from '@krkls/ui'
 import styles from './Navigation.module.scss'
 
 export type NavigationProps = {

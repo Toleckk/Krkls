@@ -9,7 +9,7 @@ export type ControlButtonProps = {
 } & ButtonProps
 
 export const ControlButton: React.FC<ControlButtonProps> = ({icon, className, ...props}) => (
-  <Button className={c(s.button)} {...props}>
+  <Button className={c(s.button, className)} {...props}>
     <Icon icon={icon} className={s.icon} />
   </Button>
 )
