@@ -17,7 +17,7 @@ export default {
 } as Meta
 
 export const Usual: Story<ButtonProps> = props => (
-  <div>
+  <div style={{display: 'flex'}}>
     <Button {...props}>5</Button>
     <Button {...props} style={{marginLeft: '1rem'}}>
       <Icon icon="reset" />
