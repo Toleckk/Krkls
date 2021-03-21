@@ -1,8 +1,8 @@
 import React from 'react'
-import {Skills} from '../../components/Skills'
-import {useAction, useAppSelector} from '../../store'
-import {actions as skillActions} from '../../store/skills'
-import {actions as highlightActions} from '../../store/highlight'
+import {Skills} from '@krkls/components'
+import {useAction, useAppSelector} from '@krkls/store'
+import {actions as skillActions} from '@krkls/store/skills'
+import {actions as highlightActions} from '@krkls/store/highlight'
 import {selectGroupedSkills} from './selectors'
 
 export type SkillsContainerProps = any

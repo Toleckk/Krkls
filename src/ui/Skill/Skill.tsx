@@ -1,10 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import c from 'classnames'
+import {Skill as TSkill} from '@krkls/store/skills'
+import {WithHighlight} from '@krkls/store/items'
+import {useFocusVisible} from '@krkls/contexts/FocusVisible'
 import {Button} from '../Button'
-import {Skill as TSkill} from '../../store/skills'
-import {useFocusVisible} from '../../contexts/FocusVisible'
 import s from './Skill.module.scss'
-import {WithHighlight} from '../../store/items'
 
 export type FullSkill = WithHighlight<TSkill>
 
@@ -84,3 +84,5 @@ export const Skill: React.FC<SkillProps> = React.memo(
     )
   },
 )
+
+Skill.displayName = 'Skill'

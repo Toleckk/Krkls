@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react'
 import c from 'classnames'
-import type {Available, Item as TItem, WithHighlight} from '../../store/items'
+import type {Available, Item as TItem, WithHighlight} from '@krkls/store/items'
 import {Button} from '../Button'
 import s from './Item.module.scss'
 
@@ -37,3 +37,5 @@ export const Item: React.FC<ItemProps> = React.memo(
     )
   },
 )
+
+Item.displayName = 'Item'

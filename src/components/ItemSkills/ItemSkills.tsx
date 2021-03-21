@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo, useState} from 'react'
 import c from 'classnames'
+import {findByProp, isDefined} from '@krkls/utils'
 import s from './ItemSkills.module.scss'
 
 export type ItemSkillsProps = {
@@ -11,7 +12,10 @@ export const ItemSkills: React.FC<ItemSkillsProps> = ({skills, onAddClick}) => {
   const [active, setActive] = useState<string[]>([])
 
   const addingSkills = useMemo(
-    () => (active.length ? active.map(name => skills.find(skill => skill.name === name)!) : skills),
+    () =>
+      !active.length
+        ? skills
+        : active.map(name => findByProp('name', name, skills)).filter(isDefined),
     [skills, active],
   )
 

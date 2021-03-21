@@ -1,5 +1,5 @@
+import skills from '@krkls/data/skills.json'
 import {Skills} from './types'
-import skills from '../../data/skills.json'
 
 export const getDefaultSkills = (): Skills => {
   const counts = urlToCounts(window.location.pathname)

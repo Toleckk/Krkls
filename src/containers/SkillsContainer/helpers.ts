@@ -1,4 +1,4 @@
-import {WithHighlight} from '../../store/items'
+import {WithHighlight} from '@krkls/store/items'
 
 export const withHighlight = <T extends {name: string; count: number}>(
   skills: T[],

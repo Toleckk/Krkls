@@ -9,7 +9,7 @@ export const mapSelections = (
   )
 
 export const splitEffectBySelection = (effect: string): string[] =>
-  effect.split(/{|}/).filter((e, i, list) => (i !== 0 && i !== list.length - 1) || !!e)
+  effect.split(/[{}]/).filter((e, i, list) => (i !== 0 && i !== list.length - 1) || !!e)
 
 export const extractContentFromSelection = (str: string): string => {
   const content = str.match(/^\|(.*)\|$/)?.[1]
@@ -17,4 +17,4 @@ export const extractContentFromSelection = (str: string): string => {
   return content ?? str
 }
 
-export const isSelected = (str: string) => /^\|.+\|$/.test(str)
+export const isSelected = (str: string): boolean => /^\|.+\|$/.test(str)

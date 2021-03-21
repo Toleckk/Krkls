@@ -1,0 +1,66 @@
+{
+  "extends": [
+    "react-app",
+    "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "react/prop-types": 0,
+    "linebreak-style": ["error", "unix"],
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "eol-last": "error",
+    "jsx-quotes": [1, "prefer-double"],
+    "import/no-internal-modules": [
+      "error",
+      {
+        "allow": [
+          "@krkls/store/*",
+          "**/store/*",
+          "**/data/**"
+        ]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          "../**/components",
+          "../**/containers",
+          "../**/contexts",
+          "../**/data",
+          "../**/hooks",
+          "../**/modals",
+          "../**/store",
+          "../**/ui",
+          "../**/utils"
+        ]
+      }
+    ],
+    "import/no-useless-path-segments": "error",
+    "import/no-commonjs": "error",
+    "import/no-duplicates": "error",
+    "import/newline-after-import": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/internal-regex": "^@krkls"
+  },
+  "plugins": ["import", "prettier", "react"]
+}

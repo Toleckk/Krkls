@@ -1,20 +1,22 @@
 import React, {Suspense} from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import {Redirect, Route, Switch} from 'react-router'
-import {StoreProvider} from './store'
-import {FocusVisibleProvider} from './contexts/FocusVisible'
-import {ModalBrowserRouter} from './contexts/ModalContext'
-import {TextAlert} from './modals/TextAlert'
-import {HeaderContainer} from './containers/HeaderContainer'
-import {ItemsContainer} from './containers/ItemsContainer'
-import {SkillsContainer} from './containers/SkillsContainer'
-import {NavigationContainer} from './containers/NavigationContainer'
+import {TextAlert} from '@krkls/modals'
+import {
+  HeaderContainer,
+  ItemsContainer,
+  NavigationContainer,
+  SkillsContainer,
+} from '@krkls/containers'
+import {StoreProvider} from '@krkls/store'
+import {FocusVisibleProvider} from '@krkls/contexts/FocusVisible'
+import {ModalBrowserRouter} from '@krkls/contexts/ModalContext'
 
 const ItemDrawer = React.lazy(() =>
   import('./modals/ItemDrawer').then(i => ({default: i.ItemDrawer})),
 )
 
-export const App = () => (
+export const App: React.FC = () => (
   <BrowserRouter>
     <StoreProvider>
       <Switch>

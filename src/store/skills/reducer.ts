@@ -1,9 +1,9 @@
+import {createReducer, PayloadAction, Reducer} from '@reduxjs/toolkit'
 import {Skill, Skills} from './types'
-import {createReducer, PayloadAction} from '@reduxjs/toolkit'
 import {addSkillsCounts, adjustByName} from './helpers'
 import {add, decrement, increment, reset} from './actions'
 
-export const createSkillsReducer = (initialState: Skills) =>
+export const createSkillsReducer = (initialState: Skills): Reducer<Skills> =>
   createReducer(initialState, {
     [increment.type]: (skills, action: PayloadAction<{name: string}>) =>
       adjustByName(

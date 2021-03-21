@@ -1,5 +1,5 @@
 import {useCallback, useContext} from 'react'
-import {Exact} from '../../../utils/Exact'
+import {Exact} from '@krkls/utils/Exact'
 import {ModalContext} from './ModalContext'
 import {Modal, ModalProps, OwnModalProps} from './types'
 

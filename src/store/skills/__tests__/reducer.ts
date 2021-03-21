@@ -5,7 +5,7 @@ import {addSkillsCounts} from '../helpers'
 
 describe('skills reducer', () => {
   const skillFields = {limit: 12, group: 0}
-  const notExistingName: string = 'not existing name'
+  const notExistingName = 'not existing name'
   const zeroSkill = {count: 0, name: 'zero', ...skillFields}
   const limitSkill = {count: 12, name: 'limit', ...skillFields}
   const middleSkills: Skills = [

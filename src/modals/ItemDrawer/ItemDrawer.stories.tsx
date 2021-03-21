@@ -1,9 +1,10 @@
+import React from 'react'
 import {Meta, Story} from '@storybook/react/types-6-0'
 import {Provider} from 'react-redux'
 import configureStore from 'redux-mock-store'
-import {devices} from '../../data/images'
-import {ItemDrawer, ItemDrawerProps} from './ItemDrawer'
 import {newHistory} from 'redux-undo'
+import {devices} from '@krkls/data/images'
+import {ItemDrawer, ItemDrawerProps} from './ItemDrawer'
 
 export default {
   component: ItemDrawer,

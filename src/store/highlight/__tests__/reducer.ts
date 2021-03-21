@@ -1,16 +1,16 @@
 import * as actions from '../actions'
 import {createHighlightReducer} from '../reducer'
-import {Highlight, ItemHighlight, SkillHighlight} from '../types'
+import {Highlight} from '../types'
 
 describe('highlight reducer', () => {
   const initialState = {}
   const reducer = createHighlightReducer(initialState)
 
-  const oldItem: ItemHighlight = {skills: {}}
-  const oldSkill: SkillHighlight = 'old'
+  const oldItem = 'old item'
+  const oldSkill = 'old skill'
 
-  const newItem: ItemHighlight = {skills: {}}
-  const newSkill: SkillHighlight = 'new'
+  const newItem = 'new item'
+  const newSkill = 'new skill'
 
   const oldStates: Array<Highlight | undefined> = [
     undefined,

@@ -1,7 +1,7 @@
-import defaultDevicesData, {DeviceData} from '../../data/devices.json'
-import defaultWeaponsData, {WeaponData} from '../../data/weapons.json'
-import defaultShipsData, {ShipData} from '../../data/ships.json'
-import * as defaultImages from '../../data/images'
+import defaultDevicesData, {DeviceData} from '@krkls/data/devices.json'
+import defaultWeaponsData, {WeaponData} from '@krkls/data/weapons.json'
+import defaultShipsData, {ShipData} from '@krkls/data/ships.json'
+import * as defaultImages from '@krkls/data/images'
 import {Device, Item, Ship, Weapon} from './types'
 
 export const getDefaultItems = (

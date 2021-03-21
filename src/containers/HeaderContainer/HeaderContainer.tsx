@@ -1,8 +1,7 @@
 import React from 'react'
-import {Header} from '../../components/Header'
-import {useAppSelector} from '../../store'
-import {useCopyLink} from '../../hooks/useCopyLink'
-import {useSkillsNavigation} from '../../hooks/useSkillsNavigation'
+import {Header} from '@krkls/components'
+import {useAppSelector} from '@krkls/store'
+import {useCopyLink, useSkillsNavigation} from '@krkls/hooks'
 import {selectLvl} from './selectors'
 
 export const HeaderContainer: React.FC = () => {

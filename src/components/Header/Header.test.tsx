@@ -1,6 +1,7 @@
+import React from 'react'
 import {fireEvent, render} from '@testing-library/react'
+import {short} from '@krkls/utils'
 import {Header, HeaderProps} from './Header'
-import {short} from '../../utils'
 
 describe('Header', () => {
   const defaultProps: HeaderProps = {

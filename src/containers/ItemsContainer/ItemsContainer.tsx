@@ -1,10 +1,10 @@
 import React, {useCallback} from 'react'
+import {Items} from '@krkls/components'
+import {useAction, useAppSelector} from '@krkls/store'
+import {actions} from '@krkls/store/highlight'
+import {useModal} from '@krkls/contexts/ModalContext'
+import {Item} from '@krkls/store/items'
 import {selectSortedItems} from './selectors'
-import {Items} from '../../components/Items'
-import {useAction, useAppSelector} from '../../store'
-import {actions} from '../../store/highlight'
-import {useModal} from '../../contexts/ModalContext'
-import {Item} from '../../store/items'
 
 export const ItemsContainer: React.FC = () => {
   const {devices, ships, weapons} = useAppSelector(selectSortedItems)

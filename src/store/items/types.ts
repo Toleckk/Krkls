@@ -1,6 +1,6 @@
-import type {WeaponData} from '../../data/weapons.json'
-import type {DeviceData} from '../../data/devices.json'
-import type {ShipData} from '../../data/ships.json'
+import type {WeaponData} from '@krkls/data/weapons.json'
+import type {DeviceData} from '@krkls/data/devices.json'
+import type {ShipData} from '@krkls/data/ships.json'
 
 export type ItemType = 'Устройства' | 'Оружие' | 'Корабли'
 

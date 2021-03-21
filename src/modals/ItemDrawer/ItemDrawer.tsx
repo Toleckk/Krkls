@@ -1,16 +1,13 @@
 import React, {useCallback, useEffect} from 'react'
 import {useMedia} from 'use-media'
-import {Drawer} from '../../ui/Drawer'
-import {useModal} from '../../contexts/ModalContext'
-import {ItemCard} from '../../components/ItemCard'
-import {Icon} from '../../ui/Icon'
-import {ItemSkills} from '../../components/ItemSkills'
-import {useAction, useAppSelector} from '../../store'
-import {actions} from '../../store/skills'
+import {Drawer, Icon, Divider} from '@krkls/ui'
+import {ItemCard, ItemSkills} from '@krkls/components'
+import {useAction, useAppSelector} from '@krkls/store'
+import {actions} from '@krkls/store/skills'
+import {actions as highlightActions} from '@krkls/store/highlight'
+import {useModal} from '@krkls/contexts/ModalContext'
 import {selectItemByName} from './selectors'
 import s from './ItemDrawer.module.scss'
-import {Divider} from '../../ui/Divider'
-import {actions as highlightActions} from '../../store/highlight'
 
 export type ItemDrawerProps = {
   name?: string

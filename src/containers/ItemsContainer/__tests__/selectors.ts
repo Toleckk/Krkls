@@ -1,7 +1,7 @@
 import {newHistory, StateWithHistory} from 'redux-undo'
 import arrayShuffle from 'array-shuffle'
-import {Skill, Skills} from '../../../store/skills'
-import {Device, Item, Ship, Weapon} from '../../../store/items'
+import {Skill, Skills} from '@krkls/store/skills'
+import {Device, Item, Ship, Weapon} from '@krkls/store/items'
 import {selectSortedItems} from '../selectors'
 import {groupShipsByClass} from '../helpers'
 

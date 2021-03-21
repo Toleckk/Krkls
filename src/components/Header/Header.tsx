@@ -1,6 +1,6 @@
 import React from 'react'
+import {ControlButton} from '@krkls/ui'
 import {Lvl} from '../Lvl'
-import {ControlButton} from '../../ui/ControlButton'
 import s from './Header.module.scss'
 
 export type HeaderProps = {

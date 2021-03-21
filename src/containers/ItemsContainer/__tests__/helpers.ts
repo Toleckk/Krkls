@@ -1,4 +1,6 @@
 import arrayShuffle from 'array-shuffle'
+import {Available, Device, Item, Items, Ship, Weapon} from '@krkls/store/items'
+import {Skill, Skills} from '@krkls/store/skills'
 import {
   composeItemsHighlight,
   countAvailableShips,
@@ -9,8 +11,6 @@ import {
   withAvailable,
   withHighlight,
 } from '../helpers'
-import {Available, Device, Item, Items, Ship, Weapon} from '../../../store/items'
-import {Skill, Skills} from '../../../store/skills'
 
 describe('items helpers', () => {
   const itemFields: Omit<Item, 'type'> = {
@@ -315,7 +315,7 @@ describe('items helpers', () => {
       {...skillFields, name: 'skill3', count: 3},
       {...skillFields, name: 'skill4', count: 3},
     ]
-    const notExistingSkill: string = 'not existing skill'
+    const notExistingSkill = 'not existing skill'
 
     it('should return input if highlight is undefined', () => {
       const highlighted = withHighlight(items, skills, undefined)
