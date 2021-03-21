@@ -12,6 +12,7 @@ export default {
         disable: true,
       },
     },
+    disabled: {control: {type: 'boolean'}},
   },
 } as Meta
 
