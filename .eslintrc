@@ -9,11 +9,17 @@
   ],
   "rules": {
     "react/prop-types": 0,
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-empty-function": 0,
     "eol-last": "error",
-    "jsx-quotes": [1, "prefer-double"],
+    "jsx-quotes": [
+      1,
+      "prefer-double"
+    ],
     "import/no-internal-modules": [
       "error",
       {
@@ -62,5 +68,9 @@
   "settings": {
     "import/internal-regex": "^@krkls"
   },
-  "plugins": ["import", "prettier", "react"]
+  "plugins": [
+    "import",
+    "prettier",
+    "react"
+  ]
 }
