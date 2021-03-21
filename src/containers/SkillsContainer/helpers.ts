@@ -1,21 +1,20 @@
-import {ItemHighlight} from '../../store/highlight'
 import {WithHighlight} from '../../store/items'
 
 export const withHighlight = <T extends {name: string; count: number}>(
   skills: T[],
-  highlight: ItemHighlight | undefined,
+  required: Record<string, number> | undefined,
 ): WithHighlight<T>[] => {
-  if (!highlight) {
+  if (!required) {
     return skills
   }
 
   return skills.map(skill => ({
     ...skill,
     highlight:
-      skill.name in highlight.skills
+      skill.name in required
         ? {
-            available: highlight.skills[skill.name] <= skill.count,
-            value: highlight.skills[skill.name],
+            available: required[skill.name] <= skill.count,
+            value: required[skill.name],
           }
         : undefined,
   }))
